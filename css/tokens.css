@@ -1,0 +1,73 @@
+/* ============================================================
+   ООО «НЕО КОНСАЛТИНГ» — design tokens
+   Все цвета объявлены ОДИН раз здесь. Вне этого файла — ноль raw hex.
+   Палитра: off-white/off-black нейтрали + сдержанный акцент (мятный пихтовый),
+   тёплые тона теней. Никаких внешних шрифтов/CDN.
+   ============================================================ */
+
+:root {
+  /* --- Нейтрали (off-white / off-black, не чистые #FFF/#000) --- */
+  --color-bg: #F5F6F4;          /* бумажный фон страницы */
+  --color-bg-alt: #ECEEEA;      /* альтернативный фон секции */
+  --color-surface: #FBFBF9;     /* поверхность карточек */
+  --color-surface-2: #F1F3EF;   /* вложенная поверхность */
+
+  --color-ink: #1B1E1B;         /* основной текст (off-black) */
+  --color-ink-soft: #3F443F;    /* вторичный текст */
+  --color-muted: #5F6560;       /* подписи, captions */
+
+  --color-line: #D7DBD4;        /* границы, разделители */
+  --color-line-strong: #C2C7BF; /* акцентные границы */
+
+  /* --- Акцент: сдержанный пихтово-зелёный (saturation < 80%) --- */
+  --color-accent: #2E5E4E;       /* основной акцент */
+  --color-accent-strong: #234A3D;/* hover/active акцента */
+  --color-accent-soft: #E2EDE7;  /* тинт-фон акцента */
+  --color-accent-tint: #D2E2DA;  /* более насыщенный тинт */
+
+  /* --- Вторичный тёплый тон (песочно-охристый, для акцентов данных) --- */
+  --color-brass: #6B531F;        /* приглушённая охра */
+  --color-brass-soft: #EFE7D6;   /* тинт охры */
+
+  /* --- Семантика (для статусов тарифов) --- */
+  --color-yes: #2E5E4E;          /* «Да» */
+  --color-no: #5C635C;           /* «Нет» (приглушённый, не красный-кричащий) */
+
+  /* --- Тени (тёплые, тональные, низкая прозрачность) --- */
+  --shadow-sm: 0 1px 2px rgba(27, 30, 27, 0.06), 0 1px 3px rgba(27, 30, 27, 0.05);
+  --shadow-md: 0 4px 12px rgba(27, 30, 27, 0.08), 0 2px 4px rgba(27, 30, 27, 0.05);
+  --shadow-lg: 0 12px 32px rgba(27, 30, 27, 0.10), 0 4px 8px rgba(27, 30, 27, 0.06);
+
+  /* --- Типографика (только системные стеки) --- */
+  --font-display: Georgia, "Charter", "Times New Roman", "Iowan Old Style", serif;
+  --font-body: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+
+  --fs-300: 0.8125rem;   /* 13px captions */
+  --fs-400: 1rem;        /* 16px body */
+  --fs-500: 1.125rem;    /* 18px lead */
+  --fs-600: 1.375rem;    /* 22px h4 */
+  --fs-700: 1.75rem;     /* 28px h3 */
+  --fs-800: 2.25rem;     /* 36px h2 */
+  --fs-900: clamp(2.25rem, 6vw, 3.25rem); /* hero h1 */
+
+  --lh-tight: 1.15;
+  --lh-snug: 1.3;
+  --lh-normal: 1.6;
+
+  /* --- Прочее --- */
+  --header-height: 64px;
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 22px;
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+  --space-9: 96px;
+  --maxw: 1120px;
+  --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
+}
