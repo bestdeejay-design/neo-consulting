@@ -1,0 +1,32 @@
+name: meta-checks
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  meta:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Exactly one h1
+        run: test "$(grep -c '<h1' index.html)" -eq 1
+
+      - name: All 14 sections present
+        run: |
+          for id in hero problems solution services details audience pricing process about guarantees cases reviews faq contacts; do
+            grep -q "id=\"$id\"" index.html || { echo "missing section: $id"; exit 1; }
+          done
+
+      - name: No raw hex outside css/tokens.css
+        run: |
+          bad=$(grep -oE '#[0-9a-fA-F]{3,8}' index.html css/main.css js/main.js || true)
+          if [ -n "$bad" ]; then echo "raw hex outside tokens:"; echo "$bad"; exit 1; fi
+
+      - name: SEO files present
+        run: test -f robots.txt && test -f sitemap.xml && grep -q 'application/ld+json' index.html

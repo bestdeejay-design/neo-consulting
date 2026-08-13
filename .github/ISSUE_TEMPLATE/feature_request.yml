@@ -1,0 +1,35 @@
+name: Feature request
+description: Suggest an idea for this project
+title: "feat: "
+labels: [enhancement]
+body:
+  - type: markdown
+    attributes:
+      value: Thanks for suggesting an improvement. Please describe it below.
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem statement
+      description: What problem does the feature solve? For whom?
+    validations:
+      required: true
+  - type: textarea
+    id: solution
+    attributes:
+      label: Proposed solution
+      description: How should the feature work?
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+      description: Other approaches you tried or thought about.
+  - type: checkboxes
+    id: constraints
+    attributes:
+      label: Constraints check
+      options:
+        - label: No external runtime dependencies (fonts/CDN/analytics)
+        - label: Keeps semantic HTML — one `<h1>`, WCAG heading order
+        - label: Copy synced with docs/content.md when text changes
