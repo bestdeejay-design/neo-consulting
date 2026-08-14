@@ -437,7 +437,9 @@ p { margin: 0 0 var(--space-4); }
   .nav-toggle { display: none; }
   .mobile-nav { display: none !important; }
 
-  .hero__grid { grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr); }
+  .hero__grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+  .hero__visual { height: 100%; box-shadow: var(--shadow-lg); }
+  .hero__img { height: 100%; object-fit: cover; object-position: center 25%; }
   .cards, .reviews, .cases { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .steps { grid-template-columns: repeat(5, minmax(0, 1fr)); }
   .row { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
