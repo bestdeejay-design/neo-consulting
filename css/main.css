@@ -209,13 +209,10 @@ p { margin: 0 0 var(--space-4); }
 .hero__visual {
   position: relative;
   border-radius: var(--radius-lg);
-  background: var(--color-accent-soft);
-  border: 1px solid var(--color-line);
-  padding: var(--space-6);
   overflow: hidden;
   min-height: 240px;
 }
-.hero__visual svg { width: 100%; height: auto; display: block; color: var(--color-accent); }
+.hero__img { width: 100%; height: auto; display: block; }
 
 /* ---------- Layout family 2: Cards grid ---------- */
 .cards { display: grid; gap: var(--space-5); grid-template-columns: minmax(0, 1fr); }
