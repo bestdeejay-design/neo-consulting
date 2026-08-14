@@ -44,4 +44,23 @@
       if (window.innerWidth >= 960) closeMenu();
     });
   }
+
+  // Форма обратной связи: mailto-письмо из почтового клиента пользователя
+  var form = document.getElementById("contactForm");
+  if (form) {
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      if (!form.checkValidity()) { form.reportValidity(); return; }
+
+      var name = document.getElementById("f-name").value.trim();
+      var contact = document.getElementById("f-contact").value.trim();
+      var comment = document.getElementById("f-comment").value.trim();
+      var subject = "Заявка с сайта НЕО КОНСАЛТИНГ — " + name;
+      var body = "Имя: " + name + "\nТелефон или e-mail: " + contact +
+        (comment ? "\nКомментарий: " + comment : "");
+
+      window.location.href = "mailto:zh_nadi@mail.ru?subject=" +
+        encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
+    });
+  }
 })();
