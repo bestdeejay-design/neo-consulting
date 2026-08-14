@@ -2,7 +2,7 @@
 
 <img src="assets/header.svg" alt="neo-consulting — НЕО КОНСАЛТИНГ" width="100%">
 
-**🌐 Версии:** [English](README.md) · [Русский](README.ru.md) · [Сайт](https://bestdeejay-design.github.io/neo-consulting/)
+**🌐 Версии:** [English](README.md) · [Русский](README.ru.md) · [Сайт](https://bestdeejay-design.github.io/neo-consulting/) · [Презентация](https://bestdeejay-design.github.io/neo-consulting/presentation/)
 
 # НЕО КОНСАЛТИНГ — лендинг бухгалтерского аутсорсинга
 
@@ -24,7 +24,8 @@
 
 ## Живой сайт
 
-[bestdeejay-design.github.io/neo-consulting](https://bestdeejay-design.github.io/neo-consulting/)
+- **Сайт:** [bestdeejay-design.github.io/neo-consulting](https://bestdeejay-design.github.io/neo-consulting/)
+- **Презентация:** [bestdeejay-design.github.io/neo-consulting/presentation](https://bestdeejay-design.github.io/neo-consulting/presentation/)
 
 ## Быстрый старт
 
@@ -53,12 +54,15 @@ python3 -m http.server 8377
 - **Только локальные изображения**: сгенерированные аватарки, фото офиса, OG-картинка —
   без CDN
 - **Адаптив**: mobile-first, брейкпоинты 640px и 960px, меню-бургер
+- **Продающая презентация**: самодостаточный интерактивный дека из 12 слайдов (`presentation/`) — заметки спикера, таймер, навигация с клавиатуры
 
 ## Структура репозитория
 
 ```
 .
 ├── index.html              # лендинг (14 секций, JSON-LD, OG/Twitter)
+├── presentation/
+│   └── index.html          # интерактивная презентация (12 слайдов, самодостаточная)
 ├── css/
 │   ├── tokens.css          # дизайн-токены (кастомные свойства :root)
 │   └── main.css            # стили (mobile-first)

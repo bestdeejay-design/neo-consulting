@@ -2,7 +2,7 @@
 
 <img src="assets/header.svg" alt="neo-consulting — НЕО КОНСАЛТИНГ" width="100%">
 
-**🌐 Versions:** [English](README.md) · [Русский](README.ru.md) · [Website](https://bestdeejay-design.github.io/neo-consulting/)
+**🌐 Versions:** [English](README.md) · [Русский](README.ru.md) · [Website](https://bestdeejay-design.github.io/neo-consulting/) · [Presentation](https://bestdeejay-design.github.io/neo-consulting/presentation/)
 
 # НЕО КОНСАЛТИНГ — Accounting Outsourcing Landing
 
@@ -24,7 +24,8 @@ all fonts, icons, images and metadata are local-first.
 
 ## Live site
 
-[bestdeejay-design.github.io/neo-consulting](https://bestdeejay-design.github.io/neo-consulting/)
+- **Website:** [bestdeejay-design.github.io/neo-consulting](https://bestdeejay-design.github.io/neo-consulting/)
+- **Sales presentation:** [bestdeejay-design.github.io/neo-consulting/presentation](https://bestdeejay-design.github.io/neo-consulting/presentation/)
 
 ## Quick start
 
@@ -51,12 +52,15 @@ python3 -m http.server 8377
   `ProfessionalService` + `FAQPage`, `robots.txt`, `sitemap.xml`, favicon
 - **Local images only**: generated avatars, office photos, OG image — no CDN
 - **Responsive**: mobile-first, breakpoints at 640px and 960px, hamburger menu
+- **Sales presentation**: self-contained 12-slide interactive deck (`presentation/`) — speaker notes, timer, keyboard navigation
 
 ## Repository structure
 
 ```
 .
 ├── index.html              # landing page (14 sections, JSON-LD, OG/Twitter)
+├── presentation/
+│   └── index.html          # interactive sales presentation (12 slides, self-contained)
 ├── css/
 │   ├── tokens.css          # design tokens (:root custom properties)
 │   └── main.css            # styles (mobile-first)
