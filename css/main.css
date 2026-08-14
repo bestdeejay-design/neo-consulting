@@ -467,7 +467,7 @@ p { margin: 0 0 var(--space-4); }
   .mobile-nav { display: none !important; }
 
   .hero__grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
-  .hero__visual { height: 100%; justify-content: center; }
+  .hero__visual { height: 100%; justify-content: flex-start; }
   .cards, .reviews, .cases { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .steps { grid-template-columns: repeat(5, minmax(0, 1fr)); }
   .row { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
