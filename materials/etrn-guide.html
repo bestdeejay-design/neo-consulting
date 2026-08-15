@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Электронные транспортные накладные с 1 сентября 2026: что нужно успеть — НЕО КОНСАЛТИНГ</title>
+<meta name="description" content="Справочный раздел ООО «НЕО КОНСАЛТИНГ»: что меняется для бизнеса с 1 сентября 2026 года — электронные транспортные накладные (ЭТрН), кто обязан оформлять, когда можно на бумаге, тарифы операторов и план подключения.">
+<link rel="icon" href="../assets/img/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  /* Colors — DESIGN SYSTEM НЕО КОНСАЛТИНГ */
+  --color-primary:#2E5E4E;        /* fir-green */
+  --color-secondary:#1A1A2E;       /* deep navy */
+  --color-accent:#E8B931;         /* gold */
+  --color-bg-light:#F8F7F4;       /* warm white */
+  --color-bg-dark:#0F0F1A;        /* midnight */
+  --color-text-primary:#1A1A2E;
+  --color-text-secondary:#4A5568;
+  --color-text-inverse:#F8F7F4;
+  --color-success:#2E5E4E;
+  --color-warning:#E8B931;
+  --color-error:#C53030;
+
+  /* Typography */
+  --font-body:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,system-ui,sans-serif;
+  --font-display:'Space Grotesk','Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,system-ui,sans-serif;
+  --t-h1:clamp(40px,6vw,60px);
+  --t-h2:clamp(28px,3vw,36px);
+  --t-h3:clamp(19px,2.4vw,24px);
+  --t-body:clamp(16px,1.6vw,18px);
+  --t-lead:clamp(17px,1.9vw,20px);
+  --t-caption:clamp(13px,1.4vw,15px);
+  --t-foot:clamp(11px,1.1vw,12px);
+
+  /* Spacing (8px base) */
+  --s-1:8px; --s-2:16px; --s-3:24px; --s-4:32px; --s-5:48px; --s-6:64px;
+
+  /* Shadows */
+  --shadow-front:0 4px 12px rgba(0,0,0,.10);
+  --shadow-middle:0 2px 8px rgba(0,0,0,.08);
+  --shadow-back:0 1px 4px rgba(0,0,0,.05);
+
+  /* Radius */
+  --radius-card:12px;
+  --radius-button:8px;
+
+  --content-width:960px;
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:24px}
+body{
+  font-family:var(--font-body);
+  background:var(--color-bg-light);
+  color:var(--color-text-primary);
+  line-height:1.6;
+  font-size:var(--t-body);
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+}
+.container{max-width:var(--content-width);margin:0 auto;padding:0 var(--s-3)}
+
+/* ---------- Header ---------- */
+.site-header{
+  display:flex;align-items:center;gap:14px;flex-wrap:wrap;
+  padding:18px var(--s-3);
+  max-width:var(--content-width);margin:0 auto;
+}
+.brand-link{display:flex;align-items:center;gap:14px;text-decoration:none;color:inherit}
+.brand-link:hover{opacity:.85}
+.back-link{
+  margin-left:auto;font-size:14px;color:var(--color-primary);
+  text-decoration:none;font-weight:600;white-space:nowrap;
+}
+.back-link:hover{text-decoration:underline}
+.logo{
+  width:42px;height:42px;border-radius:10px;flex-shrink:0;
+  display:inline-flex;align-items:center;justify-content:center;
+  font-family:var(--font-display);font-weight:700;font-size:16px;letter-spacing:.02em;
+  color:var(--color-text-inverse);
+  background:linear-gradient(135deg,var(--color-primary),var(--color-secondary));
+  box-shadow:var(--shadow-back);
+}
+.brand-name{
+  font-family:var(--font-display);font-weight:700;font-size:18px;
+  letter-spacing:.06em;color:var(--color-text-primary);
+}
+.brand-name span{color:var(--color-primary)}
+
+/* ---------- Hero ---------- */
+.hero{
+  position:relative;
+  padding:clamp(40px,7vw,80px) var(--s-3) clamp(36px,5vw,56px);
+  max-width:var(--content-width);margin:0 auto;
+  text-align:center;
+}
+.hero::before{
+  content:"";position:absolute;inset:0;z-index:-1;
+  background:
+    radial-gradient(120% 90% at 50% -10%, rgba(46,94,78,.10), transparent 60%),
+    radial-gradient(80% 60% at 85% 0%, rgba(232,185,49,.10), transparent 55%);
+}
+.hero .eyebrow{
+  display:inline-block;font-family:var(--font-display);font-weight:600;
+  font-size:var(--t-caption);letter-spacing:.18em;text-transform:uppercase;
+  color:var(--color-primary);margin-bottom:18px;
+}
+.hero h1{
+  font-family:var(--font-display);font-weight:700;
+  font-size:var(--t-h1);line-height:1.1;letter-spacing:-.02em;
+  color:var(--color-text-primary);
+}
+.hero h1::after{
+  content:"";display:block;width:72px;height:4px;border-radius:3px;
+  margin:22px auto 0;
+  background:linear-gradient(90deg,var(--color-primary),var(--color-accent));
+}
+.hero .lead{
+  margin:26px auto 0;max-width:760px;
+  font-size:var(--t-lead);color:var(--color-text-secondary);line-height:1.6;
+}
+.hero .lead + .lead{margin-top:16px}
+
+/* ---------- TOC ---------- */
+.toc{
+  max-width:var(--content-width);margin:0 auto;
+  background:#fff;border:1px solid rgba(26,26,46,.08);
+  border-radius:var(--radius-card);box-shadow:var(--shadow-middle);
+  padding:var(--s-3);margin-top:var(--s-4);margin-bottom:var(--s-5);
+}
+.toc h2{
+  font-family:var(--font-display);font-size:var(--t-caption);font-weight:600;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--color-text-secondary);
+  margin-bottom:14px;
+}
+.toc ol{list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px}
+.toc a{
+  display:flex;align-items:center;gap:10px;
+  padding:10px 14px;border-radius:var(--radius-button);
+  color:var(--color-text-primary);text-decoration:none;font-weight:500;font-size:15px;
+  border:1px solid transparent;transition:border-color .2s,background .2s,color .2s;
+}
+.toc a .num{
+  flex-shrink:0;width:24px;height:24px;border-radius:50%;
+  display:inline-flex;align-items:center;justify-content:center;
+  font-size:12px;font-weight:700;color:var(--color-primary);
+  background:rgba(46,94,78,.10);
+}
+.toc a:hover{border-color:rgba(46,94,78,.30);background:rgba(46,94,78,.04)}
+.toc a.active{color:var(--color-primary);border-color:rgba(46,94,78,.35);background:rgba(46,94,78,.06)}
+
+/* ---------- Sections ---------- */
+.section{padding:var(--s-5) 0}
+.section + .section{border-top:1px solid rgba(26,26,46,.07)}
+.section-title{
+  font-family:var(--font-display);font-weight:700;
+  font-size:var(--t-h2);line-height:1.15;letter-spacing:-.02em;
+  color:var(--color-text-primary);margin-bottom:var(--s-3);position:relative;padding-top:14px;
+}
+.section-title::before{
+  content:"";position:absolute;top:0;left:0;width:48px;height:4px;border-radius:3px;
+  background:linear-gradient(90deg,var(--color-primary),var(--color-accent));
+}
+.section > .container > p{margin-bottom:var(--s-2);color:var(--color-text-primary)}
+.section > .container > p + p{margin-top:0}
+
+/* ---------- Path cards ---------- */
+.path-card{
+  background:#fff;border:1px solid rgba(26,26,46,.08);
+  border-radius:var(--radius-card);box-shadow:var(--shadow-middle);
+  padding:var(--s-3);margin-top:var(--s-3);
+}
+.path-card .card-head{display:flex;align-items:center;gap:16px;margin-bottom:14px}
+.path-card .icon{
+  flex-shrink:0;width:52px;height:52px;border-radius:14px;
+  display:inline-flex;align-items:center;justify-content:center;
+  color:var(--color-primary);background:rgba(46,94,78,.08);
+  border:1px solid rgba(46,94,78,.14);
+}
+.path-card .icon svg{width:26px;height:26px;display:block}
+.path-card h3{
+  font-family:var(--font-display);font-weight:600;font-size:var(--t-h3);
+  line-height:1.25;color:var(--color-text-primary);letter-spacing:-.01em;
+}
+.path-card p{color:var(--color-text-primary);margin-bottom:14px}
+.path-card p:last-child{margin-bottom:0}
+
+/* ---------- Bullet lists ---------- */
+.bullets{list-style:none;display:flex;flex-direction:column;gap:10px;margin-top:6px}
+.bullets li{
+  position:relative;padding:12px 16px 12px 44px;
+  background:var(--color-bg-light);border:1px solid rgba(26,26,46,.07);
+  border-radius:var(--radius-button);font-size:15px;line-height:1.5;color:var(--color-text-primary);
+}
+.bullets li::before{
+  content:"";position:absolute;left:16px;top:14px;width:10px;height:10px;border-radius:50%;
+  background:var(--color-primary);box-shadow:0 0 0 4px rgba(232,185,49,.30);
+}
+
+/* ---------- What stays (checkmarks) ---------- */
+.checks{list-style:none;display:flex;flex-direction:column;gap:10px;margin-top:6px}
+.checks li{
+  position:relative;padding:12px 16px 12px 48px;
+  background:#fff;border:1px solid rgba(26,26,46,.08);border-radius:var(--radius-button);
+  font-size:15px;line-height:1.5;color:var(--color-text-primary);
+}
+.checks li .check{
+  position:absolute;left:14px;top:13px;width:22px;height:22px;border-radius:50%;
+  display:inline-flex;align-items:center;justify-content:center;
+  color:var(--color-primary);background:rgba(46,94,78,.10);
+}
+.checks li .check svg{width:14px;height:14px;display:block}
+
+/* ---------- Tables ---------- */
+.table-wrap{width:100%;overflow-x:auto;margin:8px 0 4px;-webkit-overflow-scrolling:touch}
+table{width:100%;border-collapse:separate;border-spacing:0 6px;font-size:15px;min-width:420px}
+thead th{
+  padding:10px 16px;text-align:left;font-weight:700;font-size:12px;
+  text-transform:uppercase;letter-spacing:.07em;color:var(--color-text-secondary);
+  border-bottom:2px solid rgba(46,94,78,.25);
+}
+tbody td{
+  padding:13px 16px;background:var(--color-bg-light);
+  border-top:1px solid rgba(26,26,46,.06);border-bottom:1px solid rgba(26,26,46,.06);
+  color:var(--color-text-primary);vertical-align:top;
+}
+tbody td:first-child{border-left:1px solid rgba(26,26,46,.06);border-radius:var(--radius-button) 0 0 var(--radius-button);font-weight:600}
+tbody td:last-child{border-right:1px solid rgba(26,26,46,.06);border-radius:0 var(--radius-button) var(--radius-button) 0;color:var(--color-text-secondary);white-space:nowrap}
+tbody tr:hover td{background:rgba(46,94,78,.05)}
+
+/* comparison table — full width, zebra */
+.compare{margin-top:var(--s-3)}
+.compare table{min-width:560px}
+.compare thead th{background:rgba(46,94,78,.08);border-radius:var(--radius-button);border-bottom:none;color:var(--color-primary)}
+.compare tbody tr:nth-child(even) td{background:rgba(26,26,46,.035)}
+.compare tbody td:first-child{font-weight:700;color:var(--color-primary)}
+
+/* ---------- Honest pricing card ---------- */
+.honest{
+  margin-top:var(--s-3);
+  background:rgba(232,185,49,.10);
+  border:1px solid rgba(232,185,49,.45);
+  border-left:5px solid var(--color-accent);
+  border-radius:var(--radius-card);
+  padding:var(--s-3);
+}
+.honest h3{
+  font-family:var(--font-display);font-weight:600;font-size:var(--t-h3);
+  color:var(--color-text-primary);margin-bottom:10px;
+}
+.honest p{color:var(--color-text-primary);margin:0}
+
+/* ---------- Timeline ---------- */
+.timeline{position:relative;max-width:780px;margin:var(--s-3) auto 0;padding-left:0}
+.timeline::before{
+  content:"";position:absolute;left:27px;top:14px;bottom:14px;width:3px;border-radius:2px;
+  background:linear-gradient(180deg,var(--color-primary),var(--color-accent));
+}
+.tl-step{position:relative;display:flex;gap:22px;align-items:flex-start;padding:12px 0}
+.tl-num{
+  flex-shrink:0;width:56px;height:56px;border-radius:50%;z-index:1;
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--font-display);font-weight:700;font-size:20px;color:var(--color-text-inverse);
+  background:var(--color-primary);box-shadow:0 0 0 5px var(--color-bg-light),var(--shadow-back);
+}
+.tl-body{
+  flex:1;background:#fff;border:1px solid rgba(26,26,46,.08);
+  border-radius:var(--radius-card);box-shadow:var(--shadow-middle);
+  padding:16px 20px;margin-top:4px;
+}
+.tl-body strong{display:block;font-family:var(--font-display);font-weight:600;font-size:17px;color:var(--color-text-primary);margin-bottom:4px}
+.tl-body span{display:block;font-size:15px;line-height:1.5;color:var(--color-text-secondary)}
+
+/* ---------- Коротко tiles ---------- */
+.tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s-2);margin-top:var(--s-3)}
+.tile{
+  background:#fff;border:1px solid rgba(26,26,46,.08);border-radius:var(--radius-card);
+  box-shadow:var(--shadow-middle);padding:var(--s-3);
+  display:flex;flex-direction:column;gap:12px;
+}
+.tile .icon{
+  width:44px;height:44px;border-radius:12px;display:inline-flex;align-items:center;justify-content:center;
+  color:var(--color-primary);background:rgba(46,94,78,.08);border:1px solid rgba(46,94,78,.14);
+}
+.tile .icon svg{width:22px;height:22px;display:block}
+.tile p{font-size:15px;line-height:1.5;color:var(--color-text-primary)}
+
+/* ---------- Related materials ---------- */
+.related{
+  margin-top:var(--s-3);
+  display:flex;align-items:center;justify-content:space-between;gap:var(--s-3);
+  background:#fff;border:1px solid rgba(26,26,46,.08);
+  border-radius:var(--radius-card);box-shadow:var(--shadow-middle);
+  padding:var(--s-3);flex-wrap:wrap;
+}
+.related .rel-title{font-family:var(--font-display);font-weight:600;font-size:16px;color:var(--color-text-primary)}
+.related .rel-meta{font-size:14px;color:var(--color-text-secondary);margin-top:2px}
+.related a{
+  display:inline-flex;align-items:center;gap:8px;
+  background:var(--color-primary);color:var(--color-text-inverse);
+  text-decoration:none;font-weight:600;font-size:14.5px;
+  padding:10px 18px;border-radius:var(--radius-button);white-space:nowrap;
+  transition:background .2s,transform .2s;
+}
+.related a:hover{background:#234A3D;transform:translateY(-1px)}
+
+/* ---------- CTA dark plashka ---------- */
+.cta{
+  margin-top:var(--s-4);
+  background:var(--color-bg-dark);border-radius:var(--radius-card);
+  padding:clamp(28px,4vw,44px);text-align:center;
+  box-shadow:var(--shadow-front);
+}
+.cta p{
+  color:var(--color-text-inverse);font-size:var(--t-lead);line-height:1.55;
+  max-width:680px;margin:0 auto;
+}
+.cta .btn{
+  display:inline-flex;align-items:center;gap:10px;margin-top:var(--s-3);
+  padding:14px 28px;border-radius:var(--radius-button);
+  background:var(--color-accent);color:var(--color-secondary);
+  font-family:var(--font-display);font-weight:700;font-size:16px;text-decoration:none;
+  transition:transform .2s,box-shadow .2s;
+}
+.cta .btn svg{width:18px;height:18px;display:block}
+.cta .btn:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(232,185,49,.30)}
+
+/* ---------- Footer ---------- */
+.site-footer{
+  margin-top:var(--s-6);padding:var(--s-4) var(--s-3);
+  border-top:1px solid rgba(26,26,46,.10);
+  text-align:center;color:var(--color-text-secondary);font-size:var(--t-caption);
+}
+.site-footer strong{color:var(--color-text-primary);font-weight:600}
+.site-footer a{color:var(--color-primary);text-decoration:none}
+
+/* ---------- Back to top ---------- */
+.back-to-top{
+  position:fixed;right:24px;bottom:24px;z-index:50;
+  width:48px;height:48px;border-radius:50%;border:none;cursor:pointer;
+  background:var(--color-primary);color:var(--color-text-inverse);
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:var(--shadow-front);
+  opacity:0;visibility:hidden;transform:translateY(12px);
+  transition:opacity .3s,visibility .3s,transform .3s,background .2s;
+}
+.back-to-top.show{opacity:1;visibility:visible;transform:translateY(0)}
+.back-to-top:hover{background:var(--color-secondary)}
+.back-to-top svg{width:22px;height:22px;display:block}
+
+/* ---------- Responsive ---------- */
+@media (max-width:760px){
+  .tiles{grid-template-columns:1fr}
+  .toc ol{grid-template-columns:1fr}
+  .tl-num{width:48px;height:48px;font-size:17px}
+  .timeline::before{left:23px}
+  .tl-step{gap:16px}
+}
+@media (max-width:480px){
+  .path-card .card-head{flex-direction:column;align-items:flex-start;gap:12px}
+  .tl-body{padding:14px 16px}
+}
+
+/* ---------- Print ---------- */
+@media print{
+  :root{--shadow-middle:none;--shadow-front:none;--shadow-back:none}
+  html{scroll-behavior:auto}
+  body{background:#fff;color:#000;font-size:11pt;line-height:1.45}
+  .hero::before,.hero h1::after,.section-title::before,.timeline::before{display:none}
+  .site-header,.toc,.back-to-top{display:none}
+  .container{max-width:100%;padding:0}
+  .section{padding:18pt 0;border-top:1px solid #ccc !important}
+  .path-card,.honest,.tl-body,.tile,.cta,.related{
+    box-shadow:none;break-inside:avoid;background:#fff !important;
+    border:1px solid #bbb;
+  }
+  .cta{background:#1A1A2E !important;color:#fff}
+  .cta p{color:#fff}
+  .cta .btn{background:#E8B931 !important;color:#1A1A2E !important}
+  table,tbody tr,tbody td{break-inside:avoid}
+  thead{display:table-header-group}
+  a{color:#000;text-decoration:none}
+  .bullets li,.checks li{background:#fff !important}
+}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <a href="../index.html" class="brand-link" aria-label="НЕО КОНСАЛТИНГ — на главную страницу сайта">
+    <span class="logo" aria-hidden="true">НК</span>
+    <span class="brand-name">НЕО <span>КОНСАЛТИНГ</span></span>
+  </a>
+  <a href="./index.html" class="back-link">← Все материалы</a>
+</header>
+
+<!-- HERO -->
+<section class="hero" aria-labelledby="doc-title">
+  <span class="eyebrow">Справочный раздел · Бухгалтерский аутсорсинг</span>
+  <h1 id="doc-title">Электронные транспортные накладные с 1 сентября 2026: что нужно успеть</h1>
+  <p class="lead">Бухгалтер получает первичку тремя путями: в электронном виде через ЭДО, сканами и фотографиями, а иногда и бумагой. Транспортные документы — не исключение: до сих пор большинство компаний оформляет накладные на бумаге и вручную переносит данные в учёт. С 1 сентября 2026 года для автомобильных перевозок это перестаёт быть вариантом по умолчанию: транспортная накладная становится электронной (ЭТрН), и это требование касается всех участников перевозки — от небольших ИП на УСН до крупных производств.</p>
+  <p class="lead">Ниже — справочный раздел о том, что именно меняется, кого касается, сколько стоит переход и что успеть сделать до 1 сентября. Мы описываем только действующие правила и проверенные цифры по состоянию на середину августа 2026 года, без сенсаций и страшилок.</p>
+</section>
+
+<!-- TOC -->
+<nav class="toc" aria-label="Оглавление">
+  <h2>Содержание</h2>
+  <ol>
+    <li><a href="#menyaetsya"><span class="num">1</span>Что меняется с 1 сентября 2026</a></li>
+    <li><a href="#kogo-kasaetsya"><span class="num">2</span>Кого касается и когда можно на бумаге</a></li>
+    <li><a href="#kak-ustroena"><span class="num">3</span>Как устроена ЭТрН</a></li>
+    <li><a href="#skolko-stoit"><span class="num">4</span>Сколько это стоит</a></li>
+    <li><a href="#chestno"><span class="num">5</span>Честно о сроках, штрафах и рисках</a></li>
+    <li><a href="#chto-delat"><span class="num">6</span>Что делать прямо сейчас</a></li>
+    <li><a href="#kak-my"><span class="num">7</span>Как мы подключаем ЭТрН</a></li>
+    <li><a href="#korotko"><span class="num">8</span>Коротко</a></li>
+  </ol>
+</nav>
+
+<!-- SECTION 1 -->
+<section class="section" id="menyaetsya" aria-labelledby="h-meny">
+  <div class="container">
+    <h2 class="section-title" id="h-meny">Что меняется с 1 сентября 2026</h2>
+    <p>С 1 сентября 2026 года оформлять перевозочные документы в электронном виде становится <strong>обязательно</strong> — это установлено Федеральным законом от 07.06.2025 № 140-ФЗ. Обязательность не переносилась: дата подтверждена и Минтрансом, и ФНС.</p>
+    <p>В электронном виде теперь оформляются:</p>
+
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Документ</th><th>Вид транспорта</th></tr></thead>
+        <tbody>
+          <tr><td>Транспортная накладная (ЭТрН)</td><td>Автомобильный</td></tr>
+          <tr><td>Заказ-заявка на перевозку (ЭЗЗ)</td><td>Автомобильный</td></tr>
+          <tr><td>Грузовая накладная</td><td>Авиационный</td></tr>
+          <tr><td>Транспортная железнодорожная накладная</td><td>Железнодорожный</td></tr>
+          <tr><td>Поручение экспедитору, экспедиторская и складская расписки</td><td>Экспедиторская деятельность</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p style="margin-top:var(--s-3)">Обратите внимание: бумажная форма <strong>не отменяется полностью</strong> — она сохраняется для закрытого перечня случаев (об этом во втором разделе). Но для обычной коммерческой перевозки электронный документ становится правилом.</p>
+    <ul class="bullets">
+      <li>Путевые листы электронными делать не обязательно: электронный путевой лист — добровольный формат. Исключение одно — перевозка маркируемой алкогольной продукции автотранспортом: там с 1 сентября электронные документы обязательны.</li>
+      <li>Отдельного «нового счёта-фактуры» для перевозок не вводится: ЭТрН — перевозочный документ, а счета-фактуры и УПД оформляются по обычным правилам электронного документооборота.</li>
+      <li>Дополнительные титулы ЭТрН позволяют зафиксировать стоимость перевозки прямо в накладной, но это опция, а не обязательство.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- SECTION 2 -->
+<section class="section" id="kogo-kasaetsya" aria-labelledby="h-kog">
+  <div class="container">
+    <h2 class="section-title" id="h-kog">Кого касается и когда можно остаться на бумаге</h2>
+    <p>Требование распространяется на <strong>всех участников перевозки</strong>: грузоотправителя, перевозчика, экспедитора и грузополучателя. Разницы между ИП и организациями нет, система налогообложения значения не имеет — «упрощёнка» не даёт исключений.</p>
+    <p>Важный момент: если компания не заключает договор перевозки вообще, ЭТрН не нужна ни в каком виде. Это касается:</p>
+    <ul class="bullets">
+      <li>самовывоза (покупатель сам забирает груз своим транспортом);</li>
+      <li>доставки собственным транспортом без выделенной услуги перевозки;</li>
+      <li>перевозки между своими подразделениями.</li>
+    </ul>
+
+    <article class="path-card">
+      <h3 style="margin-bottom:12px">Когда можно оформлять на бумаге</h3>
+      <p>Бумага сохраняется в закрытом перечне случаев — он утверждён приказом Минтранса от 01.06.2026 № 262:</p>
+      <ul class="checks">
+        <li><span class="check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>перевозятся грузы с участием Министерства обороны;</li>
+        <li><span class="check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>контрагент — иностранная организация вне реестра аккредитованных представительств;</li>
+        <li><span class="check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>перевозка выполняется в каботаже перевозчиком из ЕАЭС;</li>
+        <li><span class="check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>груз везётся для физического лица для личных нужд;</li>
+        <li><span class="check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>зафиксирован технический сбой информационной системы (подтверждён ГосСОПКА);</li>
+        <li><span class="check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>нет доступа к интернету (в том числе в населённых пунктах из перечня, утверждённого Правительством);</li>
+        <li><span class="check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>грузоотправитель и грузополучатель — одно и то же лицо;</li>
+        <li><span class="check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>перевозятся драгоценные металлы и природные драгоценные камни.</li>
+      </ul>
+      <p style="margin-top:14px">Свежая поправка (Федеральный закон от 04.08.2026 № 302-ФЗ) разрешила оформлять электронные документы даже в случаях-исключениях, если обе стороны согласны, — то есть бумага из обязательной стала «разрешённой, но не единственно возможной».</p>
+    </article>
+  </div>
+</section>
+
+<!-- SECTION 3 -->
+<section class="section" id="kak-ustroena" aria-labelledby="h-ustr">
+  <div class="container">
+    <h2 class="section-title" id="h-ustr">Как устроена электронная транспортная накладная</h2>
+    <p>ЭТрН — это не один файл, а набор электронных титулов, которые подписывают участники перевозки по мере движения груза:</p>
+
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Титул</th><th>Кто подписывает</th><th>Что фиксирует</th></tr></thead>
+        <tbody>
+          <tr><td>Т1</td><td>Грузоотправитель</td><td>Сведения о грузе и погрузке</td></tr>
+          <tr><td>Т2</td><td>Перевозчик</td><td>Приём груза к перевозке</td></tr>
+          <tr><td>Т3</td><td>Грузополучатель</td><td>Выгрузка и приёмка</td></tr>
+          <tr><td>Т4</td><td>Перевозчик</td><td>Сдача груза</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p style="margin-top:var(--s-3)">Эти четыре титула обязательны. Дополнительные титулы (стоимость, переадресация, смена водителя или транспортного средства) заполняются, когда возникает соответствующая ситуация. «Экземпляров» как у бумаги нет: один электронный документ живёт в государственной информационной системе (ГИС ЭПД) и доступен всем участникам.</p>
+    <p>Подписи распределяются так:</p>
+    <ul class="bullets">
+      <li>грузоотправитель, перевозчик и грузополучатель подписывают усиленной квалифицированной электронной подписью (УКЭП); уполномоченные сотрудники — по машиночитаемой доверенности (МЧД);</li>
+      <li>водитель подписывает простой электронной подписью (ПЭП) — через мобильное приложение оператора ЭДО или бесплатное приложение «Госключ» (для него нужна подтверждённая учётная запись на Госуслугах и МЧД от компании).</li>
+    </ul>
+    <p>На дороге водитель предъявляет инспектору <strong>QR-код</strong> из приложения — он работает даже без интернета, инспектор сканирует его и получает данные из ГИС ЭПД.</p>
+    <p>Хранить ЭТрН нужно <strong>не менее 5 лет</strong> — это требование закона о бухгалтерском учёте и Налогового кодекса.</p>
+  </div>
+</section>
+
+<!-- SECTION 4 -->
+<section class="section" id="skolko-stoit" aria-labelledby="h-stoi">
+  <div class="container">
+    <h2 class="section-title" id="h-stoi">Сколько это стоит</h2>
+    <p>Хорошая новость: вопреки распространённому мнению, цифры небольшие. Собрали тарифы основных операторов по состоянию на август 2026 года:</p>
+
+    <div class="compare">
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Сервис</th><th>Тариф</th><th>Примечание</th></tr></thead>
+          <tbody>
+            <tr><td>Контур.Логистика</td><td>от 3 500 ₽/год за 500 документов (4–7 ₽/документ); 1 000 — 6 500 ₽; 2 000 — 12 800 ₽</td><td>Грузополучатель подписывает бесплатно</td></tr>
+            <tr><td>1С-ЭДО + пакет 1С-ЭПД</td><td>от 1 400 ₽/год (200 документов) до 250 000 ₽ (100 000 документов); постоплата 7 ₽/документ</td><td>Подключение 1С-ЭДО бесплатное. Акция до конца 2026: тарифицируются только ЭТрН и путевые листы, грузополучатели — бесплатно</td></tr>
+            <tr><td>Такском</td><td>от ~5 000 ₽/год за компанию (по данным отраслевых обзоров)</td><td>Точный тариф — по запросу</td></tr>
+            <tr><td>СБИС (Тензор)</td><td>по запросу</td><td>Публичных тарифов на сайте нет</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <p style="margin-top:var(--s-3)">Дополнительные расходы:</p>
+    <ul class="bullets">
+      <li><strong>КЭП руководителя</strong> — бесплатно для ИП и директоров: сертификат выдаёт удостоверяющий центр ФНС (при первом получении нужен личный визит в налоговую);</li>
+      <li><strong>МЧД для сотрудников</strong> — оформляется бесплатно в сервисах операторов;</li>
+      <li><strong>«Госключ» для водителей</strong> — бесплатное приложение.</li>
+    </ul>
+    <p>То есть минимальный сценарий для небольшой компании — это пакет оператора на 1 400–3 500 ₽ в год плюс правильно настроенная подпись. Никаких «сотен тысяч».</p>
+
+    <aside class="honest" aria-labelledby="h-honest">
+      <h3 id="h-honest">Честно о цифрах</h3>
+      <p>Тарифы вендоров меняются, а акции заканчиваются. Суммы выше — ориентир на август 2026 года, перед подключением мы запрашиваем актуальный прайс у выбранного оператора и фиксируем итоговую стоимость для вашего объёма перевозок.</p>
+    </aside>
+  </div>
+</section>
+
+<!-- SECTION 5 -->
+<section class="section" id="chestno" aria-labelledby="h-ches">
+  <div class="container">
+    <h2 class="section-title" id="h-ches">Честно о сроках, штрафах и рисках</h2>
+    <p>Сначала то, чего пугаться не нужно.</p>
+    <p><strong>Отдельного штрафа за отсутствие ЭТрН на середину августа 2026 нет.</strong> Законопроект о штрафах обсуждается, но не принят — цифры «25–50 тысяч для ИП, 100–300 тысяч для юрлиц», которые встречаются в статьях, это пересказ проекта, а не действующая норма. Уже принятые поправки в КоАП (Федеральный закон от 31.07.2025 № 281-ФЗ) касаются экспедиторов: регистрация в реестре, работа вне реестра, обязанности перед органами.</p>
+    <p><strong>До 1 марта 2027 действует льготный период.</strong> 23 июня 2026 года Президент поддержал инициативу Минтранса: при остановке транспортного средства инспектор, обнаружив бумажную накладную вместо электронной, ограничится устным предупреждением. Важно понимать: мораторий не отменяет саму обязанность оформлять ЭТрН — он лишь смягчает ответственность на дороге на первые полгода.</p>
+
+    <article class="path-card">
+      <h3 style="margin-bottom:12px">Что реально стоит учитывать</h3>
+      <ul class="bullets">
+        <li><strong>Налоговый риск — главный.</strong> Без надлежащего документа расходы на перевозку не подтверждены (ст. 252 НК РФ, для УСН «доходы минус расходы» — ст. 346.16 НК РФ), а дальше — доначисления, штраф 20% от недоимки и пени. Для компании, которая закладывает доставку в себестоимость, это ощутимая сумма, и никакой мораторий её не закрывает.</li>
+        <li><strong>Смежные документы.</strong> С 1 сентября электронными становятся и заказы-заявки на перевозку — их часто оформляют «на словах», а теперь это отдельный формализованный документ.</li>
+        <li><strong>Экспедиторы</strong> обязаны работать в реестре «ГосЛог» с 1 марта 2026 — проверьте, что ваш экспедитор там зарегистрирован.</li>
+      </ul>
+    </article>
+  </div>
+</section>
+
+<!-- SECTION 6 -->
+<section class="section" id="chto-delat" aria-labelledby="h-del">
+  <div class="container">
+    <h2 class="section-title" id="h-del">Что делать прямо сейчас</h2>
+    <p>Мы собрали минимальный план для компании, которая раньше работала только с бумагой и вообще не пользовалась ЭДО.</p>
+
+    <div class="timeline" aria-label="Минимальный план подготовки">
+      <div class="tl-step">
+        <span class="tl-num">1</span>
+        <div class="tl-body"><strong>Получите КЭП руководителя.</strong><span>ИП и директорам сертификат выдают бесплатно в удостоверяющем центре ФНС — при первом получении нужен личный визит. Заложите на это время: по записи, обычно 30–60 минут.</span></div>
+      </div>
+      <div class="tl-step">
+        <span class="tl-num">2</span>
+        <div class="tl-body"><strong>Выберите оператора ИС ЭПД из реестра Минтранса.</strong><span>Учитывайте, с кем уже работают ваши контрагенты: операторы обмениваются данными между собой, но стартовать проще там, где уже есть роуминг. В реестре на август 2026 — 15 организаций, включая Калуга Астрал, СКБ Контур, Такском, СБИС (Тензор), СберКорус и других.</span></div>
+      </div>
+      <div class="tl-step">
+        <span class="tl-num">3</span>
+        <div class="tl-body"><strong>Настройте интеграцию с учётной системой.</strong><span>В «1С:Бухгалтерии 8» функционал ЭТрН уже встроен: обновите конфигурацию, включите «Электронные перевозочные документы» в настройках учёта и подключите пакет 1С-ЭПД. Если 1С нет — модули операторов (например, Контура) подключаются к бухгалтерии напрямую.</span></div>
+      </div>
+      <div class="tl-step">
+        <span class="tl-num">4</span>
+        <div class="tl-body"><strong>Подготовьте технику.</strong><span>Смартфоны или планшеты водителям и на склады, интернет. Водителям — мобильное приложение оператора или «Госключ».</span></div>
+      </div>
+      <div class="tl-step">
+        <span class="tl-num">5</span>
+        <div class="tl-body"><strong>Согласуйте переход с контрагентами.</strong><span>Обмен реквизитами операторов, при необходимости — допсоглашения о переходе на электронные документы.</span></div>
+      </div>
+      <div class="tl-step">
+        <span class="tl-num">6</span>
+        <div class="tl-body"><strong>Проведите тестовые перевозки до 1 сентября.</strong><span>Лучший момент для ошибок — до наступления обязательности, а не после.</span></div>
+      </div>
+    </div>
+
+    <p style="margin-top:var(--s-3)">Сроки внедрения: от нескольких недель до нескольких месяцев в зависимости от того, насколько готова база. Льготный период по дорожным проверкам даёт запас до 1 марта 2027, но налоговый риск закрывается только правильным документом — поэтому тестовый период лучше использовать по назначению.</p>
+  </div>
+</section>
+
+<!-- SECTION 7 -->
+<section class="section" id="kak-my" aria-labelledby="h-km">
+  <div class="container">
+    <h2 class="section-title" id="h-km">Как мы подключаем ЭТрН</h2>
+    <p>ООО «НЕО КОНСАЛТИНГ» работает с 2023 года и ведёт учёт ИП и ООО на УСН в Санкт-Петербурге. Если разбираться с электронными накладными самостоятельно не хочется, мы берём этот процесс на себя.</p>
+
+    <article class="path-card">
+      <h3 style="margin-bottom:12px">Что мы делаем</h3>
+      <ul class="bullets">
+        <li><strong>Бесплатно оцениваем ситуацию.</strong> Смотрим, какие документы оформляются при перевозках, кто перевозит — перевозчик, экспедитор или собственная машина, и какие контрагенты уже работают с ЭДО.</li>
+        <li><strong>Выбираем оператора.</strong> Ориентируемся на реестр Минтранса и на то, с кем уже работают ваши контрагенты, чтобы минимизировать роуминг и согласования.</li>
+        <li><strong>Получаем подписи.</strong> Организуем КЭП руководителя в УЦ ФНС, оформляем МЧД для сотрудников, настраиваем подпись водителям — включая «Госключ».</li>
+        <li><strong>Настраиваем учётную систему.</strong> Подключаем и настраиваем ЭТрН в 1С (или выбранном сервисе), включаем нужные титулы и проверяем, что документы попадают в учёт без ручного перепечатывания.</li>
+        <li><strong>Обучаем и проводим тестовые перевозки.</strong> Показываем диспетчерам и водителям, как открывать, подписывать и предъявлять документы с QR-кодом; вместе проходим первые реальные перевозки.</li>
+        <li><strong>Сопровождаем дальше.</strong> Остаёмся на связи: обновления форматов, вопросы контрагентов, рост числа перевозок — всё это закрывается в рабочем порядке.</li>
+      </ul>
+    </article>
+
+    <p style="margin-top:var(--s-3)">Подключение для небольшой компании занимает от 2 до 6 недель — меньше, чем кажется, и точно меньше, чем стоимость первой ошибки после дедлайна.</p>
+  </div>
+</section>
+
+<!-- SECTION 8 -->
+<section class="section" id="korotko" aria-labelledby="h-kor">
+  <div class="container">
+    <h2 class="section-title" id="h-kor">Коротко</h2>
+    <p>Если нужно запомнить главное, вот пять тезисов. Они помогают принять решение, даже если технические детали пока не до конца ясны.</p>
+
+    <div class="tiles">
+      <div class="tile">
+        <span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect width="16" height="6" x="2" y="4" rx="1"/><path d="M4 4h16v12H4z"/><path d="M8 20h8"/><path d="M12 16v4"/></svg></span>
+        <p>С 1 сентября 2026 транспортная накладная и заказы-заявки на авто-перевозки — в электронном виде, для всех участников, независимо от системы налогообложения.</p>
+      </div>
+      <div class="tile">
+        <span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3v4a1 1 0 0 0 1 1h4"/><path d="M17 21H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h7l5 5v11a2 2 0 0 1-2 2Z"/><path d="M9 13h6"/><path d="M9 17h4"/></svg></span>
+        <p>Бумага остаётся только в закрытом списке случаев (приказ Минтранса № 262): личные нужды, технический сбой, отсутствие интернета и подобное.</p>
+      </div>
+      <div class="tile">
+        <span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4"/><path d="M12 16h.01"/></svg></span>
+        <p>Отдельного штрафа за «бумагу вместо ЭТрН» пока нет, до 1 марта 2027 на дорогах — устное предупреждение, но налоговый риск неподтверждённых расходов никто не отменял.</p>
+      </div>
+      <div class="tile">
+        <span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="12" x="2" y="6" rx="2"/><circle cx="12" cy="12" r="2"/><path d="M6 12h.01M18 12h.01"/></svg></span>
+        <p>Минимальная стоимость перехода — 1 400–3 500 ₽ в год за пакет оператора, КЭП руководителю в ФНС бесплатно.</p>
+      </div>
+      <div class="tile">
+        <span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg></span>
+        <p>В «1С:Бухгалтерии 8» ЭТрН уже встроена — нужны обновление, настройка и пакет 1С-ЭПД, а не новая программа.</p>
+      </div>
+    </div>
+
+    <p style="margin-top:var(--s-3)">Переход на электронные накладные — не про «купить волшебный сервис», а про то, чтобы документы перестали теряться и перепечатываться, а вы перестали думать о том, в каком виде пришла бумажка. Когда процесс настроен один раз, он работает сам и не отнимает время ни у вас, ни у бухгалтера.</p>
+
+    <div class="cta" role="region" aria-label="Предложение">
+      <p>Если хотите посмотреть, как это будет устроено именно у вас, — начните с бесплатной оценки: пришлите примеры ваших перевозочных документов и контрагентов, и мы покажем, какой оператор подходит лучше и сколько это будет стоить в вашем случае. Это можно сделать до того, как дедлайн что-либо решит за вас.</p>
+      <a class="btn" href="mailto:zh_nadi@mail.ru?subject=%D0%9F%D0%B5%D1%80%D0%B5%D1%85%D0%BE%D0%B4%20%D0%BD%D0%B0%20%D0%AD%D0%A2%D1%80%D0%9D">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+        Написать нам
+      </a>
+    </div>
+
+    <div class="related" aria-label="Похожие материалы">
+      <div>
+        <p class="rel-title">Как документы попадают в учёт без перепечатывания</p>
+        <p class="rel-meta">ЭДО, распознавание сканов и встроенные инструменты учётных программ — разбор трёх путей поступления первички в 1С.</p>
+      </div>
+      <a href="./1c-automation-guide.html">Читать материал →</a>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <p><strong>ООО «НЕО КОНСАЛТИНГ»</strong> — Санкт-Петербург, Московский пр-кт, д. 212 · <a href="mailto:zh_nadi@mail.ru">zh_nadi@mail.ru</a></p>
+</footer>
+
+<button class="back-to-top" id="backToTop" aria-label="Наверх" title="Наверх">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m18 15-6-6-6 6"/></svg>
+</button>
+
+<script>
+(function(){
+  var btn = document.getElementById('backToTop');
+  var tocLinks = Array.prototype.slice.call(document.querySelectorAll('.toc a'));
+  var sections = tocLinks.map(function(a){ return document.querySelector(a.getAttribute('href')); });
+
+  function onScroll(){
+    var y = window.scrollY || document.documentElement.scrollTop;
+    if(y > 400){ btn.classList.add('show'); } else { btn.classList.remove('show'); }
+
+    // active TOC link
+    var pos = y + 120;
+    var current = -1;
+    for(var i=0;i<sections.length;i++){
+      if(sections[i] && sections[i].offsetTop <= pos){ current = i; }
+    }
+    tocLinks.forEach(function(l,i){ l.classList.toggle('active', i===current); });
+  }
+
+  btn.addEventListener('click', function(){
+    window.scrollTo({ top:0, behavior:'smooth' });
+  });
+
+  window.addEventListener('scroll', onScroll, { passive:true });
+  window.addEventListener('resize', onScroll);
+  onScroll();
+})();
+</script>
+</body>
+</html>
