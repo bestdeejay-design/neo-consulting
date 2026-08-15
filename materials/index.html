@@ -34,30 +34,91 @@ body{
 a{color:var(--color-primary)}
 img,svg{vertical-align:middle}
 
-/* ---------- Шапка ---------- */
+/* ---------- Шапка (канон главной страницы, v2) ---------- */
+:root{
+  --hd-bg:#F5F6F4;
+  --hd-surface:#FBFBF9;
+  --hd-ink:#1B1E1B;
+  --hd-ink-soft:#3F443F;
+  --hd-muted:#5F6560;
+  --hd-line:#D7DBD4;
+  --hd-line-strong:#C2C7BF;
+  --hd-accent:#2E5E4E;
+  --hd-font-display:Georgia,"Charter","Times New Roman","Iowan Old Style",serif;
+  --hd-font-body:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  --hd-height:64px;
+  --hd-maxw:1120px;
+  --hd-shadow-md:0 4px 12px rgba(27,30,27,.08),0 2px 4px rgba(27,30,27,.05);
+  --hd-ease:cubic-bezier(.22,.61,.36,1);
+}
+.container-wide{max-width:var(--hd-maxw);margin:0 auto;padding:0 var(--s-3)}
 .site-header{
-  display:flex;align-items:center;gap:14px;flex-wrap:wrap;
-  padding:18px var(--s-3);
-  max-width:var(--content-width);margin:0 auto;
+  position:sticky;top:0;z-index:50;
+  height:var(--hd-height);
+  background:color-mix(in srgb,var(--hd-bg) 88%,transparent);
+  backdrop-filter:saturate(140%) blur(8px);
+  border-bottom:1px solid var(--hd-line);
 }
-.brand-link{display:flex;align-items:center;gap:14px;text-decoration:none;color:inherit}
-.brand-link:hover{opacity:.85}
-.logo{
-  width:42px;height:42px;border-radius:10px;flex-shrink:0;
-  display:inline-flex;align-items:center;justify-content:center;
-  font-family:var(--font-display);font-weight:700;font-size:16px;letter-spacing:.02em;
-  color:#fff;
-  background:linear-gradient(135deg,var(--color-primary) 0%,var(--color-secondary) 100%);
+.site-header__inner{
+  height:100%;
+  display:flex;align-items:center;justify-content:space-between;gap:var(--s-4);
 }
-.brand-name{font-family:var(--font-display);font-weight:700;font-size:18px;letter-spacing:.01em;line-height:1.1}
-.brand-name span{color:var(--color-primary)}
-.main-nav{margin-left:auto;display:flex;align-items:center;gap:var(--s-3);flex-wrap:wrap}
-.main-nav a{
-  font-size:14.5px;font-weight:600;color:var(--color-secondary);
-  text-decoration:none;padding:6px 2px;border-bottom:2px solid transparent;
+.brand{
+  display:inline-flex;align-items:center;gap:var(--s-3);
+  font-family:var(--hd-font-display);font-weight:700;font-size:18px;
+  color:var(--hd-ink);text-decoration:none;
 }
-.main-nav a:hover{color:var(--color-primary);border-bottom-color:var(--color-primary)}
-.main-nav a.current{color:var(--color-primary);border-bottom-color:var(--color-accent)}
+.brand:hover{text-decoration:none;color:var(--hd-ink)}
+.brand__mark{
+  width:34px;height:34px;flex:none;border-radius:9px;
+  background:var(--hd-accent);color:var(--hd-surface);
+  display:grid;place-items:center;
+  font-size:.95rem;font-weight:700;
+}
+.brand__sub{
+  font-family:var(--hd-font-body);font-size:13px;color:var(--hd-muted);
+  font-weight:500;display:block;line-height:1;
+}
+.nav{display:none}
+.nav__list{list-style:none;display:flex;gap:var(--s-5);margin:0;padding:0}
+.nav__link{
+  color:var(--hd-ink-soft);font-size:16px;font-weight:500;
+  padding:var(--s-2) 0;border-bottom:2px solid transparent;text-decoration:none;
+}
+.nav__link:hover{color:var(--hd-accent);border-bottom-color:var(--hd-accent);text-decoration:none}
+.nav__link[aria-current="page"]{color:var(--hd-accent);border-bottom-color:var(--hd-accent)}
+.nav-toggle{
+  display:inline-flex;flex-direction:column;justify-content:center;gap:5px;
+  width:44px;height:44px;padding:10px;
+  background:transparent;border:1px solid var(--hd-line-strong);border-radius:8px;cursor:pointer;
+}
+.nav-toggle span{
+  display:block;height:2px;width:100%;
+  background:var(--hd-ink);transition:transform .2s var(--hd-ease),opacity .2s var(--hd-ease);
+}
+.nav-toggle[aria-expanded="true"] span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.nav-toggle[aria-expanded="true"] span:nth-child(2){opacity:0}
+.nav-toggle[aria-expanded="true"] span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.mobile-nav{
+  display:none;position:fixed;inset:var(--hd-height) 0 0 0;overflow-y:auto;
+  -webkit-overflow-scrolling:touch;
+  background:var(--hd-surface);border-bottom:1px solid var(--hd-line);
+  box-shadow:var(--hd-shadow-md);z-index:49;
+}
+.mobile-nav.is-open{display:block}
+.mobile-nav__list{list-style:none;margin:0;padding:var(--s-3) var(--s-5) var(--s-5)}
+.mobile-nav__link{
+  display:block;min-height:44px;padding:var(--s-3) 0;
+  color:var(--hd-ink-soft);font-size:18px;text-decoration:none;
+  border-bottom:1px solid var(--hd-line);
+}
+.mobile-nav__link:hover{color:var(--hd-accent);text-decoration:none}
+.mobile-nav__link[aria-current="page"]{color:var(--hd-accent)}
+@media (min-width:960px){
+  .nav{display:block}
+  .nav-toggle{display:none}
+  .mobile-nav{display:none !important}
+}
 
 /* ---------- Hero ---------- */
 .hero{
@@ -118,29 +179,54 @@ img,svg{vertical-align:middle}
 .site-footer a{color:var(--color-accent);text-decoration:none}
 .site-footer a:hover{text-decoration:underline}
 .footer-meta{color:#B8BDD0;font-size:14px;line-height:1.7}
-
-@media (max-width:640px){
-  .main-nav{gap:var(--s-2);margin-left:0;width:100%}
-  .main-nav a{font-size:13.5px}
-  .site-header{gap:10px}
-}
 </style>
 </head>
 <body>
 
 <header class="site-header">
-  <a href="../index.html" class="brand-link" aria-label="НЕО КОНСАЛТИНГ — на главную страницу сайта">
-    <span class="logo" aria-hidden="true">НК</span>
-    <span class="brand-name">НЕО <span>КОНСАЛТИНГ</span></span>
-  </a>
-  <nav class="main-nav" aria-label="Основная навигация">
-    <a href="../index.html#services">Услуги</a>
-    <a href="../index.html#pricing">Тарифы</a>
-    <a href="../index.html#about">О компании</a>
-    <a href="./index.html" class="current" aria-current="page">Материалы</a>
-    <a href="../index.html#contacts">Контакты</a>
-  </nav>
+  <div class="container-wide site-header__inner">
+    <a class="brand" href="../index.html" aria-label="НЕО КОНСАЛТИНГ — на главную">
+      <span class="brand__mark" aria-hidden="true">НК</span>
+      <span>НЕО КОНСАЛТИНГ<span class="brand__sub">бухгалтерский аутсорсинг, СПб</span></span>
+    </a>
+
+    <nav class="nav" aria-label="Основная навигация">
+      <ul class="nav__list">
+        <li><a class="nav__link" href="../index.html#services">Услуги</a></li>
+        <li><a class="nav__link" href="../index.html#pricing">Тарифы</a></li>
+        <li><a class="nav__link" href="../index.html#cases">Кейсы</a></li>
+        <li><a class="nav__link" href="../index.html#reviews">Отзывы</a></li>
+        <li><a class="nav__link" href="../index.html#about">О компании</a></li>
+        <li><a class="nav__link" href="./index.html" aria-current="page">Материалы</a></li>
+        <li><a class="nav__link" href="../index.html#contacts">Контакты</a></li>
+      </ul>
+    </nav>
+
+    <button class="nav-toggle" id="navToggle" aria-label="Открыть меню" aria-expanded="false" aria-controls="mobileNav">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
 </header>
+
+<nav class="mobile-nav" id="mobileNav" aria-label="Мобильная навигация">
+  <ul class="mobile-nav__list">
+    <li><a class="mobile-nav__link" href="../index.html#hero">Главная</a></li>
+    <li><a class="mobile-nav__link" href="../index.html#problems">Проблемы</a></li>
+    <li><a class="mobile-nav__link" href="../index.html#solution">Решение</a></li>
+    <li><a class="mobile-nav__link" href="../index.html#services">Услуги</a></li>
+    <li><a class="mobile-nav__link" href="../index.html#details">Подробнее об услугах</a></li>
+    <li><a class="mobile-nav__link" href="../index.html#audience">Кому подходит</a></li>
+    <li><a class="mobile-nav__link" href="../index.html#pricing">Тарифы</a></li>
+    <li><a class="mobile-nav__link" href="../index.html#process">Как работаем</a></li>
+    <li><a class="mobile-nav__link" href="../index.html#about">О компании</a></li>
+    <li><a class="mobile-nav__link" href="../index.html#guarantees">Гарантии</a></li>
+    <li><a class="mobile-nav__link" href="../index.html#cases">Кейсы</a></li>
+    <li><a class="mobile-nav__link" href="../index.html#reviews">Отзывы</a></li>
+    <li><a class="mobile-nav__link" href="../index.html#faq">Вопросы</a></li>
+    <li><a class="mobile-nav__link" href="./index.html" aria-current="page">Материалы</a></li>
+    <li><a class="mobile-nav__link" href="../index.html#contacts">Контакты</a></li>
+  </ul>
+</nav>
 
 <!-- HERO -->
 <section class="hero" aria-labelledby="materials-title">
@@ -186,6 +272,42 @@ img,svg{vertical-align:middle}
     </div>
   </div>
 </footer>
+
+<script>
+/* Мобильное меню — логика канона главной страницы (js/main.js) */
+(function () {
+  "use strict";
+  var toggle = document.getElementById("navToggle");
+  var menu = document.getElementById("mobileNav");
+
+  function closeMenu() {
+    if (!menu || !toggle) return;
+    menu.classList.remove("is-open");
+    toggle.setAttribute("aria-expanded", "false");
+    toggle.setAttribute("aria-label", "Открыть меню");
+  }
+
+  if (toggle && menu) {
+    toggle.addEventListener("click", function () {
+      var open = menu.classList.toggle("is-open");
+      toggle.setAttribute("aria-expanded", open ? "true" : "false");
+      toggle.setAttribute("aria-label", open ? "Закрыть меню" : "Открыть меню");
+    });
+
+    menu.addEventListener("click", function (e) {
+      if (e.target.closest("a")) closeMenu();
+    });
+
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape") closeMenu();
+    });
+
+    window.addEventListener("resize", function () {
+      if (window.innerWidth >= 960) closeMenu();
+    });
+  }
+})();
+</script>
 
 </body>
 </html>
