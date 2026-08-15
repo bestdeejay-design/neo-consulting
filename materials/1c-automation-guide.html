@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Как документы попадают в учёт без перепечатывания — НЕО КОНСАЛТИНГ</title>
+<meta name="description" content="Справочный раздел ООО «НЕО КОНСАЛТИНГ»: как автоматизировать заведение первичных документов в 1С — ЭДО, распознавание сканов, готовые решения 1С:Распознавание, Saby и Контур.Диадок.">
+<link rel="icon" href="../assets/img/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  /* Colors — DESIGN SYSTEM НЕО КОНСАЛТИНГ */
+  --color-primary:#2E5E4E;        /* fir-green */
+  --color-secondary:#1A1A2E;       /* deep navy */
+  --color-accent:#E8B931;         /* gold */
+  --color-bg-light:#F8F7F4;       /* warm white */
+  --color-bg-dark:#0F0F1A;        /* midnight */
+  --color-text-primary:#1A1A2E;
+  --color-text-secondary:#4A5568;
+  --color-text-inverse:#F8F7F4;
+  --color-success:#2E5E4E;
+  --color-warning:#E8B931;
+  --color-error:#C53030;
+
+  /* Typography */
+  --font-body:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,system-ui,sans-serif;
+  --font-display:'Space Grotesk','Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,system-ui,sans-serif;
+  --t-h1:clamp(40px,6vw,60px);
+  --t-h2:clamp(28px,3vw,36px);
+  --t-h3:clamp(19px,2.4vw,24px);
+  --t-body:clamp(16px,1.6vw,18px);
+  --t-lead:clamp(17px,1.9vw,20px);
+  --t-caption:clamp(13px,1.4vw,15px);
+  --t-foot:clamp(11px,1.1vw,12px);
+
+  /* Spacing (8px base) */
+  --s-1:8px; --s-2:16px; --s-3:24px; --s-4:32px; --s-5:48px; --s-6:64px;
+
+  /* Shadows */
+  --shadow-front:0 4px 12px rgba(0,0,0,.10);
+  --shadow-middle:0 2px 8px rgba(0,0,0,.08);
+  --shadow-back:0 1px 4px rgba(0,0,0,.05);
+
+  /* Radius */
+  --radius-card:12px;
+  --radius-button:8px;
+
+  --content-width:960px;
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:24px}
+body{
+  font-family:var(--font-body);
+  background:var(--color-bg-light);
+  color:var(--color-text-primary);
+  line-height:1.6;
+  font-size:var(--t-body);
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+}
+.container{max-width:var(--content-width);margin:0 auto;padding:0 var(--s-3)}
+
+/* ---------- Header ---------- */
+.site-header{
+  display:flex;align-items:center;gap:14px;flex-wrap:wrap;
+  padding:18px var(--s-3);
+  max-width:var(--content-width);margin:0 auto;
+}
+.brand-link{display:flex;align-items:center;gap:14px;text-decoration:none;color:inherit}
+.brand-link:hover{opacity:.85}
+.back-link{
+  margin-left:auto;font-size:14px;color:var(--color-primary);
+  text-decoration:none;font-weight:600;white-space:nowrap;
+}
+.back-link:hover{text-decoration:underline}
+.logo{
+  width:42px;height:42px;border-radius:10px;flex-shrink:0;
+  display:inline-flex;align-items:center;justify-content:center;
+  font-family:var(--font-display);font-weight:700;font-size:16px;letter-spacing:.02em;
+  color:var(--color-text-inverse);
+  background:linear-gradient(135deg,var(--color-primary),var(--color-secondary));
+  box-shadow:var(--shadow-back);
+}
+.brand-name{
+  font-family:var(--font-display);font-weight:700;font-size:18px;
+  letter-spacing:.06em;color:var(--color-text-primary);
+}
+.brand-name span{color:var(--color-primary)}
+
+/* ---------- Hero ---------- */
+.hero{
+  position:relative;
+  padding:clamp(40px,7vw,80px) var(--s-3) clamp(36px,5vw,56px);
+  max-width:var(--content-width);margin:0 auto;
+  text-align:center;
+}
+.hero::before{
+  content:"";position:absolute;inset:0;z-index:-1;
+  background:
+    radial-gradient(120% 90% at 50% -10%, rgba(46,94,78,.10), transparent 60%),
+    radial-gradient(80% 60% at 85% 0%, rgba(232,185,49,.10), transparent 55%);
+}
+.hero .eyebrow{
+  display:inline-block;font-family:var(--font-display);font-weight:600;
+  font-size:var(--t-caption);letter-spacing:.18em;text-transform:uppercase;
+  color:var(--color-primary);margin-bottom:18px;
+}
+.hero h1{
+  font-family:var(--font-display);font-weight:700;
+  font-size:var(--t-h1);line-height:1.1;letter-spacing:-.02em;
+  color:var(--color-text-primary);
+}
+.hero h1::after{
+  content:"";display:block;width:72px;height:4px;border-radius:3px;
+  margin:22px auto 0;
+  background:linear-gradient(90deg,var(--color-primary),var(--color-accent));
+}
+.hero .lead{
+  margin:26px auto 0;max-width:760px;
+  font-size:var(--t-lead);color:var(--color-text-secondary);line-height:1.6;
+}
+.hero .lead + .lead{margin-top:16px}
+
+/* ---------- TOC ---------- */
+.toc{
+  max-width:var(--content-width);margin:0 auto;
+  background:#fff;border:1px solid rgba(26,26,46,.08);
+  border-radius:var(--radius-card);box-shadow:var(--shadow-middle);
+  padding:var(--s-3);margin-top:var(--s-4);margin-bottom:var(--s-5);
+}
+.toc h2{
+  font-family:var(--font-display);font-size:var(--t-caption);font-weight:600;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--color-text-secondary);
+  margin-bottom:14px;
+}
+.toc ol{list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px}
+.toc a{
+  display:flex;align-items:center;gap:10px;
+  padding:10px 14px;border-radius:var(--radius-button);
+  color:var(--color-text-primary);text-decoration:none;font-weight:500;font-size:15px;
+  border:1px solid transparent;transition:border-color .2s,background .2s,color .2s;
+}
+.toc a .num{
+  flex-shrink:0;width:24px;height:24px;border-radius:50%;
+  display:inline-flex;align-items:center;justify-content:center;
+  font-size:12px;font-weight:700;color:var(--color-primary);
+  background:rgba(46,94,78,.10);
+}
+.toc a:hover{border-color:rgba(46,94,78,.30);background:rgba(46,94,78,.04)}
+.toc a.active{color:var(--color-primary);border-color:rgba(46,94,78,.35);background:rgba(46,94,78,.06)}
+
+/* ---------- Sections ---------- */
+.section{padding:var(--s-5) 0}
+.section + .section{border-top:1px solid rgba(26,26,46,.07)}
+.section-title{
+  font-family:var(--font-display);font-weight:700;
+  font-size:var(--t-h2);line-height:1.15;letter-spacing:-.02em;
+  color:var(--color-text-primary);margin-bottom:var(--s-3);position:relative;padding-top:14px;
+}
+.section-title::before{
+  content:"";position:absolute;top:0;left:0;width:48px;height:4px;border-radius:3px;
+  background:linear-gradient(90deg,var(--color-primary),var(--color-accent));
+}
+.section > .container > p{margin-bottom:var(--s-2);color:var(--color-text-primary)}
+.section > .container > p + p{margin-top:0}
+
+/* ---------- Path cards (ЭДО / сканы / бумага) ---------- */
+.path-card{
+  background:#fff;border:1px solid rgba(26,26,46,.08);
+  border-radius:var(--radius-card);box-shadow:var(--shadow-middle);
+  padding:var(--s-3);margin-top:var(--s-3);
+}
+.path-card .card-head{display:flex;align-items:center;gap:16px;margin-bottom:14px}
+.path-card .icon{
+  flex-shrink:0;width:52px;height:52px;border-radius:14px;
+  display:inline-flex;align-items:center;justify-content:center;
+  color:var(--color-primary);background:rgba(46,94,78,.08);
+  border:1px solid rgba(46,94,78,.14);
+}
+.path-card .icon svg{width:26px;height:26px;display:block}
+.path-card h3{
+  font-family:var(--font-display);font-weight:600;font-size:var(--t-h3);
+  line-height:1.25;color:var(--color-text-primary);letter-spacing:-.01em;
+}
+.path-card p{color:var(--color-text-primary);margin-bottom:14px}
+.path-card p:last-child{margin-bottom:0}
+
+/* ---------- Bullet lists ---------- */
+.bullets{list-style:none;display:flex;flex-direction:column;gap:10px;margin-top:6px}
+.bullets li{
+  position:relative;padding:12px 16px 12px 44px;
+  background:var(--color-bg-light);border:1px solid rgba(26,26,46,.07);
+  border-radius:var(--radius-button);font-size:15px;line-height:1.5;color:var(--color-text-primary);
+}
+.bullets li::before{
+  content:"";position:absolute;left:16px;top:14px;width:10px;height:10px;border-radius:50%;
+  background:var(--color-primary);box-shadow:0 0 0 4px rgba(232,185,49,.30);
+}
+
+/* ---------- Solution cards ---------- */
+.solution{
+  background:#fff;border:1px solid rgba(26,26,46,.08);
+  border-radius:var(--radius-card);box-shadow:var(--shadow-middle);
+  padding:var(--s-3);margin-top:var(--s-3);
+}
+.solution h3{
+  font-family:var(--font-display);font-weight:600;font-size:var(--t-h3);
+  color:var(--color-text-primary);margin-bottom:12px;letter-spacing:-.01em;
+}
+.solution p{color:var(--color-text-primary);margin-bottom:12px}
+.solution p.note{color:var(--color-text-secondary);font-size:15px}
+.solution .price-cap{
+  font-size:var(--t-caption);font-weight:600;letter-spacing:.04em;
+  color:var(--color-text-secondary);margin:14px 0 6px;
+}
+
+/* ---------- Tables ---------- */
+.table-wrap{width:100%;overflow-x:auto;margin:8px 0 4px;-webkit-overflow-scrolling:touch}
+table{width:100%;border-collapse:separate;border-spacing:0 6px;font-size:15px;min-width:420px}
+thead th{
+  padding:10px 16px;text-align:left;font-weight:700;font-size:12px;
+  text-transform:uppercase;letter-spacing:.07em;color:var(--color-text-secondary);
+  border-bottom:2px solid rgba(46,94,78,.25);
+}
+tbody td{
+  padding:13px 16px;background:var(--color-bg-light);
+  border-top:1px solid rgba(26,26,46,.06);border-bottom:1px solid rgba(26,26,46,.06);
+  color:var(--color-text-primary);vertical-align:top;
+}
+tbody td:first-child{border-left:1px solid rgba(26,26,46,.06);border-radius:var(--radius-button) 0 0 var(--radius-button);font-weight:600}
+tbody td:last-child{border-right:1px solid rgba(26,26,46,.06);border-radius:0 var(--radius-button) var(--radius-button) 0;color:var(--color-text-secondary);white-space:nowrap}
+tbody tr:hover td{background:rgba(46,94,78,.05)}
+
+/* comparison table — full width, zebra */
+.compare{margin-top:var(--s-3)}
+.compare table{min-width:560px}
+.compare thead th{background:rgba(46,94,78,.08);border-radius:var(--radius-button);border-bottom:none;color:var(--color-primary)}
+.compare tbody tr:nth-child(even) td{background:rgba(26,26,46,.035)}
+.compare tbody td:first-child{font-weight:700;color:var(--color-primary)}
+
+/* ---------- Honest pricing card ---------- */
+.honest{
+  margin-top:var(--s-3);
+  background:rgba(232,185,49,.10);
+  border:1px solid rgba(232,185,49,.45);
+  border-left:5px solid var(--color-accent);
+  border-radius:var(--radius-card);
+  padding:var(--s-3);
+}
+.honest h3{
+  font-family:var(--font-display);font-weight:600;font-size:var(--t-h3);
+  color:var(--color-text-primary);margin-bottom:10px;
+}
+.honest p{color:var(--color-text-primary);margin:0}
+
+/* ---------- What stays (checkmarks) ---------- */
+.checks{list-style:none;display:flex;flex-direction:column;gap:10px;margin-top:6px}
+.checks li{
+  position:relative;padding:12px 16px 12px 48px;
+  background:#fff;border:1px solid rgba(26,26,46,.08);border-radius:var(--radius-button);
+  font-size:15px;line-height:1.5;color:var(--color-text-primary);
+}
+.checks li .check{
+  position:absolute;left:14px;top:13px;width:22px;height:22px;border-radius:50%;
+  display:inline-flex;align-items:center;justify-content:center;
+  color:var(--color-primary);background:rgba(46,94,78,.10);
+}
+.checks li .check svg{width:14px;height:14px;display:block}
+
+/* ---------- Timeline ---------- */
+.timeline{position:relative;max-width:780px;margin:var(--s-3) auto 0;padding-left:0}
+.timeline::before{
+  content:"";position:absolute;left:27px;top:14px;bottom:14px;width:3px;border-radius:2px;
+  background:linear-gradient(180deg,var(--color-primary),var(--color-accent));
+}
+.tl-step{position:relative;display:flex;gap:22px;align-items:flex-start;padding:12px 0}
+.tl-num{
+  flex-shrink:0;width:56px;height:56px;border-radius:50%;z-index:1;
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--font-display);font-weight:700;font-size:20px;color:var(--color-text-inverse);
+  background:var(--color-primary);box-shadow:0 0 0 5px var(--color-bg-light),var(--shadow-back);
+}
+.tl-body{
+  flex:1;background:#fff;border:1px solid rgba(26,26,46,.08);
+  border-radius:var(--radius-card);box-shadow:var(--shadow-middle);
+  padding:16px 20px;margin-top:4px;
+}
+.tl-body strong{display:block;font-family:var(--font-display);font-weight:600;font-size:17px;color:var(--color-text-primary);margin-bottom:4px}
+.tl-body span{display:block;font-size:15px;line-height:1.5;color:var(--color-text-secondary)}
+
+/* ---------- Коротко tiles ---------- */
+.tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s-2);margin-top:var(--s-3)}
+.tile{
+  background:#fff;border:1px solid rgba(26,26,46,.08);border-radius:var(--radius-card);
+  box-shadow:var(--shadow-middle);padding:var(--s-3);
+  display:flex;flex-direction:column;gap:12px;
+}
+.tile .icon{
+  width:44px;height:44px;border-radius:12px;display:inline-flex;align-items:center;justify-content:center;
+  color:var(--color-primary);background:rgba(46,94,78,.08);border:1px solid rgba(46,94,78,.14);
+}
+.tile .icon svg{width:22px;height:22px;display:block}
+.tile p{font-size:15px;line-height:1.5;color:var(--color-text-primary)}
+
+/* ---------- CTA dark plashka ---------- */
+.cta{
+  margin-top:var(--s-4);
+  background:var(--color-bg-dark);border-radius:var(--radius-card);
+  padding:clamp(28px,4vw,44px);text-align:center;
+  box-shadow:var(--shadow-front);
+}
+.cta p{
+  color:var(--color-text-inverse);font-size:var(--t-lead);line-height:1.55;
+  max-width:680px;margin:0 auto;
+}
+.cta .btn{
+  display:inline-flex;align-items:center;gap:10px;margin-top:var(--s-3);
+  padding:14px 28px;border-radius:var(--radius-button);
+  background:var(--color-accent);color:var(--color-secondary);
+  font-family:var(--font-display);font-weight:700;font-size:16px;text-decoration:none;
+  transition:transform .2s,box-shadow .2s;
+}
+.cta .btn svg{width:18px;height:18px;display:block}
+.cta .btn:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(232,185,49,.30)}
+
+/* ---------- Footer ---------- */
+.site-footer{
+  margin-top:var(--s-6);padding:var(--s-4) var(--s-3);
+  border-top:1px solid rgba(26,26,46,.10);
+  text-align:center;color:var(--color-text-secondary);font-size:var(--t-caption);
+}
+.site-footer strong{color:var(--color-text-primary);font-weight:600}
+
+/* ---------- Back to top ---------- */
+.back-to-top{
+  position:fixed;right:24px;bottom:24px;z-index:50;
+  width:48px;height:48px;border-radius:50%;border:none;cursor:pointer;
+  background:var(--color-primary);color:var(--color-text-inverse);
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:var(--shadow-front);
+  opacity:0;visibility:hidden;transform:translateY(12px);
+  transition:opacity .3s,visibility .3s,transform .3s,background .2s;
+}
+.back-to-top.show{opacity:1;visibility:visible;transform:translateY(0)}
+.back-to-top:hover{background:var(--color-secondary)}
+.back-to-top svg{width:22px;height:22px;display:block}
+
+/* ---------- Responsive ---------- */
+@media (max-width:760px){
+  .tiles{grid-template-columns:1fr}
+  .toc ol{grid-template-columns:1fr}
+  .tl-num{width:48px;height:48px;font-size:17px}
+  .timeline::before{left:23px}
+  .tl-step{gap:16px}
+}
+@media (max-width:480px){
+  .path-card .card-head{flex-direction:column;align-items:flex-start;gap:12px}
+  .tl-body{padding:14px 16px}
+}
+
+/* ---------- Print ---------- */
+@media print{
+  :root{--shadow-middle:none;--shadow-front:none;--shadow-back:none}
+  html{scroll-behavior:auto}
+  body{background:#fff;color:#000;font-size:11pt;line-height:1.45}
+  .hero::before,.hero h1::after,.section-title::before,.timeline::before{display:none}
+  .site-header,.toc,.back-to-top{display:none}
+  .container{max-width:100%;padding:0}
+  .section{padding:18pt 0;border-top:1px solid #ccc !important}
+  .path-card,.solution,.honest,.tl-body,.tile,.cta{
+    box-shadow:none;break-inside:avoid;background:#fff !important;
+    border:1px solid #bbb;
+  }
+  .cta{background:#1A1A2E !important;color:#fff}
+  .cta p{color:#fff}
+  .cta .btn{background:#E8B931 !important;color:#1A1A2E !important}
+  table,tbody tr,tbody td{break-inside:avoid}
+  thead{display:table-header-group}
+  a{color:#000;text-decoration:none}
+  .bullets li,.checks li{background:#fff !important}
+}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <a href="../index.html" class="brand-link" aria-label="НЕО КОНСАЛТИНГ — на главную страницу сайта">
+    <span class="logo" aria-hidden="true">НК</span>
+    <span class="brand-name">НЕО <span>КОНСАЛТИНГ</span></span>
+  </a>
+  <a href="./index.html" class="back-link">← Все материалы</a>
+</header>
+
+<!-- HERO -->
+<section class="hero" aria-labelledby="doc-title">
+  <span class="eyebrow">Справочный раздел · Бухгалтерский аутсорсинг</span>
+  <h1 id="doc-title">Как документы попадают в учёт без перепечатывания</h1>
+  <p class="lead">Бухгалтер получает первичку тремя путями: в электронном виде через ЭДО, сканами и фотографиями, а иногда и бумагой. Переносить данные из бумажного документа в 1С вручную — это часы работы и лишний повод для ошибки. Хорошая новость в том, что перепечатывание уже давно не обязательно: на рынке есть готовые сервисы, которые тысячи бухгалтеров используют каждый день. Для небольшой компании на упрощёнке это означает, что учёт перестаёт зависеть от того, в каком виде пришёл документ.</p>
+  <p class="lead">Ниже — справочный раздел о том, как устроена такая автоматизация, какие решения уже проверены на практике и с чего начать. Мы описываем только готовые продукты, которые достаточно подключить и настроить, а не писать с нуля. Материал рассчитан на владельцев и бухгалтеров небольших компаний, в первую очередь ИП и ООО на упрощённой системе налогообложения.</p>
+</section>
+
+<!-- TOC -->
+<nav class="toc" aria-label="Оглавление">
+  <h2>Содержание</h2>
+  <ol>
+    <li><a href="#tri-puti"><span class="num">1</span>Три пути, как документы попадают в 1С</a></li>
+    <li><a href="#resheniya"><span class="num">2</span>Готовые решения: что выбрать</a></li>
+    <li><a href="#daet"><span class="num">3</span>Что автоматизация даёт бухгалтеру</a></li>
+    <li><a href="#podklyuchenie"><span class="num">4</span>Как мы подключаем автоматизацию</a></li>
+    <li><a href="#korotko"><span class="num">5</span>Коротко</a></li>
+  </ol>
+</nav>
+
+<!-- SECTION 1 -->
+<section class="section" id="tri-puti" aria-labelledby="h-tri">
+  <div class="container">
+    <h2 class="section-title" id="h-tri">Три пути, как документы попадают в 1С</h2>
+    <p>Все решения строятся вокруг трёх сценариев получения документа. Чем «цифровее» путь, тем меньше ручной работы остаётся бухгалтеру. Порядок ниже идёт от самого безбумажного варианта к самому простому в освоении, так что вы можете выбрать тот, который ближе вашей ситуации.</p>
+
+    <!-- ЭДО -->
+    <article class="path-card">
+      <div class="card-head">
+        <span class="icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg>
+        </span>
+        <h3>ЭДО — электронный документ сразу в учёт</h3>
+      </div>
+      <p>Контрагент присылает документ по электронному документообороту. Система сама создаёт запись в 1С, и бухгалтеру остаётся только проверить и провести её. Это самый быстрый и чистый путь: никакого сканирования и набора текста.</p>
+      <ul class="bullets">
+        <li>Документ приходит уже в структурированном виде, без потерь при распознавании.</li>
+        <li>Не нужно вводить реквизиты вручную.</li>
+        <li>Подписание электронной подписью происходит в той же системе.</li>
+      </ul>
+      <p>Такой путь удобен, когда основные поставщики и покупатели тоже работают по ЭДО. Чем больше контрагентов подключено, тем меньше бумаги и сканов остаётся в обороте.</p>
+      <p>Стоит помнить, что электронный документ, подписанный электронной подписью, имеет ту же юридическую силу, что и бумажный. То есть переход на ЭДО не создаёт рисков для учёта и отчётности, а только убирает лишнюю работу с бумагой.</p>
+    </article>
+
+    <!-- Распознавание сканов -->
+    <article class="path-card">
+      <div class="card-head">
+        <span class="icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7V5a2 2 0 0 1 2-2h2"/><path d="M17 3h2a2 2 0 0 1 2 2v2"/><path d="M21 17v2a2 2 0 0 1-2 2h-2"/><path d="M7 21H5a2 2 0 0 1-2-2v-2"/><line x1="7" x2="17" y1="12" y2="12"/></svg>
+        </span>
+        <h3>Распознавание сканов — фото или скан превращается в черновик</h3>
+      </div>
+      <p>Скан или фотография документа загружается в сервис, который «читает» его и создаёт черновик документа в 1С. Бухгалтер сверяет ключевые реквизиты и проводит. Это основной путь для тех, кто получает документы в виде изображений.</p>
+      <ul class="bullets">
+        <li>Сервис сам вытаскивает номер, дату, сумму, реквизиты контрагента.</li>
+        <li>Бухгалтер контролирует результат перед проведением.</li>
+        <li>Подходит для счетов, накладных, актов и чеков.</li>
+      </ul>
+      <p>Это универсальный вариант: он работает с любым документом, который можно сфотографировать или отсканировать, даже если контрагент не подключён к ЭДО.</p>
+    </article>
+
+    <!-- Бумага -->
+    <article class="path-card">
+      <div class="card-head">
+        <span class="icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M16 13H8"/><path d="M16 17H8"/><path d="M10 9H8"/></svg>
+        </span>
+        <h3>Бумага — сначала в цифру, дальше по пути распознавания</h3>
+      </div>
+      <p>Бумажный документ сканируется: либо на офисном сканере с автоподачей, либо через приложение-сканер на смартфоне прямо на месте. После этого он проходит тот же путь, что и обычный скан, — распознаётся и становится черновиком в 1С.</p>
+      <ul class="bullets">
+        <li>Сканировать можно пачкой на стационарном устройстве.</li>
+        <li>Мобильное приложение позволяет оцифровать документ сразу у клиента.</li>
+        <li>Дальше бумага не нужна: работа идёт с электронной копией.</li>
+      </ul>
+      <p>Этот путь — мост между привычной бумагой и цифровым учётом. Он особенно выручает, когда документы приносят или присылают фотографиями, а не файлами.</p>
+    </article>
+
+    <p>Эти три пути не исключают друг друга. В реальной работе компании обычно сочетают их: часть контрагентов уже в ЭДО, часть присылает сканы, а раз в месяц приезжает стопка бумаги. Сервисы автоматизации рассчитаны именно на такое смешанное поступление, поэтому не нужно выбирать что-то одно навсегда.</p>
+  </div>
+</section>
+
+<!-- SECTION 2 -->
+<section class="section" id="resheniya" aria-labelledby="h-resh">
+  <div class="container">
+    <h2 class="section-title" id="h-resh">Готовые решения: что выбрать</h2>
+    <p>Ниже — три проверенных сервиса, которые мы подключаем клиентам. Это основные решения на российском рынке, и каждое закрывает свою задачу: кто-то остаётся внутри 1С, кто-то переходит в облако, кто-то просто добавляет распознавание к уже используемому ЭДО. Все они готовы к подключению и не требуют настройки с нуля. Точные тарифы меняются, поэтому все суммы в этом разделе — ориентировочные, уточняйте актуальный прайс у вендора перед подключением.</p>
+    <p>Решения выстроены по нарастанию: от простого распознавания внутри привычной 1С до облачной системы, которая берёт на себя и ЭДО, и учёт. Начать можно с минимального шага и расширять возможности по мере роста потока документов.</p>
+
+    <!-- 1С:Распознавание -->
+    <article class="solution">
+      <h3>1С:Распознавание первичных документов</h3>
+      <p>Работает прямо внутри 1С: скан или фото загружается в базу, и сервис формирует черновик документа на месте. Поддерживаются счета, накладные ТОРГ-12, акты, счета-фактуры, УПД, УКД и кассовые чеки. Принимаются форматы PDF, PNG, JPG, BMP, TIFF, а также документы Word и Excel и архивы. Для оцифровки «на ходу» есть мобильное приложение «1С:Сканер документов».</p>
+      <p class="price-cap">Ориентировочные годовые пакеты страниц (цены без НДС):</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Объём за год</th><th>Стоимость, ₽</th></tr></thead>
+          <tbody>
+            <tr><td>100 страниц</td><td>600</td></tr>
+            <tr><td>500 страниц</td><td>2 500</td></tr>
+            <tr><td>1 000 страниц</td><td>4 500</td></tr>
+            <tr><td>5 000 страниц</td><td>21 000</td></tr>
+            <tr><td>10 000 страниц</td><td>40 000</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="note">Для официальных пользователей 1С предусмотрен бесплатный тестовый тариф на 250 страниц. С 1 января 2026 года на передачу прав на программное обеспечение применяется НДС 22% — итоговую сумму уточняйте у вендора. Решение требует наличия официальных лицензий 1С.</p>
+      <p>Подойдёт тем, кто уже работает в 1С и хочет оставить распознавание внутри своей базы, без перехода в облако.</p>
+    </article>
+
+    <!-- Saby -->
+    <article class="solution">
+      <h3>Saby (СБИС / Тензор)</h3>
+      <p>Saby распознаёт первичные документы и загружает поступления прямо в 1С. Это облачный сервис: не требуется устанавливать отдельную программу, работа идёт через интернет. Важное преимущество для аутсорсинга: один аккаунт охватывает все обслуживаемые компании сразу, не нужно заводить отдельные подписки на каждую. В ряде тарифов (например, «Бухгалтерия Базовая») распознавание уже включено в стоимость.</p>
+      <p class="price-cap">Ориентировочные цены по партнёрским данным за 2025 год (тариф действует на аккаунт, а не на компанию):</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Объём за год</th><th>Стоимость, ₽</th></tr></thead>
+          <tbody>
+            <tr><td>250 документов</td><td>от 1 900</td></tr>
+            <tr><td>500 документов</td><td>от 3 200</td></tr>
+            <tr><td>1 000 документов</td><td>от 5 700</td></tr>
+            <tr><td>5 000 документов</td><td>от 27 000</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="note">Официальные диапазоны на сайте вендора начинаются от 600–1 500 ₽. Точную сумму под ваш поток документов запрашивайте у менеджера.</p>
+      <p>Особенно удобно для бухгалтерского аутсорсинга и компаний с несколькими юрлицами: одна подписка закрывает весь пул клиентов.</p>
+    </article>
+
+    <!-- Диадок -->
+    <article class="solution">
+      <h3>Контур.Диадок с модулем для 1С</h3>
+      <p>Диадок — это ЭДО, а модуль для 1С добавляет распознавание входящих документов. Удобно для тех, кто уже работает в Диадоке и хочет получать документы в 1С без переключения между системами. Входящие документы в ЭДО всегда бесплатны — платите только за исходящие.</p>
+      <p class="note">Ориентировочные годовые пакеты исходящих документов: 250 документов — от 2 950 ₽/год, 3 000 документов — от 29 600 ₽/год. Право использования модуля для 1С стоит от 6 000 ₽/год. Поверх модуля работает плагин распознавания (накладные, акты, УПД, счета) с лимитами 500, 1 500 и 10 000 страниц — цены на него предоставляются по запросу.</p>
+      <p>Логичный выбор, если вы уже обмениваетесь документами через Диадок и хотите добавить распознавание без смены привычной среды.</p>
+    </article>
+
+    <div class="compare">
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Решение</th><th>Где работает</th><th>Что делает</th><th>Особенность</th></tr></thead>
+          <tbody>
+            <tr><td>1С:Распознавание</td><td>Внутри 1С</td><td>Скан → черновик в базе</td><td>Бесплатный тест 250 стр.</td></tr>
+            <tr><td>Saby</td><td>Облако + 1С</td><td>Распознавание + выгрузка</td><td>Один аккаунт на все компании</td></tr>
+            <tr><td>Диадок + модуль</td><td>ЭДО + 1С</td><td>ЭДО + распознавание</td><td>Входящие ЭДО бесплатны</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <p>Таблица помогает быстро сориентироваться, но не заменяет подбор под вашу ситуацию. Например, для компании с одной базой 1С и редкими документами достаточно встроенного распознавания, а для аутсорсера с десятком клиентов логичнее единый облачный аккаунт. Разницу в деталях мы разбираем на этапе оценки.</p>
+
+    <!-- Честно о тарифах -->
+    <aside class="honest" aria-labelledby="h-honest">
+      <h3 id="h-honest">Честно о тарифах</h3>
+      <p>Цифры выше — ориентир, а не обязательство. Вендоры обновляют прайсы, меняют состав пакетов и добавляют акции. Перед подключением мы запрашиваем актуальный прайс и подбираем решение под конкретную компанию: её оборот документов, текущую конфигурацию 1С и то, как именно приходят первичные документы. Если поток документов небольшой, часто хватает бесплатного тестового тарифа, чтобы понять, подходит ли сервис на практике.</p>
+    </aside>
+  </div>
+</section>
+
+<!-- SECTION 3 -->
+<section class="section" id="daet" aria-labelledby="h-daet">
+  <div class="container">
+    <h2 class="section-title" id="h-daet">Что автоматизация даёт бухгалтеру</h2>
+    <p>Главный результат — исчезает рутинный набор текста. По нашим наблюдениям и данным вендоров, автоматизируется 60–80% рутинного ввода первички. Остальное — та часть работы, где нужен опыт и внимание специалиста, и именно её автоматика не забирает.</p>
+    <p>На практике это ощущается просто: бухгалтер перестаёт тратить вечер на вбивание стопки накладных и вместо этого просматривает готовые черновики, поправляя только то, что требует внимания. Скорость обработки документов растёт, а усталость от однообразия падает.</p>
+    <ul class="bullets">
+      <li>Уходит перепечатывание документов из бумаги и сканов.</li>
+      <li>Сокращается время на каждый документ в несколько раз.</li>
+      <li>Документы не теряются: они хранятся в электронном виде в учётной системе.</li>
+      <li>Контроль остаётся у человека: машина готовит черновик, бухгалтер проверяет и проводит.</li>
+    </ul>
+    <p>Важно понимать границу: автоматизируется именно ввод данных, а не принятие решений по учёту. Сервис не ошибается в наборе, но он не знает, правильная ли цена в договоре и совпадает ли поставка с заказом. Поэтому роль бухгалтера не исчезает, а смещается от механической работы к проверке и анализу.</p>
+
+    <article class="path-card" style="margin-top:var(--s-4)">
+      <h3 style="margin-bottom:14px">Что остаётся специалисту</h3>
+      <p>Автоматика берёт на себя набор, но не заменяет профессионала. За бухгалтером остаётся то, где нужно суждение и ответственность: именно здесь экономия времени на наборе высвобождает ресурс для вдумчивой проверки.</p>
+      <ul class="bullets" style="margin-top:14px">
+        <li>сверка реквизитов и сопоставление документа с договором или заказом;</li>
+        <li>сложные многострочные документы с большим числом позиций;</li>
+        <li>договоры и нестандартные бланки, которых нет в шаблонах;</li>
+        <li>вопросы по ценам, скидкам и расхождениям с контрагентом.</li>
+      </ul>
+      <p style="margin-top:14px">Машина снимает набор, профессионал отвечает за качество. Именно такое разделение труда делает учёт и быстрее, и надёжнее.</p>
+    </article>
+  </div>
+</section>
+
+<!-- SECTION 4 -->
+<section class="section" id="podklyuchenie" aria-labelledby="h-pod">
+  <div class="container">
+    <h2 class="section-title" id="h-pod">Как мы подключаем автоматизацию</h2>
+    <p>ООО «НЕО КОНСАЛТИНГ» работает с 2023 года и принимает документы от клиентов в любом виде — ЭДО, сканы или бумага. Мы не создаём решения с нуля, а подключаем готовые сервисы и настраиваем их под вашу компанию. Вам не нужно разбираться в технической стороне: мы берём её на себя и ведём процесс от оценки до сопровождения. Процесс выглядит так:</p>
+
+    <div class="timeline" aria-label="Этапы подключения">
+      <div class="tl-step">
+        <span class="tl-num">1</span>
+        <div class="tl-body"><strong>Бесплатно оцениваем потоки документов.</strong><span>Смотрим, сколько и каких документов приходит, в каком виде и из каких источников.</span></div>
+      </div>
+      <div class="tl-step">
+        <span class="tl-num">2</span>
+        <div class="tl-body"><strong>Подбираем путь.</strong><span>Определяем, что выгоднее: ЭДО, распознавание сканов или сканирование бумаги с последующим распознаванием.</span></div>
+      </div>
+      <div class="tl-step">
+        <span class="tl-num">3</span>
+        <div class="tl-body"><strong>Подключаем сервис.</strong><span>Выбираем подходящее решение (1С:Распознавание, Saby или Диадок) и настраиваем его под вашу конфигурацию 1С.</span></div>
+      </div>
+      <div class="tl-step">
+        <span class="tl-num">4</span>
+        <div class="tl-body"><strong>Обучаем и запускаем.</strong><span>Показываем бухгалтеру рабочий порядок действий, проводим первые документы вместе.</span></div>
+      </div>
+      <div class="tl-step">
+        <span class="tl-num">5</span>
+        <div class="tl-body"><strong>Сопровождаем внедрение.</strong><span>Контролируем качество распознавания на старте и подстраиваем настройки.</span></div>
+      </div>
+      <div class="tl-step">
+        <span class="tl-num">6</span>
+        <div class="tl-body"><strong>Ведём дальше.</strong><span>Остаёмся на связи по вопросам тарифов, лимитов и роста объёма документов.</span></div>
+      </div>
+    </div>
+
+    <p style="margin-top:var(--s-3)">Внедрение занимает от 2 до 6 недель в зависимости от выбранного решения и готовности базы 1С.</p>
+    <p>На каждом шаге мы объясняем простыми словами, что и зачем делаем, чтобы вы понимали устройство своего учёта, а не просто получали результат «по волшебству». После запуска вы остаётесь с рабочим процессом, который ведёт ваш бухгалтер, и с нашей поддержкой на случай вопросов.</p>
+  </div>
+</section>
+
+<!-- SECTION 5 -->
+<section class="section" id="korotko" aria-labelledby="h-kor">
+  <div class="container">
+    <h2 class="section-title" id="h-kor">Коротко</h2>
+    <p>Если нужно запомнить главное, вот пять тезисов. Они помогают принять решение, даже если технические детали пока не до конца ясны.</p>
+
+    <div class="tiles">
+      <div class="tile">
+        <span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m7.5 4.27 9 5.15"/><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/></svg></span>
+        <p>Готовые решения существуют и проверены тысячами бухгалтеров по всей стране.</p>
+      </div>
+      <div class="tile">
+        <span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="6" x2="6" y1="3" y2="15"/><circle cx="18" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M18 9a9 9 0 0 1-9 9"/></svg></span>
+        <p>Есть выбор из 2–3 путей: ЭДО, распознавание сканов или сканирование бумаги.</p>
+      </div>
+      <div class="tile">
+        <span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></span>
+        <p>Окупаемость приходит за счёт сэкономленного времени: на потоке около 400 документов в месяц экономится 15–20 часов ручного ввода.</p>
+      </div>
+      <div class="tile">
+        <span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/></svg></span>
+        <p>Внедрение занимает от 2 до 6 недель.</p>
+      </div>
+      <div class="tile">
+        <span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="8" width="18" height="4" rx="1"/><path d="M12 8v13"/><path d="M19 12v7a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-7"/><path d="M7.5 8a2.5 2.5 0 0 1 0-5C11 3 12 8 12 8s1-5 4.5-5a2.5 2.5 0 0 1 0 5"/></svg></span>
+        <p>Старт бесплатный — у большинства сервисов есть тестовый тариф.</p>
+      </div>
+    </div>
+
+    <p style="margin-top:var(--s-3)">Автоматизация ввода — не про то, чтобы заменить бухгалтера, а про то, чтобы освободить его от однообразия. Когда набор текста уходит в прошлое, специалист тратит время на то, что действительно важно для учёта и для бизнеса.</p>
+
+    <div class="cta" role="region" aria-label="Предложение">
+      <p>Если вы хотите посмотреть, как это работает на ваших документах, начните с бесплатного тестового тарифа одного из сервисов. Мы поможем выбрать подходящий и проведём первые документы вместе, чтобы вы увидели результат до принятия решения об оплате.</p>
+      <a class="btn" href="mailto:zh_nadi@mail.ru?subject=Автоматизация%20заведения%20документов%20в%201С">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+        Написать нам
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <p><strong>ООО «НЕО КОНСАЛТИНГ»</strong> — Санкт-Петербург, Московский пр-кт, д. 212 · <a href="mailto:zh_nadi@mail.ru" style="color:var(--color-primary);text-decoration:none">zh_nadi@mail.ru</a></p>
+</footer>
+
+<button class="back-to-top" id="backToTop" aria-label="Наверх" title="Наверх">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m18 15-6-6-6 6"/></svg>
+</button>
+
+<script>
+(function(){
+  var btn = document.getElementById('backToTop');
+  var tocLinks = Array.prototype.slice.call(document.querySelectorAll('.toc a'));
+  var sections = tocLinks.map(function(a){ return document.querySelector(a.getAttribute('href')); });
+
+  function onScroll(){
+    var y = window.scrollY || document.documentElement.scrollTop;
+    if(y > 400){ btn.classList.add('show'); } else { btn.classList.remove('show'); }
+
+    // active TOC link
+    var pos = y + 120;
+    var current = -1;
+    for(var i=0;i<sections.length;i++){
+      if(sections[i] && sections[i].offsetTop <= pos){ current = i; }
+    }
+    tocLinks.forEach(function(l,i){ l.classList.toggle('active', i===current); });
+  }
+
+  btn.addEventListener('click', function(){
+    window.scrollTo({ top:0, behavior:'smooth' });
+  });
+
+  window.addEventListener('scroll', onScroll, { passive:true });
+  window.addEventListener('resize', onScroll);
+  onScroll();
+})();
+</script>
+</body>
+</html>
