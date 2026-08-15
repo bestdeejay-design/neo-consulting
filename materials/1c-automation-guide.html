@@ -79,8 +79,15 @@ body{
   --hd-maxw:1120px;
   --hd-shadow-md:0 4px 12px rgba(27,30,27,.08),0 2px 4px rgba(27,30,27,.05);
   --hd-ease:cubic-bezier(.22,.61,.36,1);
+  --hd-gutter:24px;
+  --hd-gap-inner:16px;
+  --hd-gap-brand:12px;
+  --hd-gap-nav:24px;
+  --hd-pad-link:8px 0;
+  --hd-pad-mnav:12px 24px 24px;
+  --hd-pad-mlink:12px 0;
 }
-.container-wide{max-width:var(--hd-maxw);margin:0 auto;padding:0 var(--s-3)}
+.container-wide{max-width:var(--hd-maxw);margin:0 auto;padding:0 var(--hd-gutter)}
 .site-header{
   position:sticky;top:0;z-index:50;
   height:var(--hd-height);
@@ -90,11 +97,11 @@ body{
 }
 .site-header__inner{
   height:100%;
-  display:flex;align-items:center;justify-content:space-between;gap:var(--s-4);
+  display:flex;align-items:center;justify-content:space-between;gap:var(--hd-gap-inner);
   font-family:var(--hd-font-body);
 }
 .brand{
-  display:inline-flex;align-items:center;gap:var(--s-3);
+  display:inline-flex;align-items:center;gap:var(--hd-gap-brand);
   font-family:var(--hd-font-display);font-weight:700;font-size:18px;
   color:var(--hd-ink);text-decoration:none;
 }
@@ -110,10 +117,10 @@ body{
   font-weight:500;display:block;line-height:1;
 }
 .nav{display:none}
-.nav__list{list-style:none;display:flex;gap:var(--s-5);margin:0;padding:0}
+.nav__list{list-style:none;display:flex;gap:var(--hd-gap-nav);margin:0;padding:0}
 .nav__link{
   color:var(--hd-ink-soft);font-size:16px;font-weight:500;
-  padding:var(--s-2) 0;border-bottom:2px solid transparent;text-decoration:none;
+  padding:var(--hd-pad-link);border-bottom:2px solid transparent;text-decoration:none;
 }
 .nav__link:hover{color:var(--hd-accent);border-bottom-color:var(--hd-accent);text-decoration:none}
 .nav__link[aria-current="page"]{color:var(--hd-accent);border-bottom-color:var(--hd-accent)}
@@ -137,9 +144,9 @@ body{
   font-family:var(--hd-font-body);
 }
 .mobile-nav.is-open{display:block}
-.mobile-nav__list{list-style:none;margin:0;padding:var(--s-3) var(--s-5) var(--s-5)}
+.mobile-nav__list{list-style:none;margin:0;padding:var(--hd-pad-mnav)}
 .mobile-nav__link{
-  display:block;min-height:44px;padding:var(--s-3) 0;
+  display:block;min-height:44px;padding:var(--hd-pad-mlink);
   color:var(--hd-ink-soft);font-size:18px;text-decoration:none;
   border-bottom:1px solid var(--hd-line);
 }
