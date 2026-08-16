@@ -3,16 +3,13 @@
 
   var PHOTOS = [
     'assets/img/photos/photo-01.webp',
-    'assets/img/photos/photo-02.webp',
     'assets/img/photos/photo-04.webp',
     'assets/img/photos/photo-05.webp',
     'assets/img/photos/photo-06.webp',
     'assets/img/photos/photo-07.webp',
     'assets/img/photos/photo-08.webp',
     'assets/img/photos/photo-09.webp',
-    'assets/img/photos/photo-10.webp',
-    'assets/img/photos/photo-11.webp',
-    'assets/img/photos/photo-12.webp'
+    'assets/img/photos/photo-10.webp'
   ];
 
   var HERO_INDEXES = [0, 6, 7];
