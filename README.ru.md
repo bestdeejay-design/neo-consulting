@@ -98,9 +98,19 @@ python3 -m http.server 8377
 │   ├── TEST_PLAN.md
 │   ├── DECISIONS.md
 │   └── plans/              # план разработки
+├── .github/
+│   ├── ISSUE_TEMPLATE/     # формы issue (баг/фича)
+│   ├── pull_request_template.md
+│   └── workflows/
+│       └── ci.yml          # CI: проверки h1/секций/raw-hex/SEO-меты
+├── CHANGELOG.md            # история релизов
+├── LICENSE                 # MIT
+├── CODE_OF_CONDUCT.md      # Contributor Covenant 2.1
+├── CONTRIBUTING.md
+├── SECURITY.md
+├── SUPPORT.md
 ├── robots.txt
-├── sitemap.xml
-└── .github/                # шаблоны issue, шаблон PR
+└── sitemap.xml
 ```
 
 ## Документация
