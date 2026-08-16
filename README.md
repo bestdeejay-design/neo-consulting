@@ -18,7 +18,7 @@ all fonts, icons, images and metadata are local-first.
 |---|---|
 | Lighthouse mobile | **100 / 100 / 100 / 100** |
 | Lighthouse desktop | **91 / 100 / 100 / 100** (threshold 90) |
-| meta_audit | 17/18 passed (1 false positive documented in `.audit/meta-notes.md`) |
+| meta_audit | 17/18 passed (1 known false positive) |
 | WCAG AA contrast | all text/text-background pairs ≥ 4.5:1 |
 | Raw hex outside design tokens | 0 |
 
@@ -26,6 +26,7 @@ all fonts, icons, images and metadata are local-first.
 
 - **Website:** [bestdeejay-design.github.io/neo-consulting](https://bestdeejay-design.github.io/neo-consulting/)
 - **Sales presentation:** [bestdeejay-design.github.io/neo-consulting/presentation](https://bestdeejay-design.github.io/neo-consulting/presentation/)
+- **Materials library:** [bestdeejay-design.github.io/neo-consulting/materials](https://bestdeejay-design.github.io/neo-consulting/materials/)
 
 ## Quick start
 
@@ -42,7 +43,7 @@ python3 -m http.server 8377
 - **16 landing sections** (`hero`, `problems`, `solution`, `services`, `details`,
   `audience`, `pricing`, `process`, `about`, `team`, `gallery`, `guarantees`, `cases`,
   `reviews`, `faq`, `contacts`) with anchor navigation
-- **Photo rotation**: 8 local 4:3 photos shuffled across 8 `data-slot` positions on
+- **Photo rotation**: 12 local 4:3 photos shuffled across 8 `data-slot` positions on
   every page load (hero draws from a priority pool, duplicates within a page are
   excluded, the last hero is remembered in `localStorage`, graceful fallback to
   default `src` without JS)
@@ -57,6 +58,7 @@ python3 -m http.server 8377
 - **Local images only**: generated avatars, office photos, OG image — no CDN
 - **Responsive**: mobile-first, breakpoints at 640px and 960px, hamburger menu
 - **Sales presentation**: self-contained 12-slide interactive deck (`presentation/`) — speaker notes, timer, keyboard navigation
+- **Materials library**: 7 SEO-ready guides (tax calendar, 1C automation, ETrN, NDS/USN, IP contributions, USN object, amnesty) with per-guide OG images and anchor navigation
 
 ## Repository structure
 
@@ -65,6 +67,15 @@ python3 -m http.server 8377
 ├── index.html              # landing page (16 sections, JSON-LD, OG/Twitter)
 ├── presentation/
 │   └── index.html          # interactive sales presentation (12 slides, self-contained)
+├── materials/
+│   ├── index.html          # materials library hub (7 guides)
+│   ├── 1c-automation-guide.html
+│   ├── etrn-guide.html
+│   ├── nds-usn-2026.html
+│   ├── calendar-2026.html
+│   ├── ip-vznosy-2026.html
+│   ├── usn-object.html
+│   └── amnistia.html
 ├── css/
 │   ├── tokens.css          # design tokens (:root custom properties)
 │   └── main.css            # styles (mobile-first)
@@ -72,12 +83,13 @@ python3 -m http.server 8377
 │   ├── main.js             # menu toggle, current year, escape/resize close
 │   └── photos.js           # photo rotation across data-slot positions
 ├── assets/
-│   ├── img/                # avatars, og-image, favicon
-│   │   └── photos/         # rotation pool: photo-01..09.webp (4:3)
+│   ├── img/                # avatars, hero/office photos, og images, favicon
+│   │   ├── og/             # per-guide OG previews (1200×630)
+│   │   └── photos/         # rotation pool: photo-*.webp (4:3, 12 files)
 │   ├── header.svg          # animated README header (SMIL)
 │   └── footer.svg          # animated README footer (SMIL)
 ├── docs/
-│   ├── content.md          # copy for all 14 blocks
+│   ├── content.md          # copy for all 16 sections
 │   ├── VISION.md           # product docs (L1)
 │   ├── PRD.md
 │   ├── ROADMAP.md
@@ -92,7 +104,7 @@ python3 -m http.server 8377
 ## Documentation
 
 Product documentation (L1) lives in [`docs/`](docs/): VISION, PRD, ROADMAP,
-TEST_PLAN and DECISIONS. All 14 blocks of copy are in [`docs/content.md`](docs/content.md).
+TEST_PLAN and DECISIONS. All 16 sections of copy are in [`docs/content.md`](docs/content.md).
 
 ---
 
