@@ -4,6 +4,8 @@
 
 **🌐 Версии:** [English](README.md) · [Русский](README.ru.md) · [Сайт](https://bestdeejay-design.github.io/neo-consulting/) · [Презентация](https://bestdeejay-design.github.io/neo-consulting/presentation/)
 
+</div>
+
 # НЕО КОНСАЛТИНГ — лендинг бухгалтерского аутсорсинга
 
 Статический лендинг для **ООО «НЕО КОНСАЛТИНГ»** — бухгалтерские, налоговые и
@@ -119,6 +121,8 @@ python3 -m http.server 8377
 TEST_PLAN и DECISIONS. Тексты всех 16 секций — в [`docs/content.md`](docs/content.md).
 
 ---
+
+<div align="center">
 
 <img src="assets/footer.svg" alt="bestdeejay-design — neo-consulting" width="100%">
 

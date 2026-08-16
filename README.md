@@ -4,6 +4,8 @@
 
 **🌐 Versions:** [English](README.md) · [Русский](README.ru.md) · [Website](https://bestdeejay-design.github.io/neo-consulting/) · [Presentation](https://bestdeejay-design.github.io/neo-consulting/presentation/)
 
+</div>
+
 # НЕО КОНСАЛТИНГ — Accounting Outsourcing Landing
 
 Static landing page for **ООО «НЕО КОНСАЛТИНГ»**, an accounting, tax and legal
@@ -117,6 +119,8 @@ Product documentation (L1) lives in [`docs/`](docs/): VISION, PRD, ROADMAP,
 TEST_PLAN and DECISIONS. All 16 sections of copy are in [`docs/content.md`](docs/content.md).
 
 ---
+
+<div align="center">
 
 <img src="assets/footer.svg" alt="bestdeejay-design — neo-consulting" width="100%">
 
