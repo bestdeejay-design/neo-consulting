@@ -9,10 +9,14 @@
     'assets/img/photos/photo-07.webp',
     'assets/img/photos/photo-08.webp',
     'assets/img/photos/photo-09.webp',
-    'assets/img/photos/photo-10.webp'
+    'assets/img/photos/photo-10.webp',
+    'assets/img/photos/photo-13.webp',
+    'assets/img/photos/photo-14.webp',
+    'assets/img/photos/photo-15.webp',
+    'assets/img/photos/photo-16.webp'
   ];
 
-  var HERO_INDEXES = [0, 6, 7];
+  var HERO_INDEXES = [0, 6, 7, 8, 9, 10, 11];
   var SLOTS = ['hero', 'about-1', 'about-2', 'team-1', 'team-2', 'gallery-1', 'gallery-2', 'gallery-3'];
   var LS_KEY = 'neo-photo-rotation';
 
