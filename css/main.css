@@ -290,6 +290,38 @@ p { margin: 0 0 var(--space-4); }
 .row__media img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
 .row__body p { color: var(--color-ink-soft); }
 
+/* ---------- Layout family 3b: Team photo cards ---------- */
+.team { display: grid; gap: var(--space-5); grid-template-columns: minmax(0, 1fr); }
+.team__card {
+  margin: 0;
+  background: var(--color-surface);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow 0.2s var(--ease), transform 0.2s var(--ease);
+}
+.team__card:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); }
+.team__card img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
+.team__card figcaption {
+  padding: var(--space-4) var(--space-5);
+  color: var(--color-ink-soft);
+  font-size: var(--fs-400);
+}
+
+/* ---------- Layout family 3c: Office gallery ---------- */
+.gallery { display: grid; gap: var(--space-5); grid-template-columns: minmax(0, 1fr); }
+.gallery img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-line);
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow 0.2s var(--ease), transform 0.2s var(--ease);
+}
+.gallery img:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); }
+
 /* ---------- Layout family 4: Table (pricing) ---------- */
 .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; border-radius: var(--radius-md); border: 1px solid var(--color-line); }
 .table { width: 100%; border-collapse: collapse; min-width: 640px; background: var(--color-surface); }
@@ -460,6 +492,8 @@ p { margin: 0 0 var(--space-4); }
   .cards, .reviews, .cases { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .steps { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .contacts__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: start; }
+  .team { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .gallery { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 }
 
 /* ~960px: полноценная навигация, hero split, alternating rows */

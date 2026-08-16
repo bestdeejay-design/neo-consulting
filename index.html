@@ -130,6 +130,7 @@
           <li><a class="nav__link" href="#reviews">Отзывы</a></li>
           <li><a class="nav__link" href="#about">О компании</a></li>
           <li><a class="nav__link" href="materials/">Материалы</a></li>
+          <li><a class="nav__link" href="#team">Команда</a></li>
           <li><a class="nav__link" href="#contacts">Контакты</a></li>
         </ul>
       </nav>
@@ -151,6 +152,8 @@
       <li><a class="mobile-nav__link" href="#pricing">Тарифы</a></li>
       <li><a class="mobile-nav__link" href="#process">Как работаем</a></li>
       <li><a class="mobile-nav__link" href="#about">О компании</a></li>
+      <li><a class="mobile-nav__link" href="#team">Команда</a></li>
+      <li><a class="mobile-nav__link" href="#gallery">Офис</a></li>
       <li><a class="mobile-nav__link" href="#guarantees">Гарантии</a></li>
       <li><a class="mobile-nav__link" href="#cases">Кейсы</a></li>
       <li><a class="mobile-nav__link" href="#reviews">Отзывы</a></li>
@@ -177,7 +180,7 @@
           </div>
         </div>
         <div class="hero__visual">
-          <img class="hero__img" src="assets/img/hero.jpg" alt="Бухгалтер НЕО КОНСАЛТИНГ обсуждает финансовые документы с клиентом в светлом офисе" width="1200" height="900" loading="eager" fetchpriority="high">
+          <img class="hero__img" src="assets/img/photos/photo-01.webp" data-slot="hero" alt="Команда НЕО КОНСАЛТИНГ за работой в офисе" width="1200" height="900" loading="eager" fetchpriority="high">
           <div class="hero__facts" aria-label="Факты о компании">
             <div class="hero__fact">
               <strong>С 2023</strong>
@@ -457,7 +460,7 @@
         <div class="rows">
           <div class="row">
             <div class="row__media">
-              <img src="assets/img/office-1.jpg" alt="Офис ООО «НЕО КОНСАЛТИНГ» в Санкт-Петербурге" width="800" height="600" loading="lazy">
+              <img src="assets/img/photos/photo-01.webp" data-slot="about-1" alt="Команда ООО «НЕО КОНСАЛТИНГ» за работой в офисе" width="800" height="600" loading="lazy">
             </div>
             <div class="row__body">
               <p>ООО «НЕО КОНСАЛТИНГ» основано 12 мая 2023 года. Мы молодая, но амбициозная команда: современная, гибкая и ориентированная на результат клиента.</p>
@@ -466,12 +469,49 @@
           </div>
           <div class="row row--reverse">
             <div class="row__media">
-              <img src="assets/img/office-2.jpg" alt="Рабочее пространство команды бухгалтеров НЕО КОНСАЛТИНГ" width="800" height="600" loading="lazy">
+              <img src="assets/img/photos/photo-02.webp" data-slot="about-2" alt="Специалист НЕО КОНСАЛТИНГ с документами в офисе" width="800" height="600" loading="lazy">
             </div>
             <div class="row__body">
               <p>Мы сами применяем УСН и имеем статус микропредприятия. Это значит, что мы понимаем предпринимателей на старте изнутри. Офис компании находится в Санкт-Петербурге, на Московском пр-кте, д. 212. Наша экспертиза охватывает три сферы: бухгалтерию, налоги и право.</p>
             </div>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 9b. TEAM ============ -->
+    <section class="section section--alt" id="team">
+      <div class="container">
+        <div class="section__head">
+          <p class="section__eyebrow">Команда</p>
+          <h2>Наша команда</h2>
+          <p class="section__lead">Специалисты, которым можно доверить учёт и спокойно заниматься бизнесом.</p>
+        </div>
+        <div class="team">
+          <figure class="team__card">
+            <img src="assets/img/photos/photo-04.webp" data-slot="team-1" alt="Специалист НЕО КОНСАЛТИНГ за работой" width="800" height="600" loading="lazy">
+            <figcaption>Бухгалтерский учёт и отчётность</figcaption>
+          </figure>
+          <figure class="team__card">
+            <img src="assets/img/photos/photo-05.webp" data-slot="team-2" alt="Специалист НЕО КОНСАЛТИНГ с документами" width="800" height="600" loading="lazy">
+            <figcaption>Налоги и правовая поддержка</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 9c. GALLERY ============ -->
+    <section class="section" id="gallery">
+      <div class="container">
+        <div class="section__head">
+          <p class="section__eyebrow">Офис</p>
+          <h2>Как устроен наш офис</h2>
+          <p class="section__lead">Живые кадры рабочих будней НЕО КОНСАЛТИНГ.</p>
+        </div>
+        <div class="gallery">
+          <img src="assets/img/photos/photo-06.webp" data-slot="gallery-1" alt="Рабочий процесс в офисе НЕО КОНСАЛТИНГ" width="800" height="600" loading="lazy">
+          <img src="assets/img/photos/photo-07.webp" data-slot="gallery-2" alt="Офис НЕО КОНСАЛТИНГ в Санкт-Петербурге" width="800" height="600" loading="lazy">
+          <img src="assets/img/photos/photo-08.webp" data-slot="gallery-3" alt="Рабочее пространство НЕО КОНСАЛТИНГ" width="800" height="600" loading="lazy">
         </div>
       </div>
     </section>
@@ -661,5 +701,6 @@
   </footer>
 
   <script src="js/main.js"></script>
+  <script src="js/photos.js"></script>
 </body>
 </html>

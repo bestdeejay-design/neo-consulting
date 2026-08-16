@@ -39,9 +39,13 @@ python3 -m http.server 8377
 
 ## Возможности
 
-- **14 секций лендинга** (`hero`, `problems`, `solution`, `services`, `details`,
-  `audience`, `pricing`, `process`, `about`, `guarantees`, `cases`, `reviews`, `faq`,
-  `contacts`) с якорной навигацией
+- **16 секций лендинга** (`hero`, `problems`, `solution`, `services`, `details`,
+  `audience`, `pricing`, `process`, `about`, `team`, `gallery`, `guarantees`, `cases`,
+  `reviews`, `faq`, `contacts`) с якорной навигацией
+- **Ротация фото**: 8 локальных фото 4:3 перемешиваются по 8 позициям `data-slot`
+  при каждой загрузке страницы (hero берётся из приоритетного пула, дубли в пределах
+  страницы исключены, последний hero запоминается в `localStorage`, без JS работает
+  дефолтная раскладка)
 - **Семантический HTML**: единственный `<h1>`, иерархия заголовков по WCAG,
   FAQ-аккордеон на нативных `<details>/<summary>`, таблица тарифов с горизонтальным
   скроллом на мобильных
@@ -60,16 +64,18 @@ python3 -m http.server 8377
 
 ```
 .
-├── index.html              # лендинг (14 секций, JSON-LD, OG/Twitter)
+├── index.html              # лендинг (16 секций, JSON-LD, OG/Twitter)
 ├── presentation/
 │   └── index.html          # интерактивная презентация (12 слайдов, самодостаточная)
 ├── css/
 │   ├── tokens.css          # дизайн-токены (кастомные свойства :root)
 │   └── main.css            # стили (mobile-first)
 ├── js/
-│   └── main.js             # меню, текущий год, закрытие по Escape/resize
+│   ├── main.js             # меню, текущий год, закрытие по Escape/resize
+│   └── photos.js           # ротация фото по позициям data-slot
 ├── assets/
-│   ├── img/                # аватарки, фото офиса, OG-картинка, favicon
+│   ├── img/                # аватарки, OG-картинка, favicon
+│   │   └── photos/         # пул ротации: photo-01..09.webp (4:3)
 │   ├── header.svg          # анимированная шапка README (SMIL)
 │   └── footer.svg          # анимированный подвал README (SMIL)
 ├── docs/

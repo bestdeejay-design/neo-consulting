@@ -39,9 +39,13 @@ python3 -m http.server 8377
 
 ## Features
 
-- **14 landing sections** (`hero`, `problems`, `solution`, `services`, `details`,
-  `audience`, `pricing`, `process`, `about`, `guarantees`, `cases`, `reviews`, `faq`,
-  `contacts`) with anchor navigation
+- **16 landing sections** (`hero`, `problems`, `solution`, `services`, `details`,
+  `audience`, `pricing`, `process`, `about`, `team`, `gallery`, `guarantees`, `cases`,
+  `reviews`, `faq`, `contacts`) with anchor navigation
+- **Photo rotation**: 8 local 4:3 photos shuffled across 8 `data-slot` positions on
+  every page load (hero draws from a priority pool, duplicates within a page are
+  excluded, the last hero is remembered in `localStorage`, graceful fallback to
+  default `src` without JS)
 - **Semantic HTML**: single `<h1>`, WCAG heading hierarchy, native `<details>/<summary>`
   FAQ accordion, table tariffs with mobile horizontal scroll
 - **Design tokens**: all colors declared once in `css/tokens.css` (`:root`), zero raw
@@ -58,16 +62,18 @@ python3 -m http.server 8377
 
 ```
 .
-├── index.html              # landing page (14 sections, JSON-LD, OG/Twitter)
+├── index.html              # landing page (16 sections, JSON-LD, OG/Twitter)
 ├── presentation/
 │   └── index.html          # interactive sales presentation (12 slides, self-contained)
 ├── css/
 │   ├── tokens.css          # design tokens (:root custom properties)
 │   └── main.css            # styles (mobile-first)
 ├── js/
-│   └── main.js             # menu toggle, current year, escape/resize close
+│   ├── main.js             # menu toggle, current year, escape/resize close
+│   └── photos.js           # photo rotation across data-slot positions
 ├── assets/
-│   ├── img/                # avatars, office photos, og-image, favicon
+│   ├── img/                # avatars, og-image, favicon
+│   │   └── photos/         # rotation pool: photo-01..09.webp (4:3)
 │   ├── header.svg          # animated README header (SMIL)
 │   └── footer.svg          # animated README footer (SMIL)
 ├── docs/
