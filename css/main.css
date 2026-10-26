@@ -278,6 +278,21 @@ p { margin: 0 0 var(--space-4); }
   font-weight: 600;
 }
 
+/* Карточка-ссылка (внутренние ссылки на материалы) */
+.card--link { display: block; text-decoration: none; color: var(--color-ink); }
+.card--link:hover { text-decoration: none; }
+.card--link:hover h3 { color: var(--color-accent); }
+.card--link h3 { transition: color 0.2s var(--ease); }
+.card--link .card__tag { margin-bottom: var(--space-3); }
+.card__more {
+  display: inline-block;
+  margin-top: var(--space-4);
+  font-weight: 700;
+  font-size: var(--fs-400);
+  color: var(--color-accent);
+}
+.guides__all { margin-top: var(--space-6); }
+
 /* ---------- Layout family 3: Alternating rows (about) ---------- */
 .rows { display: grid; gap: var(--space-7); }
 .row { display: grid; gap: var(--space-5); align-items: center; grid-template-columns: minmax(0, 1fr); }

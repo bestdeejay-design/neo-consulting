@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Материалы НЕО КОНСАЛТИНГ — налоги и отчётность для ИП и ООО на УСН</title>
+    <link>https://bestdeejay-design.github.io/neo-consulting/materials/</link>
+    <description>Справочники по налогам, взносам и отчётности для ИП и ООО на УСН от бухгалтерского аутсорсинга «НЕО КОНСАЛТИНГ», Санкт-Петербург.</description>
+    <language>ru</language>
+    <lastBuildDate>Mon, 26 Oct 2026 10:00:00 +0300</lastBuildDate>
+    <atom:link href="https://bestdeejay-design.github.io/neo-consulting/materials/feed.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>НДС на УСН с 2026: порог 20 млн ₽, ставки 5%, 7% и 22%</title>
+      <link>https://bestdeejay-design.github.io/neo-consulting/materials/nds-usn-2026.html</link>
+      <guid isPermaLink="true">https://bestdeejay-design.github.io/neo-consulting/materials/nds-usn-2026.html</guid>
+      <pubDate>Sat, 15 Aug 2026 09:00:00 +0300</pubDate>
+      <description>Кто из ИП и ООО на УСН становится плательщиком НДС с 2026 года: порог, автоматическое освобождение, спецставки 5% и 7% без вычетов, общая ставка 22%, примеры расчёта и сроки отчётности.</description>
+    </item>
+    <item>
+      <title>Календарь платежей и отчётности на 2026 год для ИП и ООО на УСН</title>
+      <link>https://bestdeejay-design.github.io/neo-consulting/materials/calendar-2026.html</link>
+      <guid isPermaLink="true">https://bestdeejay-design.github.io/neo-consulting/materials/calendar-2026.html</guid>
+      <pubDate>Sat, 15 Aug 2026 09:00:00 +0300</pubDate>
+      <description>Все ключевые сроки 2026 года в одной таблице: авансы УСН, декларации за 2025 год, фиксированные взносы ИП и НДС для новых плательщиков — с переносами из-за выходных.</description>
+    </item>
+    <item>
+      <title>Взносы ИП в 2026 году: 57 390 ₽ и 1% свыше 300 000 ₽</title>
+      <link>https://bestdeejay-design.github.io/neo-consulting/materials/ip-vznosy-2026.html</link>
+      <guid isPermaLink="true">https://bestdeejay-design.github.io/neo-consulting/materials/ip-vznosy-2026.html</guid>
+      <pubDate>Sat, 15 Aug 2026 09:00:00 +0300</pubDate>
+      <description>Фиксированные взносы ИП за 2026 год, 1% с дохода сверх 300 тысяч, максимум 321 818 ₽ и уменьшение налога УСН на взносы по кварталам.</description>
+    </item>
+    <item>
+      <title>УСН 2026: «Доходы» 6% или «Доходы минус расходы» 15%</title>
+      <link>https://bestdeejay-design.github.io/neo-consulting/materials/usn-object.html</link>
+      <guid isPermaLink="true">https://bestdeejay-design.github.io/neo-consulting/materials/usn-object.html</guid>
+      <pubDate>Sat, 15 Aug 2026 09:00:00 +0300</pubDate>
+      <description>Как выбрать объект налогообложения на УСН в 2026 году, как взносы уменьшают налог, что такое минимальный налог и как сменить объект.</description>
+    </item>
+    <item>
+      <title>Амнистия за дробление бизнеса 2025–2026: разбор 176-ФЗ</title>
+      <link>https://bestdeejay-design.github.io/neo-consulting/materials/amnistia.html</link>
+      <guid isPermaLink="true">https://bestdeejay-design.github.io/neo-consulting/materials/amnistia.html</guid>
+      <pubDate>Sat, 15 Aug 2026 09:00:00 +0300</pubDate>
+      <description>Что списывают по амнистии за дробление бизнеса, какие признаки дробления выделяет ФНС, как отказаться от схемы и какие риски остаются.</description>
+    </item>
+    <item>
+      <title>Электронные транспортные накладные с 1 сентября 2026</title>
+      <link>https://bestdeejay-design.github.io/neo-consulting/materials/etrn-guide.html</link>
+      <guid isPermaLink="true">https://bestdeejay-design.github.io/neo-consulting/materials/etrn-guide.html</guid>
+      <pubDate>Sat, 15 Aug 2026 09:00:00 +0300</pubDate>
+      <description>Что меняется для перевозчиков и грузоотправителей, как подготовиться к ЭТрН и какие документы нужны в 2026 году.</description>
+    </item>
+    <item>
+      <title>Как документы попадают в учёт без перепечатывания</title>
+      <link>https://bestdeejay-design.github.io/neo-consulting/materials/1c-automation-guide.html</link>
+      <guid isPermaLink="true">https://bestdeejay-design.github.io/neo-consulting/materials/1c-automation-guide.html</guid>
+      <pubDate>Sat, 15 Aug 2026 09:00:00 +0300</pubDate>
+      <description>Разбор автоматизации первички: ЭДО, распознавание сканов, обмен с 1С и что подготовить, чтобы учёт шёл без ручного ввода.</description>
+    </item>
+  </channel>
+</rss>

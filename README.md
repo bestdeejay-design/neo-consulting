@@ -55,8 +55,13 @@ python3 -m http.server 8377
   hex outside the token block; restrained fir-green accent `#2E5E4E`
 - **Accessibility**: 4.5:1 contrast, `:focus-visible` states, 44px+ tap targets,
   `scroll-padding-top` for the sticky header, ARIA labels
-- **SEO layer**: canonical, Open Graph / Twitter cards (1200×630), JSON-LD
-  `ProfessionalService` + `FAQPage`, `robots.txt`, `sitemap.xml`, favicon
+- **SEO layer**: canonical, Open Graph / Twitter cards (1200×630) with `og:image:alt`,
+  JSON-LD `Organization` (`AccountingService` + `ProfessionalService`), `WebSite`,
+  `Blog`, `Article` with a `Person` author, `FAQPage`, `BreadcrumbList`,
+  `sitemap.xml` with image entries, RSS feed, `404.html`
+- **SEO audit**: `scripts/seo_audit.py` — 162 reproducible checks (titles, canonicals,
+  OG/Twitter, JSON-LD, alt text, internal links, sitemap coverage, no external assets),
+  wired into CI; full report in [`docs/SEO_AUDIT_2026-10-26.md`](docs/SEO_AUDIT_2026-10-26.md)
 - **Local images only**: generated avatars, office photos, OG image — no CDN
 - **Responsive**: mobile-first, breakpoints at 640px and 960px, hamburger menu
 - **Sales presentation**: self-contained 12-slide interactive deck (`presentation/`) — speaker notes, timer, keyboard navigation
@@ -66,11 +71,12 @@ python3 -m http.server 8377
 
 ```
 .
-├── index.html              # landing page (16 sections, JSON-LD, OG/Twitter)
+├── index.html              # landing page (17 sections, JSON-LD, OG/Twitter)
 ├── presentation/
 │   └── index.html          # interactive sales presentation (12 slides, self-contained)
 ├── materials/
 │   ├── index.html          # materials library hub (7 guides)
+│   ├── feed.xml            # RSS feed for the guides
 │   ├── 1c-automation-guide.html
 │   ├── etrn-guide.html
 │   ├── nds-usn-2026.html
@@ -97,18 +103,22 @@ python3 -m http.server 8377
 │   ├── ROADMAP.md
 │   ├── TEST_PLAN.md
 │   ├── DECISIONS.md
+│   ├── SEO_AUDIT_2026-10-26.md
 │   └── plans/              # build plan
 ├── .github/
 │   ├── ISSUE_TEMPLATE/     # bug/feature issue forms
 │   ├── pull_request_template.md
 │   └── workflows/
-│       └── ci.yml          # CI: h1/sections/raw-hex/SEO meta checks
+│       └── ci.yml          # CI: h1/sections/raw-hex/SEO audit
 ├── CHANGELOG.md            # release history
 ├── LICENSE                 # MIT
 ├── CODE_OF_CONDUCT.md      # Contributor Covenant 2.1
 ├── CONTRIBUTING.md
 ├── SECURITY.md
 ├── SUPPORT.md
+├── scripts/
+│   └── seo_audit.py        # reproducible SEO/social audit (run in CI)
+├── 404.html                # noindex error page
 ├── robots.txt
 └── sitemap.xml
 ```
