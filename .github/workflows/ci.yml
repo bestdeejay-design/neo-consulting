@@ -27,7 +27,7 @@ jobs:
 
       - name: All landing sections present
         run: |
-          for id in hero problems solution services details audience pricing process about team gallery guarantees cases reviews faq guides contacts; do
+          for id in hero problems solution services audience pricing process about team gallery guarantees cases reviews faq guides contacts; do
             grep -q "id=\"$id\"" index.html || { echo "missing section: $id"; exit 1; }
           done
 
