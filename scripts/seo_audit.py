@@ -400,6 +400,47 @@ NAP_FIELDS = [
 ]
 
 
+NAV_DESKTOP = ["Услуги", "Тарифы", "Материалы", "О компании", "Контакты"]
+NAV_MOBILE = [
+    "Главная", "Услуги", "Тарифы", "Кому подходит", "О компании",
+    "Кейсы", "Материалы", "Вопросы", "+7 921 640-02-34", "Контакты",
+]
+
+
+def _link_labels(html: str, cls: str) -> list[str]:
+    return [
+        re.sub(r"<[^>]+>", "", t).strip()
+        for t in re.findall(rf'<a class="{cls}"[^>]*>(.*?)</a>', html, re.S)
+    ]
+
+
+def check_header(rep: Report) -> None:
+    """Одна и та же шапка на всех публичных страницах (подписи пунктов)."""
+    pages = list(PUBLIC_PAGES) + ["404.html"]
+    for rel in pages:
+        path = ROOT / rel
+        if not path.exists():
+            continue
+        html = path.read_text(encoding="utf-8")
+        if "site-header" not in html:
+            rep.fail(rel, "header", "нет общей шапки site-header")
+            continue
+        desk = _link_labels(html, "nav__link")
+        mob = _link_labels(html, "mobile-nav__link")
+        if desk != NAV_DESKTOP:
+            rep.fail(rel, "nav-desktop", f"ожидали {NAV_DESKTOP}, получили {desk}")
+        else:
+            rep.ok(rel, "nav-desktop")
+        if mob != NAV_MOBILE:
+            rep.fail(rel, "nav-mobile", f"ожидали {NAV_MOBILE}, получили {mob}")
+        else:
+            rep.ok(rel, "nav-mobile")
+        if 'href="tel:+79216400234"' not in html:
+            rep.fail(rel, "nav-phone", "в шапке нет tel:+79216400234")
+        else:
+            rep.ok(rel, "nav-phone")
+
+
 def check_nap(rep: Report) -> None:
     """Проверяет наличие контактных и юридических данных компании."""
     source = (ROOT / "index.html").read_text(encoding="utf-8")
@@ -422,6 +463,7 @@ def main() -> int:
     check_sitemap(rep)
     check_robots(rep)
     check_feed(rep)
+    check_header(rep)
     check_nap(rep)
 
     if args.json:

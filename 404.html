@@ -12,6 +12,43 @@
   <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
+
+<header class="site-header">
+  <div class="container site-header__inner">
+    <a class="brand" href="./" aria-label="НЕО КОНСАЛТИНГ — на главную">
+      <span class="brand__mark" aria-hidden="true">НК</span>
+      <span>НЕО КОНСАЛТИНГ<span class="brand__sub">бухгалтерский аутсорсинг, СПб</span></span>
+    </a>
+    <nav class="nav" aria-label="Основная навигация">
+      <ul class="nav__list">
+        <li><a class="nav__link" href="./#services">Услуги</a></li>
+        <li><a class="nav__link" href="./#pricing">Тарифы</a></li>
+        <li><a class="nav__link" href="materials/">Материалы</a></li>
+        <li><a class="nav__link" href="./#about">О компании</a></li>
+        <li><a class="nav__link" href="./#contacts">Контакты</a></li>
+      </ul>
+    </nav>
+    <a class="header-phone" href="tel:+79216400234">+7 921 640-02-34</a>
+    <button class="nav-toggle" type="button" id="navToggle" aria-label="Открыть меню" aria-expanded="false" aria-controls="mobileNav">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+<nav class="mobile-nav" id="mobileNav" aria-label="Мобильная навигация">
+  <ul class="mobile-nav__list">
+    <li><a class="mobile-nav__link" href="./">Главная</a></li>
+    <li><a class="mobile-nav__link" href="./#services">Услуги</a></li>
+    <li><a class="mobile-nav__link" href="./#pricing">Тарифы</a></li>
+    <li><a class="mobile-nav__link" href="./#audience">Кому подходит</a></li>
+    <li><a class="mobile-nav__link" href="./#about">О компании</a></li>
+    <li><a class="mobile-nav__link" href="./#cases">Кейсы</a></li>
+    <li><a class="mobile-nav__link" href="materials/">Материалы</a></li>
+    <li><a class="mobile-nav__link" href="./#faq">Вопросы</a></li>
+    <li><a class="mobile-nav__link" href="tel:+79216400234">+7 921 640-02-34</a></li>
+    <li><a class="mobile-nav__link" href="./#contacts">Контакты</a></li>
+  </ul>
+</nav>
+
   <main class="section">
     <div class="container container--narrow">
       <p class="section__eyebrow">Ошибка 404</p>
@@ -23,5 +60,6 @@
       </p>
     </div>
   </main>
+  <script src="js/main.js"></script>
 </body>
 </html>
