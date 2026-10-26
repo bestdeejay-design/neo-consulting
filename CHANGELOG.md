@@ -4,6 +4,29 @@
 [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 Проект следует [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.3.0] — 2026-10-26
+
+Четыре коммерческие страницы-кластера: зарплата, регистрация, АНО, ОСНО.
+
+### Added
+
+- `materials/zarplata-i-kadry.html` — зарплатный участок (1 741 слово): состав,
+  сроки 2026, кадры, риски, передача без остановки выплат, FAQPage.
+- `materials/registraciya-i-zakrytie.html` — регистрация и закрытие ИП/ООО
+  (1 599 слов): выбор формы, документы, ОКВЭД и режим, ликвидация, отчётность.
+- `materials/avtonomnaya-nekommercheskaya-organizaciya.html` — АНО (1 561 слово):
+  налоги, целевые поступления, Минюст, ошибки учёта, FAQPage.
+- `materials/osno.html` — общая система (1 594 слова): НДС, прибыль, сравнение
+  с УСН, переход между режимами, FAQPage.
+- OG-карточки 1200×630 для четырёх страниц.
+
+### Changed
+
+- Главная: в `#guides` 9 карточек.
+- Хаб материалов: 13 карточек, `hasPart` дополнен.
+- `sitemap.xml` — 15 URL, `materials/feed.xml` — 13 материалов.
+- `scripts/seo_audit.py` и `scripts/make_og.py` знают новые страницы.
+
 ## [1.2.0] — 2026-10-26
 
 Две коммерческие страницы-кластера по итогам SEO-аудита.

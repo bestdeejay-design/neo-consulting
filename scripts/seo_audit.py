@@ -42,6 +42,10 @@ PUBLIC_PAGES = [
     "materials/1c-automation-guide.html",
     "materials/smena-buhgaltera.html",
     "materials/shtatny-buhgalter-ili-autsorsing.html",
+    "materials/zarplata-i-kadry.html",
+    "materials/registraciya-i-zakrytie.html",
+    "materials/avtonomnaya-nekommercheskaya-organizaciya.html",
+    "materials/osno.html",
 ]
 # Страницы, которые в индекс попадать не должны (служебные)
 NOINDEX_PAGES = ["presentation/index.html"]

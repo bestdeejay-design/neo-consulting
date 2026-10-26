@@ -111,4 +111,44 @@
       <image:title>Штатный бухгалтер или аутсорсинг: что выгоднее в 2026</image:title>
     </image:image>
   </url>
+  <url>
+    <loc>https://bestdeejay-design.github.io/neo-consulting/materials/zarplata-i-kadry.html</loc>
+    <lastmod>2026-10-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://bestdeejay-design.github.io/neo-consulting/assets/img/og/og-zarplata-i-kadry.jpg</image:loc>
+      <image:title>Зарплата и кадры на аутсорсинге: что входит и сколько стоит</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://bestdeejay-design.github.io/neo-consulting/materials/registraciya-i-zakrytie.html</loc>
+    <lastmod>2026-10-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://bestdeejay-design.github.io/neo-consulting/assets/img/og/og-registraciya-i-zakrytie.jpg</image:loc>
+      <image:title>Регистрация и закрытие ИП и ООО: пошаговый порядок</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://bestdeejay-design.github.io/neo-consulting/materials/avtonomnaya-nekommercheskaya-organizaciya.html</loc>
+    <lastmod>2026-10-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://bestdeejay-design.github.io/neo-consulting/assets/img/og/og-avtonomnaya-nekommercheskaya-organizaciya.jpg</image:loc>
+      <image:title>АНО: налоги, целевые поступления и отчётность</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://bestdeejay-design.github.io/neo-consulting/materials/osno.html</loc>
+    <lastmod>2026-10-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://bestdeejay-design.github.io/neo-consulting/assets/img/og/og-osno.jpg</image:loc>
+      <image:title>ОСНО: налоги, ставки и переход с УСН</image:title>
+    </image:image>
+  </url>
 </urlset>
