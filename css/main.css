@@ -520,9 +520,27 @@ p { margin: 0 0 var(--space-4); }
 
 /* ---------- Contacts / form ---------- */
 .contacts__grid { display: grid; gap: var(--space-6); grid-template-columns: minmax(0, 1fr); }
-.contacts__info p { color: var(--color-ink-soft); }
-.contacts__info a { font-weight: 600; }
-.contacts__req { font-size: var(--fs-300); color: var(--color-muted); }
+.contacts__list { margin: 0; display: grid; gap: 0; }
+.contacts__list > div {
+  display: grid;
+  grid-template-columns: 7.25rem minmax(0, 1fr);
+  gap: var(--space-3) var(--space-4);
+  align-items: baseline;
+  padding: var(--space-4) 0;
+  border-bottom: 1px solid var(--color-line);
+}
+.contacts__list > div:first-child { padding-top: 0; }
+.contacts__list dt {
+  margin: 0;
+  font-size: var(--fs-300);
+  font-weight: 600;
+  color: var(--color-muted);
+}
+.contacts__list dd {
+  margin: 0;
+  color: var(--color-ink);
+}
+.contacts__list a { font-weight: 600; }
 .form {
   background: var(--color-surface);
   border: 1px solid var(--color-line);
@@ -562,12 +580,13 @@ p { margin: 0 0 var(--space-4); }
 }
 .site-footer a { color: var(--color-bg); }
 .site-footer a:hover { color: var(--color-accent-tint); }
-.footer__grid { display: grid; gap: var(--space-5); grid-template-columns: minmax(0, 1fr); }
-.footer__brand { font-family: var(--font-display); font-size: var(--fs-600); font-weight: 700; }
-.footer__nav { list-style: none; display: flex; flex-wrap: wrap; gap: var(--space-4); padding: 0; margin: var(--space-4) 0; }
+.footer__grid { display: grid; gap: var(--space-5); grid-template-columns: minmax(0, 1fr); align-items: start; }
+.footer__brand { font-family: var(--font-display); font-size: var(--fs-600); font-weight: 700; margin: 0; }
+.footer__nav { list-style: none; display: flex; flex-wrap: wrap; gap: var(--space-3) var(--space-4); padding: 0; margin: var(--space-4) 0 0; }
 .footer__nav a { font-size: var(--fs-400); }
-.footer__meta { font-size: var(--fs-300); color: var(--color-bg); }
-.footer__meta a { color: var(--color-accent-tint); }
+.footer__contacts { display: grid; gap: var(--space-2); justify-items: start; font-size: var(--fs-400); }
+.footer__contacts p { margin: 0; font-size: var(--fs-300); color: var(--color-accent-tint); }
+.footer__copy { margin: var(--space-5) auto 0; font-size: var(--fs-300); color: var(--color-accent-tint); }
 
 /* ============================================================
    Breakpoints
@@ -582,7 +601,6 @@ p { margin: 0 0 var(--space-4); }
 @media (min-width: 640px) {
   .cards, .reviews, .cases, .cards--regimes { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .steps { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .contacts__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: start; }
   .team { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
@@ -601,7 +619,9 @@ p { margin: 0 0 var(--space-4); }
   .gallery { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .row { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
   .row--reverse .row__media { order: 2; }
-  .footer__grid { grid-template-columns: minmax(0, 1fr) auto; align-items: center; }
+  .contacts__grid { grid-template-columns: minmax(0, 1.05fr) minmax(280px, 0.95fr); align-items: start; }
+  .footer__grid { grid-template-columns: minmax(0, 1fr) auto; align-items: start; }
+  .footer__contacts { justify-items: end; text-align: right; }
 }
 
 /* ~1100px: пять шагов процесса в ряд */
@@ -616,6 +636,7 @@ p { margin: 0 0 var(--space-4); }
   .section { padding-block: var(--space-7); }
   .hero__title { font-size: clamp(1.65rem, 8vw, 2.1rem); }
   .nav-toggle { width: 44px; height: 44px; }
+  .contacts__list > div { grid-template-columns: minmax(0, 1fr); gap: var(--space-1); }
 }
 
 @media (max-width: 639px) {
