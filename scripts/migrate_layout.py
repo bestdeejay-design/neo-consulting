@@ -17,18 +17,19 @@ CSS_LINKS = """<link rel="stylesheet" href="../css/tokens.css">
 HEADER = """<header class="site-header">
   <div class="container site-header__inner">
     <a class="brand" href="../" aria-label="НЕО КОНСАЛТИНГ — на главную">
-      <span class="brand__mark" aria-hidden="true">НК</span>
+      <span class="brand__mark" aria-hidden="true"><img src="../assets/img/favicon.svg" alt="" width="36" height="36"></span>
       <span>НЕО КОНСАЛТИНГ<span class="brand__sub">бухгалтерский аутсорсинг, СПб</span></span>
     </a>
     <nav class="nav" aria-label="Основная навигация">
       <ul class="nav__list">
         <li><a class="nav__link" href="../#services">Услуги</a></li>
         <li><a class="nav__link" href="../#pricing">Тарифы</a></li>
-        <li><a class="nav__link" href="../#cases">Кейсы</a></li>
         <li><a class="nav__link" href="./"{current}>Материалы</a></li>
+        <li><a class="nav__link" href="../#about">О компании</a></li>
         <li><a class="nav__link" href="../#contacts">Контакты</a></li>
       </ul>
     </nav>
+    <a class="header-phone" href="tel:+79216400234">+7 921 640-02-34</a>
     <button class="nav-toggle" type="button" id="navToggle" aria-label="Открыть меню" aria-expanded="false" aria-controls="mobileNav">
       <span></span><span></span><span></span>
     </button>
@@ -40,10 +41,12 @@ HEADER = """<header class="site-header">
     <li><a class="mobile-nav__link" href="../">Главная</a></li>
     <li><a class="mobile-nav__link" href="../#services">Услуги</a></li>
     <li><a class="mobile-nav__link" href="../#pricing">Тарифы</a></li>
+    <li><a class="mobile-nav__link" href="../#audience">Кому подходит</a></li>
     <li><a class="mobile-nav__link" href="../#about">О компании</a></li>
+    <li><a class="mobile-nav__link" href="../#cases">Кейсы</a></li>
     <li><a class="mobile-nav__link" href="./"{current}>Материалы</a></li>
-    <li><a class="mobile-nav__link" href="../#guides">Разборы</a></li>
     <li><a class="mobile-nav__link" href="../#faq">Вопросы</a></li>
+    <li><a class="mobile-nav__link" href="tel:+79216400234">+7 921 640-02-34</a></li>
     <li><a class="mobile-nav__link" href="../#contacts">Контакты</a></li>
   </ul>
 </nav>
