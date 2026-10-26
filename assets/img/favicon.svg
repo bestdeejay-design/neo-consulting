@@ -1,4 +1,16 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-  <rect width="32" height="32" rx="7" fill="#2E5E4E"/>
-  <text x="16" y="22" font-family="Georgia, 'Times New Roman', serif" font-size="15" font-weight="bold" fill="#F5F6F4" text-anchor="middle">НК</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-label="НЕО КОНСАЛТИНГ">
+  <defs>
+    <radialGradient id="neo-glow" cx="50%" cy="50%" r="42%">
+      <stop offset="0%" stop-color="#EFE7D6"/>
+      <stop offset="55%" stop-color="#F6F1E4" stop-opacity=".55"/>
+      <stop offset="100%" stop-color="#F6F1E4" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <circle cx="50" cy="50" r="47" fill="#F6F1E4" stroke="#2E5E4E" stroke-width="4"/>
+  <circle cx="50" cy="50" r="36" fill="url(#neo-glow)"/>
+  <path fill="none" stroke="#2E5E4E" stroke-width="3.1" stroke-linejoin="miter" miterlimit="8"
+        d="M50 12.2 L53.3 42.1 L62.3 37.7 L57.9 46.7 L87.8 50 L57.9 53.3 L62.3 62.3 L53.3 57.9 L50 87.8 L46.7 57.9 L37.7 62.3 L42.1 53.3 L12.2 50 L42.1 46.7 L37.7 37.7 L46.7 42.1 Z"/>
+  <path fill="#F6F1E4" stroke="#2E5E4E" stroke-width="2.4" stroke-linejoin="miter" miterlimit="8"
+        d="M50 29.4 L54.1 45.9 L70.6 50 L54.1 54.1 L50 70.6 L45.9 54.1 L29.4 50 L45.9 45.9 Z"/>
+  <circle cx="50" cy="50" r="5.1" fill="#2E5E4E"/>
 </svg>

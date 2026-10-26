@@ -4,6 +4,14 @@
 [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 Проект следует [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.6.1] — 2026-10-26
+
+Знак: компасная звезда вместо «НК».
+
+- `assets/img/favicon.svg` — круг, 8 лучей, пихтовый `#2E5E4E` на креме
+- шапка на главной, материалах и 404
+- растр-референс: `assets/img/mark-compass.png`
+
 ## [1.6.0] — 2026-10-26
 
 Реквизиты компании на сайте и в разметке.
