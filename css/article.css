@@ -3,6 +3,15 @@
    Mobile-first, та же эстетика, что у лендинга.
    ============================================================ */
 
+/* Совместимость со старыми инлайн-переменными --s-* из гайдов 2026 */
+:root {
+  --s-1: var(--space-2);
+  --s-2: var(--space-4);
+  --s-3: var(--space-5);
+  --s-4: var(--space-6);
+  --s-5: var(--space-7);
+}
+
 .container-wide { width: 100%; max-width: var(--maxw); margin-inline: auto; padding-inline: var(--space-5); }
 
 /* ---------- Хлебные крошки ---------- */
@@ -31,8 +40,8 @@
   padding-inline: var(--space-5);
 }
 .doc-hero h1 {
-  font-size: clamp(1.75rem, 6vw, 2.75rem);
-  max-width: 22ch;
+  font-size: clamp(1.65rem, 6vw, 2.75rem);
+  max-width: 28ch;
   margin-bottom: var(--space-5);
 }
 .doc-hero h1::after {
@@ -404,7 +413,8 @@ main.materials,
 }
 
 /* path-card (старые гайды) */
-.path-card {
+.path-card,
+.solution {
   background: var(--color-surface);
   border: 1px solid var(--color-line);
   border-radius: var(--radius-md);
@@ -412,13 +422,26 @@ main.materials,
   margin-bottom: var(--space-4);
   box-shadow: var(--shadow-sm);
 }
-.path-card h3 { font-size: var(--fs-600); }
+.path-card h3,
+.solution h3 { font-size: clamp(1.1rem, 2.5vw, 1.375rem); margin-bottom: var(--space-3); }
+.card-head {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  margin-bottom: var(--space-4);
+}
+.note,
+.price-cap {
+  font-size: var(--fs-400);
+  color: var(--color-ink-soft);
+  max-width: 70ch;
+}
 
 /* Наверх */
 .back-to-top {
   position: fixed;
   right: var(--space-4);
-  bottom: var(--space-4);
+  bottom: calc(var(--space-4) + env(safe-area-inset-bottom, 0px));
   width: 44px;
   height: 44px;
   border-radius: 50%;
