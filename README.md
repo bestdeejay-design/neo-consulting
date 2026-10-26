@@ -59,13 +59,13 @@ python3 -m http.server 8377
   JSON-LD `Organization` (`AccountingService` + `ProfessionalService`), `WebSite`,
   `Blog`, `Article` with a `Person` author, `FAQPage`, `BreadcrumbList`,
   `sitemap.xml` with image entries, RSS feed, `404.html`
-- **SEO audit**: `scripts/seo_audit.py` — 162 reproducible checks (titles, canonicals,
+- **SEO audit**: `scripts/seo_audit.py` — 194 reproducible checks (titles, canonicals,
   OG/Twitter, JSON-LD, alt text, internal links, sitemap coverage, no external assets),
   wired into CI; full report in [`docs/SEO_AUDIT_2026-10-26.md`](docs/SEO_AUDIT_2026-10-26.md)
 - **Local images only**: generated avatars, office photos, OG image — no CDN
 - **Responsive**: mobile-first, breakpoints at 640px and 960px, hamburger menu
 - **Sales presentation**: self-contained 12-slide interactive deck (`presentation/`) — speaker notes, timer, keyboard navigation
-- **Materials library**: 7 SEO-ready guides (tax calendar, 1C automation, ETrN, NDS/USN, IP contributions, USN object, amnesty) with per-guide OG images and anchor navigation
+- **Materials library**: 9 SEO-ready guides (tax calendar, 1C automation, ETrN, NDS/USN, IP contributions, USN object, amnesty, accountant handover, in-house vs outsourcing) with per-guide OG images and anchor navigation
 
 ## Repository structure
 
@@ -75,8 +75,10 @@ python3 -m http.server 8377
 ├── presentation/
 │   └── index.html          # interactive sales presentation (12 slides, self-contained)
 ├── materials/
-│   ├── index.html          # materials library hub (7 guides)
+│   ├── index.html          # materials library hub (9 guides)
 │   ├── feed.xml            # RSS feed for the guides
+│   ├── smena-buhgaltera.html      # practice guide: handover to a new accountant
+│   ├── shtatny-buhgalter-ili-autsorsing.html  # in-house accountant vs outsourcing
 │   ├── 1c-automation-guide.html
 │   ├── etrn-guide.html
 │   ├── nds-usn-2026.html
@@ -117,7 +119,8 @@ python3 -m http.server 8377
 ├── SECURITY.md
 ├── SUPPORT.md
 ├── scripts/
-│   └── seo_audit.py        # reproducible SEO/social audit (run in CI)
+│   ├── seo_audit.py        # reproducible SEO/social audit (run in CI)
+│   └── make_og.py          # OG image generator (1200×630)
 ├── 404.html                # noindex error page
 ├── robots.txt
 └── sitemap.xml

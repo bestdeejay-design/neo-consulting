@@ -91,4 +91,24 @@
       <image:title>Как документы попадают в учёт без перепечатывания</image:title>
     </image:image>
   </url>
+  <url>
+    <loc>https://bestdeejay-design.github.io/neo-consulting/materials/smena-buhgaltera.html</loc>
+    <lastmod>2026-10-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://bestdeejay-design.github.io/neo-consulting/assets/img/og/og-smena-buhgaltera.jpg</image:loc>
+      <image:title>Как сменить бухгалтера: передача учёта за 5 шагов</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://bestdeejay-design.github.io/neo-consulting/materials/shtatny-buhgalter-ili-autsorsing.html</loc>
+    <lastmod>2026-10-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://bestdeejay-design.github.io/neo-consulting/assets/img/og/og-shtatny-buhgalter-ili-autsorsing.jpg</image:loc>
+      <image:title>Штатный бухгалтер или аутсорсинг: что выгоднее в 2026</image:title>
+    </image:image>
+  </url>
 </urlset>
