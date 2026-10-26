@@ -363,6 +363,49 @@ def check_feed(rep: Report) -> None:
         rep.ok("feed.xml", "items")
 
 
+# Поля компании, без которых не работают локальная выдача, доверие и карточки.
+# Пока данных нет — это предупреждения, а не ошибки: сайт работает, но недобирает.
+NAP_FIELDS = [
+    (
+        "telephone",
+        r'("telephone"\s*:|href="tel:)',
+        "нет телефона (JSON-LD telephone и ссылка tel:) — не работают карточка организации "
+        "и локальная выдача; телефон в шапке/подвале повышает конверсию",
+    ),
+    (
+        "postalCode",
+        r'"postalCode"\s*:',
+        "нет почтового индекса в адресе организации — мешает сверке NAP с картами",
+    ),
+    (
+        "openingHours",
+        r'("openingHoursSpecification"|"openingHours")\s*:',
+        "нет часов работы в разметке — поисковик не показывает «Открыто до…»",
+    ),
+    (
+        "sameAs",
+        r'"sameAs"\s*:',
+        "нет sameAs — профили (VK, Telegram, 2ГИС, Яндекс Бизнес) не связаны с сайтом, "
+        "поисковик не склеивает бренд в одну сущность",
+    ),
+    (
+        "legal-ids",
+        r'(ИНН\s*[0-9]{10}|ОГРН\s*[0-9]{13})',
+        "нет ИНН/ОГРН в тексте — ниже доверие в YMYL-тематике и нет связки с ЕГРЮЛ",
+    ),
+]
+
+
+def check_nap(rep: Report) -> None:
+    """Проверяет наличие контактных и юридических данных компании."""
+    source = (ROOT / "index.html").read_text(encoding="utf-8")
+    for name, pattern, message in NAP_FIELDS:
+        if re.search(pattern, source):
+            rep.ok("index.html", name)
+        else:
+            rep.warn("index.html", name, message)
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description="SEO-аудит статического сайта")
     parser.add_argument("--verbose", action="store_true", help="показать все проверки")
@@ -375,6 +418,7 @@ def main() -> int:
     check_sitemap(rep)
     check_robots(rep)
     check_feed(rep)
+    check_nap(rep)
 
     if args.json:
         print(json.dumps(

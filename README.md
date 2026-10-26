@@ -59,9 +59,10 @@ python3 -m http.server 8377
   JSON-LD `Organization` (`AccountingService` + `ProfessionalService`), `WebSite`,
   `Blog`, `Article` with a `Person` author, `FAQPage`, `BreadcrumbList`,
   `sitemap.xml` with image entries, RSS feed, `404.html`
-- **SEO audit**: `scripts/seo_audit.py` — 194 reproducible checks (titles, canonicals,
+- **SEO audit**: `scripts/seo_audit.py` — 199 reproducible checks (titles, canonicals,
   OG/Twitter, JSON-LD, alt text, internal links, sitemap coverage, no external assets),
-  wired into CI; full report in [`docs/SEO_AUDIT_2026-10-26.md`](docs/SEO_AUDIT_2026-10-26.md)
+  wired into CI; full report in [`docs/SEO_AUDIT_2026-10-26.md`](docs/SEO_AUDIT_2026-10-26.md),
+  outstanding owner inputs in [`docs/SEO_INPUTS.md`](docs/SEO_INPUTS.md)
 - **Local images only**: generated avatars, office photos, OG image — no CDN
 - **Responsive**: mobile-first, breakpoints at 640px and 960px, hamburger menu
 - **Sales presentation**: self-contained 12-slide interactive deck (`presentation/`) — speaker notes, timer, keyboard navigation
@@ -106,6 +107,7 @@ python3 -m http.server 8377
 │   ├── TEST_PLAN.md
 │   ├── DECISIONS.md
 │   ├── SEO_AUDIT_2026-10-26.md
+│   ├── SEO_INPUTS.md
 │   └── plans/              # build plan
 ├── .github/
 │   ├── ISSUE_TEMPLATE/     # bug/feature issue forms

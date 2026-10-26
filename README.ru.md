@@ -21,7 +21,7 @@
 | Lighthouse mobile | **100 / 100 / 100 / 100** |
 | Lighthouse desktop | **91 / 100 / 100 / 100** (порог 90) |
 | meta_audit | 17/18 (одно известное ложное срабатывание) |
-| `scripts/seo_audit.py` | **194 проверки · 0 ошибок · 0 предупреждений** |
+| `scripts/seo_audit.py` | **199 проверок · 0 ошибок · 5 предупреждений** (все — про отсутствующие контактные данные) |
 | html-validate | 0 ошибок (3 warning в служебной презентации) |
 | Контраст WCAG AA | все пары текст/фон ≥ 4.5:1 |
 | Raw hex вне дизайн-токенов | 0 |
@@ -29,6 +29,7 @@
 ## SEO и социальная оптимизация
 
 - Отчёт аудита, варианты расширения и план: [`docs/SEO_AUDIT_2026-10-26.md`](docs/SEO_AUDIT_2026-10-26.md)
+- Что нужно от владельца (данные, доступы, решения): [`docs/SEO_INPUTS.md`](docs/SEO_INPUTS.md)
 - Решения по SEO: [`docs/DECISIONS.md`](docs/DECISIONS.md) (D-008 … D-013)
 - Воспроизводимая проверка: `python3 scripts/seo_audit.py` (запускается в CI)
 - Разметка: `Organization` (`AccountingService` + `ProfessionalService`, `hasOfferCatalog`),
