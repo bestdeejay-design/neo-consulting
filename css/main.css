@@ -519,28 +519,62 @@ p { margin: 0 0 var(--space-4); }
 .case .label { font-weight: 700; color: var(--color-accent); }
 
 /* ---------- Contacts / form ---------- */
-.contacts__grid { display: grid; gap: var(--space-6); grid-template-columns: minmax(0, 1fr); }
-.contacts__list { margin: 0; display: grid; gap: 0; }
-.contacts__list > div {
+.contacts__grid {
   display: grid;
-  grid-template-columns: 7.25rem minmax(0, 1fr);
-  gap: var(--space-3) var(--space-4);
-  align-items: baseline;
-  padding: var(--space-4) 0;
+  gap: var(--space-6);
+  grid-template-columns: minmax(0, 1fr);
+  align-items: stretch;
+}
+.contacts__card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-md);
+  padding: var(--space-6);
+  box-shadow: var(--shadow-sm);
+}
+.contacts__name {
+  font-family: var(--font-display);
+  font-size: var(--fs-600);
+  font-weight: 700;
+  color: var(--color-ink);
+  margin: 0 0 var(--space-4);
+}
+.contacts__phone {
+  margin: 0 0 var(--space-2);
+  font-size: var(--fs-600);
+  font-weight: 700;
+  line-height: var(--lh-snug);
+}
+.contacts__phone a { color: var(--color-ink); }
+.contacts__phone a:hover { color: var(--color-accent); }
+.contacts__mail { margin: 0 0 var(--space-4); font-weight: 600; }
+.contacts__addr {
+  margin: 0 0 var(--space-5);
+  color: var(--color-ink-soft);
+  padding-bottom: var(--space-5);
   border-bottom: 1px solid var(--color-line);
 }
-.contacts__list > div:first-child { padding-top: 0; }
-.contacts__list dt {
-  margin: 0;
+.contacts__ids {
+  width: 100%;
+  border-collapse: collapse;
   font-size: var(--fs-300);
+  font-variant-numeric: tabular-nums;
+}
+.contacts__ids th {
+  text-align: left;
+  vertical-align: top;
   font-weight: 600;
   color: var(--color-muted);
+  width: 3.25rem;
+  padding: 0.3rem var(--space-4) 0.3rem 0;
+  white-space: nowrap;
 }
-.contacts__list dd {
-  margin: 0;
+.contacts__ids td {
+  padding: 0.3rem 0;
   color: var(--color-ink);
+  overflow-wrap: normal;
+  word-break: normal;
 }
-.contacts__list a { font-weight: 600; }
 .form {
   background: var(--color-surface);
   border: 1px solid var(--color-line);
@@ -580,13 +614,25 @@ p { margin: 0 0 var(--space-4); }
 }
 .site-footer a { color: var(--color-bg); }
 .site-footer a:hover { color: var(--color-accent-tint); }
-.footer__grid { display: grid; gap: var(--space-5); grid-template-columns: minmax(0, 1fr); align-items: start; }
-.footer__brand { font-family: var(--font-display); font-size: var(--fs-600); font-weight: 700; margin: 0; }
-.footer__nav { list-style: none; display: flex; flex-wrap: wrap; gap: var(--space-3) var(--space-4); padding: 0; margin: var(--space-4) 0 0; }
+.footer__grid {
+  display: grid;
+  gap: var(--space-6);
+  grid-template-columns: minmax(0, 1fr);
+  align-items: start;
+}
+.footer__brand { font-family: var(--font-display); font-size: var(--fs-600); font-weight: 700; margin: 0 0 var(--space-3); }
+.footer__nav {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  padding: 0;
+  margin: 0;
+}
 .footer__nav a { font-size: var(--fs-400); }
-.footer__contacts { display: grid; gap: var(--space-2); justify-items: start; font-size: var(--fs-400); }
+.footer__contacts { display: grid; gap: var(--space-2); justify-items: start; text-align: left; font-size: var(--fs-400); }
 .footer__contacts p { margin: 0; font-size: var(--fs-300); color: var(--color-accent-tint); }
-.footer__copy { margin: var(--space-5) auto 0; font-size: var(--fs-300); color: var(--color-accent-tint); }
+.footer__copy { margin: 0; font-size: var(--fs-300); color: var(--color-accent-tint); }
 
 /* ============================================================
    Breakpoints
@@ -619,9 +665,8 @@ p { margin: 0 0 var(--space-4); }
   .gallery { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .row { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
   .row--reverse .row__media { order: 2; }
-  .contacts__grid { grid-template-columns: minmax(0, 1.05fr) minmax(280px, 0.95fr); align-items: start; }
-  .footer__grid { grid-template-columns: minmax(0, 1fr) auto; align-items: start; }
-  .footer__contacts { justify-items: end; text-align: right; }
+  .contacts__grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+  .footer__grid { grid-template-columns: minmax(0, 1.2fr) auto minmax(0, 1.2fr); }
 }
 
 /* ~1100px: пять шагов процесса в ряд */
@@ -636,7 +681,6 @@ p { margin: 0 0 var(--space-4); }
   .section { padding-block: var(--space-7); }
   .hero__title { font-size: clamp(1.65rem, 8vw, 2.1rem); }
   .nav-toggle { width: 44px; height: 44px; }
-  .contacts__list > div { grid-template-columns: minmax(0, 1fr); gap: var(--space-1); }
 }
 
 @media (max-width: 639px) {

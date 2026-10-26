@@ -743,34 +743,23 @@
           <p>Оставьте заявку — ответим в течение рабочего дня и подберём пакет без давления.</p>
         </div>
         <div class="contacts__grid">
-          <dl class="contacts__list">
-            <div>
-              <dt>Компания</dt>
-              <dd>ООО «НЕО КОНСАЛТИНГ»</dd>
-            </div>
-            <div>
-              <dt>Адрес</dt>
-              <dd>197342, Санкт-Петербург, наб. Чёрной Речки, д. 47, стр. 1</dd>
-            </div>
-            <div>
-              <dt>Телефон</dt>
-              <dd><a href="tel:+79216400234">+7 921 640-02-34</a></dd>
-            </div>
-            <div>
-              <dt>Email</dt>
-              <dd><a href="mailto:zh_nadi@mail.ru">zh_nadi@mail.ru</a></dd>
-            </div>
-            <div>
-              <dt>Реквизиты</dt>
-              <dd>ИНН 7842215137 · КПП 781401001 · ОГРН 1237800055195</dd>
-            </div>
-            <div>
-              <dt>Банк</dt>
-              <dd>р/с 40702810032180010428<br>
-                Филиал «Санкт-Петербургский» АО «АЛЬФА-БАНК»<br>
-                БИК 044030786 · к/с 30101810600000000786</dd>
-            </div>
-          </dl>
+          <div class="contacts__card">
+            <p class="contacts__name">ООО «НЕО КОНСАЛТИНГ»</p>
+            <p class="contacts__phone"><a href="tel:+79216400234">+7 921 640-02-34</a></p>
+            <p class="contacts__mail"><a href="mailto:zh_nadi@mail.ru">zh_nadi@mail.ru</a></p>
+            <p class="contacts__addr">197342, Санкт-Петербург<br>наб. Чёрной Речки, д. 47, стр. 1</p>
+            <table class="contacts__ids">
+              <tbody>
+                <tr><th>ИНН</th><td>7842215137</td></tr>
+                <tr><th>КПП</th><td>781401001</td></tr>
+                <tr><th>ОГРН</th><td>1237800055195</td></tr>
+                <tr><th>р/с</th><td>40702810032180010428</td></tr>
+                <tr><th>Банк</th><td>филиал «Санкт-Петербургский» АО «АЛЬФА-БАНК»</td></tr>
+                <tr><th>БИК</th><td>044030786</td></tr>
+                <tr><th>к/с</th><td>30101810600000000786</td></tr>
+              </tbody>
+            </table>
+          </div>
           <form class="form" id="contactForm">
             <div class="form__field">
               <label for="f-name">Имя</label>
@@ -797,21 +786,21 @@
     <div class="container footer__grid">
       <div>
         <p class="footer__brand">ООО «НЕО КОНСАЛТИНГ»</p>
-        <ul class="footer__nav">
-          <li><a href="#services">Услуги</a></li>
-          <li><a href="#pricing">Тарифы</a></li>
-          <li><a href="materials/">Материалы</a></li>
-          <li><a href="#about">О компании</a></li>
-          <li><a href="#contacts">Контакты</a></li>
-        </ul>
+        <p class="footer__copy">© <span id="year">2026</span> · ИНН 7842215137 · ОГРН 1237800055195</p>
       </div>
+      <ul class="footer__nav">
+        <li><a href="#services">Услуги</a></li>
+        <li><a href="#pricing">Тарифы</a></li>
+        <li><a href="materials/">Материалы</a></li>
+        <li><a href="#about">О компании</a></li>
+        <li><a href="#contacts">Контакты</a></li>
+      </ul>
       <div class="footer__contacts">
         <a href="tel:+79216400234">+7 921 640-02-34</a>
         <a href="mailto:zh_nadi@mail.ru">zh_nadi@mail.ru</a>
         <p>197342, СПб, наб. Чёрной Речки, д. 47, стр. 1</p>
       </div>
     </div>
-    <p class="container footer__copy">© <span id="year">2026</span> ООО «НЕО КОНСАЛТИНГ» · ИНН 7842215137 · ОГРН 1237800055195</p>
   </footer>
 
   <script src="js/main.js"></script>
