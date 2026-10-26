@@ -93,8 +93,17 @@ python3 -m http.server 8377
 ├── index.html              # лендинг (17 секций, JSON-LD, OG/Twitter)
 ├── presentation/
 │   └── index.html          # интерактивная презентация (12 слайдов, самодостаточная)
+├── deck/                   # комплект продающей презентации: deck.pptx/pdf/json, slides.html, черновики гайдов, превью слайдов
+├── design/                 # дизайн-документы: design-system, story-brief, outline, ранняя презентация
 ├── materials/
-│   ├── index.html          # библиотека материалов (7 гайдов)
+│   ├── index.html          # библиотека материалов (13 гайдов)
+│   ├── feed.xml            # RSS-фид гайдов
+│   ├── smena-buhgaltera.html      # смена бухгалтера: передача учёта
+│   ├── shtatny-buhgalter-ili-autsorsing.html  # штатный бухгалтер или аутсорсинг
+│   ├── zarplata-i-kadry.html      # зарплата и кадры
+│   ├── registraciya-i-zakrytie.html  # регистрация и закрытие ИП/ООО
+│   ├── avtonomnaya-nekommercheskaya-organizaciya.html  # АНО: налоги и отчётность
+│   ├── osno.html                  # ОСНО против УСН
 │   ├── 1c-automation-guide.html
 │   ├── etrn-guide.html
 │   ├── nds-usn-2026.html
@@ -121,6 +130,8 @@ python3 -m http.server 8377
 │   ├── ROADMAP.md
 │   ├── TEST_PLAN.md
 │   ├── DECISIONS.md
+│   ├── SEO_AUDIT_2026-10-26.md
+│   ├── SEO_INPUTS.md
 │   └── plans/              # план разработки
 ├── .github/
 │   ├── ISSUE_TEMPLATE/     # формы issue (баг/фича)
@@ -133,6 +144,10 @@ python3 -m http.server 8377
 ├── CONTRIBUTING.md
 ├── SECURITY.md
 ├── SUPPORT.md
+├── scripts/
+│   ├── seo_audit.py        # воспроизводимый SEO/соц-аудит (запускается в CI)
+│   └── make_og.py          # генератор OG-картинок (1200×630)
+├── 404.html                # страница ошибки (noindex)
 ├── robots.txt
 └── sitemap.xml
 ```

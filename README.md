@@ -75,6 +75,8 @@ python3 -m http.server 8377
 ├── index.html              # landing page (17 sections, JSON-LD, OG/Twitter)
 ├── presentation/
 │   └── index.html          # interactive sales presentation (12 slides, self-contained)
+├── deck/                   # sales deck kit: deck.pptx/pdf/json, slides.html, guide drafts, slide previews
+├── design/                 # design docs: design-system, story-brief, outline, early presentation draft
 ├── materials/
 │   ├── index.html          # materials library hub (13 guides)
 │   ├── feed.xml            # RSS feed for the guides

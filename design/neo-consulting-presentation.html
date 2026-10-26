@@ -1,0 +1,1255 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:,">
+    <title>НЕО КОНСАЛТИНГ — Презентация</title>
+    <style>
+        :root {
+            /* Colors */
+            --color-primary: #2E5E4E;
+            --color-secondary: #1A1A2E;
+            --color-accent: #E8B931;
+            --color-bg-light: #F8F7F4;
+            --color-bg-dark: #0F0F1A;
+            --color-text-primary: #1A1A2E;
+            --color-text-secondary: #4A5568;
+            --color-text-inverse: #F8F7F4;
+            --color-success: #2E5E4E;
+            --color-warning: #E8B931;
+            --color-error: #C53030;
+            
+            /* Typography */
+            --font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-size-l1: clamp(48px, 6vw, 64px);
+            --font-size-l2: clamp(36px, 4vw, 48px);
+            --font-size-l3: clamp(28px, 3vw, 36px);
+            --font-size-l4: clamp(48px, 6vw, 72px);
+            --font-size-l5: clamp(18px, 2vw, 24px);
+            --font-size-l6: clamp(14px, 1.5vw, 16px);
+            --font-size-l7: clamp(10px, 1vw, 12px);
+            
+            /* Spacing */
+            --space-xs: 8px;
+            --space-sm: 16px;
+            --space-md: 24px;
+            --space-lg: 32px;
+            --space-xl: 64px;
+            
+            /* Shadows */
+            --shadow-front: 0 4px 12px rgba(0,0,0,0.1);
+            --shadow-middle: 0 2px 8px rgba(0,0,0,0.08);
+            --shadow-back: 0 1px 4px rgba(0,0,0,0.05);
+            
+            /* Border Radius */
+            --radius-card: 12px;
+            --radius-button: 8px;
+            
+            /* Transitions */
+            --transition-default: 0.6s ease-out;
+            --transition-fast: 0.3s ease-out;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: var(--font-family);
+            background: var(--color-bg-dark);
+            color: var(--color-text-inverse);
+            overflow: hidden;
+            height: 100vh;
+        }
+        
+        /* Slide Container */
+        .slide-container {
+            width: 100vw;
+            height: 100vh;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: var(--space-xl);
+            opacity: 0;
+            transform: translateX(100px);
+            transition: opacity var(--transition-default), transform var(--transition-default);
+            pointer-events: none;
+        }
+        
+        .slide.active {
+            opacity: 1;
+            transform: translateX(0);
+            pointer-events: all;
+        }
+        
+        .slide.prev {
+            opacity: 0;
+            transform: translateX(-100px);
+        }
+        
+        /* Slide Types */
+        .slide-hero {
+            text-align: center;
+            background: linear-gradient(135deg, var(--color-bg-dark) 0%, var(--color-secondary) 100%);
+        }
+        
+        .slide-statement {
+            text-align: center;
+            background: var(--color-bg-light);
+            color: var(--color-text-primary);
+        }
+        
+        .slide-metrics {
+            background: var(--color-bg-dark);
+        }
+        
+        .slide-split {
+            flex-direction: row;
+            gap: var(--space-xl);
+            background: var(--color-bg-light);
+            color: var(--color-text-primary);
+        }
+        
+        .slide-comparison {
+            background: var(--color-bg-light);
+            color: var(--color-text-primary);
+        }
+        
+        .slide-list {
+            background: var(--color-bg-light);
+            color: var(--color-text-primary);
+        }
+        
+        .slide-table {
+            background: var(--color-bg-light);
+            color: var(--color-text-primary);
+        }
+        
+        .slide-timeline {
+            background: var(--color-bg-light);
+            color: var(--color-text-primary);
+        }
+        
+        /* Typography */
+        .title {
+            font-size: var(--font-size-l1);
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: var(--space-lg);
+        }
+        
+        .subtitle {
+            font-size: var(--font-size-l3);
+            font-weight: 600;
+            line-height: 1.2;
+            margin-bottom: var(--space-md);
+        }
+        
+        .action-title {
+            font-size: var(--font-size-l3);
+            font-weight: 600;
+            line-height: 1.3;
+            margin-bottom: var(--space-lg);
+            max-width: 900px;
+        }
+        
+        .body-text {
+            font-size: var(--font-size-l5);
+            font-weight: 400;
+            line-height: 1.6;
+            max-width: 800px;
+        }
+        
+        .caption {
+            font-size: var(--font-size-l6);
+            font-weight: 300;
+            color: var(--color-text-secondary);
+        }
+        
+        .key-stat {
+            font-size: var(--font-size-l4);
+            font-weight: 900;
+            color: var(--color-primary);
+        }
+        
+        /* Components */
+        .card {
+            background: white;
+            border-radius: var(--radius-card);
+            padding: var(--space-md);
+            box-shadow: var(--shadow-middle);
+            transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+        }
+        
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-front);
+        }
+        
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--space-lg);
+            width: 100%;
+            max-width: 1200px;
+        }
+        
+        .metric-card {
+            text-align: center;
+            padding: var(--space-lg);
+            background: rgba(255,255,255,0.05);
+            border-radius: var(--radius-card);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .metric-number {
+            font-size: var(--font-size-l4);
+            font-weight: 900;
+            color: var(--color-accent);
+            margin-bottom: var(--space-sm);
+        }
+        
+        .metric-label {
+            font-size: var(--font-size-l5);
+            font-weight: 400;
+            color: var(--color-text-inverse);
+            opacity: 0.9;
+        }
+        
+        .split-content {
+            flex: 1;
+            padding: var(--space-lg);
+        }
+        
+        .split-content h3 {
+            font-size: var(--font-size-l3);
+            font-weight: 600;
+            margin-bottom: var(--space-md);
+            color: var(--color-primary);
+        }
+        
+        .split-content ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .split-content li {
+            font-size: var(--font-size-l5);
+            padding: var(--space-sm) 0;
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+        }
+        
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--space-lg);
+            width: 100%;
+            max-width: 1200px;
+        }
+        
+        .comparison-card {
+            background: white;
+            border-radius: var(--radius-card);
+            padding: var(--space-md);
+            box-shadow: var(--shadow-middle);
+        }
+        
+        .comparison-card h4 {
+            font-size: var(--font-size-l5);
+            font-weight: 600;
+            color: var(--color-primary);
+            margin-bottom: var(--space-sm);
+        }
+        
+        .comparison-card .task {
+            font-size: var(--font-size-l6);
+            color: var(--color-text-secondary);
+            margin-bottom: var(--space-sm);
+        }
+        
+        .comparison-card .result {
+            font-size: var(--font-size-l5);
+            font-weight: 600;
+            color: var(--color-success);
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: var(--space-md);
+            width: 100%;
+            max-width: 1200px;
+        }
+        
+        .service-card {
+            background: white;
+            border-radius: var(--radius-card);
+            padding: var(--space-md);
+            text-align: center;
+            box-shadow: var(--shadow-middle);
+        }
+        
+        .service-icon {
+            width: 48px;
+            height: 48px;
+            margin-bottom: var(--space-sm);
+            color: var(--color-primary);
+        }
+        
+        .service-icon svg {
+            display: block;
+            width: 100%;
+            height: 100%;
+            stroke: currentColor;
+            stroke-width: 1.5;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            fill: none;
+        }
+        
+        .contact-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 20px;
+            height: 20px;
+            margin-right: var(--space-xs);
+            vertical-align: middle;
+            color: var(--color-primary);
+            flex-shrink: 0;
+        }
+        
+        .contact-icon svg {
+            display: block;
+            width: 100%;
+            height: 100%;
+            stroke: currentColor;
+            stroke-width: 1.5;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            fill: none;
+        }
+        
+        .nav-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 16px;
+            height: 16px;
+            margin-right: var(--space-xs);
+            vertical-align: middle;
+            flex-shrink: 0;
+        }
+        
+        .nav-icon svg {
+            display: block;
+            width: 100%;
+            height: 100%;
+            stroke: currentColor;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            fill: none;
+        }
+        
+        .service-title {
+            font-size: var(--font-size-l5);
+            font-weight: 600;
+            color: var(--color-primary);
+            margin-bottom: var(--space-xs);
+        }
+        
+        .service-desc {
+            font-size: var(--font-size-l6);
+            color: var(--color-text-secondary);
+        }
+        
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--space-lg);
+            width: 100%;
+            max-width: 1000px;
+        }
+        
+        .pricing-card {
+            background: white;
+            border-radius: var(--radius-card);
+            padding: var(--space-lg);
+            text-align: center;
+            box-shadow: var(--shadow-middle);
+            border: 2px solid transparent;
+            transition: border-color var(--transition-fast);
+        }
+        
+        .pricing-card.featured {
+            border-color: var(--color-primary);
+        }
+        
+        .pricing-card h4 {
+            font-size: var(--font-size-l3);
+            font-weight: 600;
+            color: var(--color-primary);
+            margin-bottom: var(--space-sm);
+        }
+        
+        .pricing-card .price {
+            font-size: var(--font-size-l2);
+            font-weight: 900;
+            color: var(--color-secondary);
+            margin-bottom: var(--space-md);
+        }
+        
+        .pricing-card ul {
+            list-style: none;
+            padding: 0;
+            text-align: left;
+        }
+        
+        .pricing-card li {
+            font-size: var(--font-size-l6);
+            padding: var(--space-xs) 0;
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+        }
+        
+        .timeline {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-md);
+            width: 100%;
+            max-width: 800px;
+        }
+        
+        .timeline-item {
+            display: flex;
+            align-items: center;
+            gap: var(--space-md);
+        }
+        
+        .timeline-number {
+            width: 48px;
+            height: 48px;
+            background: var(--color-primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: var(--font-size-l5);
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+        
+        .timeline-content {
+            flex: 1;
+        }
+        
+        .timeline-content h4 {
+            font-size: var(--font-size-l5);
+            font-weight: 600;
+            color: var(--color-primary);
+            margin-bottom: var(--space-xs);
+        }
+        
+        .timeline-content p {
+            font-size: var(--font-size-l6);
+            color: var(--color-text-secondary);
+        }
+        
+        .cta-container {
+            text-align: center;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: var(--color-primary);
+            color: white;
+            padding: var(--space-sm) var(--space-lg);
+            border-radius: var(--radius-button);
+            font-size: var(--font-size-l5);
+            font-weight: 600;
+            text-decoration: none;
+            margin-top: var(--space-lg);
+            transition: background var(--transition-fast), transform var(--transition-fast);
+        }
+        
+        .cta-button:hover {
+            background: #234d40;
+            transform: translateY(-2px);
+        }
+        
+        .contact-info {
+            margin-top: var(--space-lg);
+            font-size: var(--font-size-l5);
+        }
+        
+        .contact-info p {
+            margin-bottom: var(--space-sm);
+        }
+        
+        /* Animations */
+        .animate-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        
+        .slide.active .animate-in {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .slide.active .animate-in:nth-child(1) { transition-delay: 0s; }
+        .slide.active .animate-in:nth-child(2) { transition-delay: 0.2s; }
+        .slide.active .animate-in:nth-child(3) { transition-delay: 0.4s; }
+        .slide.active .animate-in:nth-child(4) { transition-delay: 0.6s; }
+        .slide.active .animate-in:nth-child(5) { transition-delay: 0.8s; }
+        
+        /* Navigation */
+        .nav-controls {
+            position: fixed;
+            bottom: var(--space-md);
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: var(--space-sm);
+            z-index: 100;
+        }
+        
+        .nav-btn {
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            color: white;
+            padding: var(--space-sm) var(--space-md);
+            border-radius: var(--radius-button);
+            cursor: pointer;
+            font-size: var(--font-size-l6);
+            transition: background var(--transition-fast);
+        }
+        
+        .nav-btn:hover {
+            background: rgba(255,255,255,0.2);
+        }
+        
+        /* Timer (скрыт по умолчанию, включается клавишей T или кнопкой) */
+        .timer {
+            display: none;
+            align-items: center;
+            gap: var(--space-xs);
+            position: fixed;
+            top: var(--space-md);
+            right: var(--space-md);
+            background: rgba(0,0,0,0.5);
+            color: white;
+            padding: var(--space-sm) var(--space-md);
+            border-radius: var(--radius-button);
+            font-size: var(--font-size-l6);
+            font-family: monospace;
+            z-index: 100;
+        }
+        
+        .timer.visible {
+            display: flex;
+        }
+        
+        .timer-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: transparent;
+            border: none;
+            color: white;
+            cursor: pointer;
+            padding: 2px;
+        }
+        
+        .timer-btn:hover {
+            color: var(--color-accent);
+        }
+        
+        .timer-icon {
+            width: 14px;
+            height: 14px;
+            stroke: currentColor;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            fill: none;
+        }
+        
+        .timer-icon.icon-play polygon,
+        .timer-icon.icon-pause rect {
+            fill: currentColor;
+            stroke: none;
+        }
+        
+        /* Hints */
+        .hint {
+            position: fixed;
+            bottom: var(--space-sm);
+            left: var(--space-md);
+            font-size: var(--font-size-l7);
+            color: rgba(255,255,255,0.4);
+            z-index: 90;
+        }
+        
+        /* Speaker Notes */
+        .speaker-notes {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0,0,0,0.9);
+            color: white;
+            padding: var(--space-lg);
+            max-height: 30vh;
+            overflow-y: auto;
+            transform: translateY(100%);
+            transition: transform var(--transition-fast);
+            z-index: 200;
+        }
+        
+        .speaker-notes.visible {
+            transform: translateY(0);
+        }
+        
+        .speaker-notes h3 {
+            font-size: var(--font-size-l5);
+            margin: 0;
+            color: var(--color-accent);
+        }
+        
+        .notes-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--space-sm);
+        }
+        
+        .notes-close {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: transparent;
+            border: none;
+            color: rgba(255,255,255,0.7);
+            cursor: pointer;
+            padding: 4px;
+            border-radius: var(--radius-button);
+        }
+        
+        .notes-close:hover {
+            color: white;
+            background: rgba(255,255,255,0.15);
+        }
+        
+        .notes-close svg {
+            width: 16px;
+            height: 16px;
+            stroke: currentColor;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            fill: none;
+        }
+        
+        .speaker-notes p {
+            font-size: var(--font-size-l6);
+            line-height: 1.6;
+            margin-bottom: var(--space-sm);
+        }
+        
+        /* Slide Counter */
+        .slide-counter {
+            position: fixed;
+            top: var(--space-md);
+            left: var(--space-md);
+            background: rgba(0,0,0,0.5);
+            color: white;
+            padding: var(--space-sm) var(--space-md);
+            border-radius: var(--radius-button);
+            font-size: var(--font-size-l6);
+            z-index: 100;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .slide {
+                padding: var(--space-lg);
+            }
+            
+            .metrics-grid,
+            .comparison-grid,
+            .pricing-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .slide-split {
+                flex-direction: column;
+            }
+            
+            .nav-controls {
+                bottom: var(--space-sm);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <!-- Slide 1: HERO -->
+        <div class="slide slide-hero active" data-slide="1">
+            <div class="animate-in">
+                <h1 class="title">Вы теряете 40% времени на учёт.</h1>
+            </div>
+            <div class="animate-in">
+                <p class="subtitle">Но можно иначе.</p>
+            </div>
+            <div class="animate-in">
+                <p class="body-text">Средний ИП тратит 16 часов в месяц на бухгалтерию. Это 2 полных рабочих дня.</p>
+            </div>
+        </div>
+        
+        <!-- Slide 2: PROBLEM -->
+        <div class="slide slide-metrics" data-slide="2">
+            <div class="animate-in">
+                <h2 class="action-title">Штрафы, ошибки, нехватка времени — это не случайности. Это система.</h2>
+            </div>
+            <div class="metrics-grid animate-in">
+                <div class="metric-card">
+                    <div class="metric-number">30%</div>
+                    <div class="metric-label">ИП получали штраф от налоговой за последний год</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-number">45%</div>
+                    <div class="metric-label">деклараций содержат ошибки, требующие корректировки</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-number">25%</div>
+                    <div class="metric-label">времени руководителя тратится на бухгалтерские вопросы</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Slide 3: COMPLICATION -->
+        <div class="slide slide-split" data-slide="3">
+            <div class="split-content animate-in">
+                <h3>Штатный бухгалтер</h3>
+                <ul>
+                    <li>Зарплата + взносы = 80-120 тысяч в месяц</li>
+                    <li>Больничные, отпуска, увольнения</li>
+                    <li>Нужно контролировать, обучать, заменять</li>
+                    <li>25% увольняются в первый год</li>
+                </ul>
+            </div>
+            <div class="split-content animate-in">
+                <h3>Аутсорсинг</h3>
+                <ul>
+                    <li>Фиксированная плата за результат</li>
+                    <li>Нет кадровых рисков</li>
+                    <li>Команда специалистов, а не один человек</li>
+                    <li>Экономия 30-50%</li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- Slide 4: QUESTION -->
+        <div class="slide slide-statement" data-slide="4">
+            <div class="animate-in">
+                <h2 class="action-title">Как заниматься бизнесом, не тратя время на учёт и не рискуя штрафами?</h2>
+            </div>
+        </div>
+        
+        <!-- Slide 5: ANSWER -->
+        <div class="slide slide-hero" data-slide="5">
+            <div class="animate-in">
+                <h2 class="action-title">Аутсорсинг. Передайте учёт профессионалам.</h2>
+            </div>
+            <div class="animate-in">
+                <p class="subtitle">Но не любым — тем, кто понимает вас.</p>
+            </div>
+            <div class="metrics-grid animate-in">
+                <div class="metric-card">
+                    <div class="metric-number">30-50%</div>
+                    <div class="metric-label">экономия на бухгалтерии</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-number">Команда</div>
+                    <div class="metric-label">специалистов, а не один человек</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-number">Спокойствие</div>
+                    <div class="metric-label">вы занимаетесь бизнесом, мы — учётом</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Slide 6: PROOF -->
+        <div class="slide slide-comparison" data-slide="6">
+            <div class="animate-in">
+                <h2 class="action-title">Мы не просто говорим. Мы делаем.</h2>
+            </div>
+            <div class="comparison-grid animate-in">
+                <div class="comparison-card">
+                    <h4>ИП Соколов</h4>
+                    <p class="task">Задача: запутался в расчёте налога, боялся проверки</p>
+                    <p class="result">Результат: снизили налог на 18%</p>
+                </div>
+                <div class="comparison-card">
+                    <h4>ООО «Вектор-Сервис»</h4>
+                    <p class="task">Задача: бухгалтер уволился, отчётность не сдавалась 2 месяца</p>
+                    <p class="result">Результат: подхватили за неделю, без штрафов</p>
+                </div>
+                <div class="comparison-card">
+                    <h4>Стартап «Лофт Проджект»</h4>
+                    <p class="task">Задача: нужна база учёта с первого месяца</p>
+                    <p class="result">Результат: экономия 12 часов в месяц</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Slide 7: WHY US -->
+        <div class="slide slide-statement" data-slide="7">
+            <div class="animate-in">
+                <h2 class="action-title">Почему именно мы? Потому что мы сами на УСН.</h2>
+            </div>
+            <div class="animate-in">
+                <p class="body-text">Мы не читаем о вас в учебниках — мы живём в вашей шкуре.</p>
+            </div>
+            <div class="animate-in">
+                <p class="caption">Основана в 2023 · Работаем на УСН · Микропредприятие</p>
+            </div>
+        </div>
+        
+        <!-- Slide 8: SERVICES -->
+        <div class="slide slide-list" data-slide="8">
+            <div class="animate-in">
+                <h2 class="action-title">Полный контур: от проводок до юридической поддержки.</h2>
+            </div>
+            <div class="services-grid animate-in">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/></svg>
+                    </div>
+                    <div class="service-title">Бухучёт</div>
+                    <div class="service-desc">Проводки, регистры, отчётность</div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24"><path d="M12 2v20"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                    </div>
+                    <div class="service-title">Налоги</div>
+                    <div class="service-desc">Расчёт, подбор режима, ответы</div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+                    </div>
+                    <div class="service-title">Аудит</div>
+                    <div class="service-desc">Анализ, ошибки, рекомендации</div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24"><path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="M7 21h10"/><path d="M12 3v18"/><path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2"/></svg>
+                    </div>
+                    <div class="service-title">Юриспруденция</div>
+                    <div class="service-desc">Договоры, изменения, споры</div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
+                    </div>
+                    <div class="service-title">Консалтинг</div>
+                    <div class="service-desc">Настройка учёта, снижение издержек</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Slide 9: PRICING -->
+        <div class="slide slide-table" data-slide="9">
+            <div class="animate-in">
+                <h2 class="action-title">Три пакета под разный масштаб. Без сюрпризов.</h2>
+            </div>
+            <div class="pricing-grid animate-in">
+                <div class="pricing-card">
+                    <h4>Базовый</h4>
+                    <div class="price">Для ИП</div>
+                    <ul>
+                        <li>Бухгалтерский учёт</li>
+                        <li>Сдача отчётности</li>
+                        <li>Налоговые консультации</li>
+                    </ul>
+                </div>
+                <div class="pricing-card featured">
+                    <h4>Стандарт</h4>
+                    <div class="price">ООО до 5 чел.</div>
+                    <ul>
+                        <li>Всё из «Базового»</li>
+                        <li>Расчёт зарплаты</li>
+                        <li>Аудит раз в квартал</li>
+                    </ul>
+                </div>
+                <div class="pricing-card">
+                    <h4>Премиум</h4>
+                    <div class="price">ООО до 15 чел.</div>
+                    <ul>
+                        <li>Всё из «Стандарта»</li>
+                        <li>Юридическое сопровождение</li>
+                        <li>Ежемесячный аудит</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Slide 10: PROCESS -->
+        <div class="slide slide-timeline" data-slide="10">
+            <div class="animate-in">
+                <h2 class="action-title">Пять шагов от знакомства до спокойной сдачи отчётности.</h2>
+            </div>
+            <div class="timeline animate-in">
+                <div class="timeline-item">
+                    <div class="timeline-number">1</div>
+                    <div class="timeline-content">
+                        <h4>Знакомство</h4>
+                        <p>Рассказали о задачах, мы ответили без сложных слов</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-number">2</div>
+                    <div class="timeline-content">
+                        <h4>Анализ</h4>
+                        <p>Изучили документы, нашли риски и точки экономии</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-number">3</div>
+                    <div class="timeline-content">
+                        <h4>Договор</h4>
+                        <p>Зафиксировали объём и стоимость</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-number">4</div>
+                    <div class="timeline-content">
+                        <h4>Ведение учёта</h4>
+                        <p>Работаем каждый месяц, вы получаете цифры</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-number">5</div>
+                    <div class="timeline-content">
+                        <h4>Сдача отчётности</h4>
+                        <p>Вовремя, без штрафов</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Slide 11: CTA -->
+        <div class="slide slide-statement" data-slide="11">
+            <div class="cta-container animate-in">
+                <h2 class="action-title">Запишитесь на бесплатную консультацию.</h2>
+                <p class="body-text">Мы разберём вашу ситуацию и покажем, как сэкономить.</p>
+                <a href="mailto:zh_nadi@mail.ru" class="cta-button">Написать нам</a>
+                <div class="contact-info">
+                    <p><span class="contact-icon"><svg viewBox="0 0 24 24"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg></span> zh_nadi@mail.ru</p>
+                    <p><span class="contact-icon"><svg viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg></span> Московский пр-кт, д. 212, СПб</p>
+                    <p><span class="contact-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg></span> bestdeejay-design.github.io/neo-consulting</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Slide 12: ONE MORE THING -->
+        <div class="slide slide-hero" data-slide="12">
+            <div class="animate-in">
+                <h2 class="action-title">Мы не просто ведём учёт. Мы помогаем бизнесу расти.</h2>
+            </div>
+            <div class="animate-in">
+                <p class="subtitle">Это не аутсорсинг. Это партнёрство.</p>
+            </div>
+            <div class="animate-in">
+                <p class="body-text">Для нас каждый клиент — не номер договора, а чей-то бизнес, чья-то мечта, чей-то вклад в экономику города.</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Navigation Controls -->
+    <div class="nav-controls">
+        <button class="nav-btn" id="prevBtn">← Назад</button>
+        <button class="nav-btn" id="nextBtn">Вперёд →</button>
+        <button class="nav-btn" id="timerBtn"><span class="nav-icon"><svg viewBox="0 0 24 24"><line x1="10" x2="14" y1="2" y2="2"/><line x1="12" x2="15" y1="14" y2="11"/><circle cx="12" cy="14" r="8"/></svg></span> Таймер</button>
+        <button class="nav-btn" id="notesBtn"><span class="nav-icon"><svg viewBox="0 0 24 24"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></svg></span> Заметки</button>
+    </div>
+    
+    <!-- Timer (скрыт по умолчанию, кнопка/клавиша T) -->
+    <div class="timer" id="timer">
+        <span id="timerDisplay">00:00</span>
+        <button class="timer-btn" id="timerToggleBtn" aria-label="Старт/пауза">
+            <svg class="timer-icon icon-play" viewBox="0 0 24 24"><polygon points="6 3 20 12 6 21 6 3"/></svg>
+            <svg class="timer-icon icon-pause" viewBox="0 0 24 24" style="display:none"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>
+        </button>
+        <button class="timer-btn" id="timerResetBtn" aria-label="Сбросить">
+            <svg class="timer-icon" viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>
+        </button>
+    </div>
+    
+    <!-- Hints -->
+    <div class="hint" id="hint">T — таймер · N — заметки · ←/→ — слайды</div>
+    
+    <!-- Slide Counter -->
+    <div class="slide-counter" id="slideCounter">1 / 12</div>
+    
+    <!-- Speaker Notes -->
+    <div class="speaker-notes" id="speakerNotes">
+        <div class="notes-header">
+            <h3>Заметки спикера</h3>
+            <button class="notes-close" id="notesClose" aria-label="Закрыть заметки">
+                <svg viewBox="0 0 24 24"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+            </button>
+        </div>
+        <div id="notesContent"></div>
+    </div>
+    
+    <script>
+        // Speaker Notes Data
+        const speakerNotes = {
+            1: {
+                title: "Слайд 1: HERO",
+                speak: "Каждый предприниматель тратит 40% времени на учёт. Не потому что хочет. А потому что боится: если не контролировать — всё рухнет. Но вот парадекс: именно этот страх мешает бизнесу расти.",
+                do: "Встать. Посмотреть в зал. Пауза 3 секунды после «40% времени». Продолжить сидя.",
+                feel: "Уверенность. Не энтузиазм. Уверенность.",
+                timing: "60 секунд. Не торопиться."
+            },
+            2: {
+                title: "Слайд 2: PROBLEM",
+                speak: "Это не ваши личные проблемы. Это системная история. Три из десяти предпринимателей получали штраф от налоговой за последний год. Почти половина деклараций требует корректировки. И четверть времени руководителя уходит на решение бухгалтерских вопросов.",
+                do: "Показать на экране три метрики. На каждой — пауза 2 секунды.",
+                feel: "Серьёзность. Не паника. Осознание.",
+                timing: "45 секунд."
+            },
+            3: {
+                title: "Слайд 3: COMPLICATION",
+                speak: "Вы думаете: «Найму бухгалтера». Но штатный бухгалтер — это ещё одна проблема. Зарплата, взносы, больничные, отпуска. А потом он увольняется — и вы ищете замену два месяца. Четверть бухгалтеров уходят в первый год.",
+                do: "Показать левую сторону (штатный бухгалтер). Пауза. Показать правую сторону (аутсорсинг).",
+                feel: "Разочарование в очевидном решении.",
+                timing: "45 секунд."
+            },
+            4: {
+                title: "Слайд 4: QUESTION",
+                speak: "Как заниматься бизнесом, не тратя время на учёт и не рискуя штрафами?",
+                do: "Пауза 5 секунд. Посмотреть в зал. Дать подумать.",
+                feel: "Задумчивость. Ожидание.",
+                timing: "30 секунд."
+            },
+            5: {
+                title: "Слайд 5: ANSWER",
+                speak: "Ответ — аутсорсинг. Передайте учёт профессионалам. Но не любым — тем, кто понимает вас. Экономия 30-50%. Команда специалистов. И самое важное — вы занимаетесь бизнесом, а мы — учётом.",
+                do: "Показать три карточки. На каждой — пауза 3 секунды.",
+                feel: "Облегчение. Надежда.",
+                timing: "60 секунд."
+            },
+            6: {
+                title: "Слайд 6: PROOF",
+                speak: "Мы не просто говорим. Мы делаем. ИП Соколов запутался в налогах — мы снизили его нагрузку на 18%. ООО «Вектор-Сервис» осталось без бухгалтера — мы подхватили за неделю. Стартап «Лофт Проджект» нужна была база — мы настроили систему, экономящую 12 часов в месяц.",
+                do: "Показать три案例. На каждом — пауза 2 секунды.",
+                feel: "Уверенность. Доказательность.",
+                timing: "60 секунд."
+            },
+            7: {
+                title: "Слайд 7: WHY US",
+                speak: "Почему именно мы? Потому что мы сами на УСН. Мы не читаем о вас в учебниках — мы живём в вашей шкуре. Основаны в 2023. Работаем как микропредприятие. Понимаем предпринимателей на старте.",
+                do: "Показать логотип и фото офиса. Говорить спокойно, уверенно.",
+                feel: "Доверие. Близость.",
+                timing: "45 секунд."
+            },
+            8: {
+                title: "Слайд 8: SERVICES",
+                speak: "Полный контур сопровождения. Бухгалтерский учёт. Налоговые консультации. Финансовый аудит. Юридические услуги. Консультация по управлению. Вы получаете команду, а не одного человека.",
+                do: "Показать пять карточек. На каждой — кратко об услуге.",
+                feel: "Полнота. Надёжность.",
+                timing: "45 секунд."
+            },
+            9: {
+                title: "Слайд 9: PRICING",
+                speak: "Три пакета под разный масштаб. Базовый — для ИП. Стандарт — для ООО до 5 человек. Премиум — для ООО до 15 человек с юридическим сопровождением. Точная стоимость — на консультации. Без сюрпризов.",
+                do: "Показать три колонки. Подчеркнуть «Стандарт» как основной.",
+                feel: "Прозрачность. Ясность.",
+                timing: "30 секунд."
+            },
+            10: {
+                title: "Слайд 10: PROCESS",
+                speak: "Пять шагов. Знакомство. Анализ. Договор. Ведение учёта. Сдача отчётности. Просто. Прозрачно. Без сюрпризов.",
+                do: "Показать таймлайн. На каждом шаге — кратко.",
+                feel: "Простота. Доступность.",
+                timing: "45 секунд."
+            },
+            11: {
+                title: "Слайд 11: CTA",
+                speak: "Запишитесь на бесплатную консультацию. Мы разберём вашу ситуацию и покажем, как сэкономить. Без давления. Без сложных терминов. Просто поговорим о вашем бизнесе.",
+                do: "Показать контакты. Указать на кнопку «Написать нам».",
+                feel: "Решимость. Призыв к действию.",
+                timing: "60 секунд."
+            },
+            12: {
+                title: "Слайд 12: ONE MORE THING",
+                speak: "И последнее. Мы не просто ведём учёт. Мы помогаем бизнесу расти. Это не аутсорсинг. Это партнёрство. Для нас каждый клиент — не номер договора, а чей-то бизнес, чья-то мечта, чей-то вклад в экономику города.",
+                do: "Пауза перед слайдом. Говорить медленно, вдохновляюще.",
+                feel: "Вдохновение. Запоминающийся финал.",
+                timing: "45 секунд."
+            }
+        };
+        
+        // Slide Management
+        let currentSlide = 1;
+        const totalSlides = 12;
+        let timerInterval;
+        let seconds = 0;
+        let notesVisible = false;
+        
+        function showSlide(n) {
+            const slides = document.querySelectorAll('.slide');
+            slides.forEach(slide => {
+                slide.classList.remove('active', 'prev');
+            });
+            
+            if (n > 0 && n <= totalSlides) {
+                currentSlide = n;
+                const activeSlide = document.querySelector(`[data-slide="${n}"]`);
+                activeSlide.classList.add('active');
+                
+                // Update counter
+                document.getElementById('slideCounter').textContent = `${n} / ${totalSlides}`;
+                
+                // Update speaker notes
+                updateSpeakerNotes(n);
+            }
+        }
+        
+        function updateSpeakerNotes(slideNum) {
+            const notes = speakerNotes[slideNum];
+            if (notes) {
+                document.getElementById('notesContent').innerHTML = `
+                    <p><strong>${notes.title}</strong></p>
+                    <p><strong>ГОВОРИТЬ:</strong> ${notes.speak}</p>
+                    <p><strong>ДЕЛАТЬ:</strong> ${notes.do}</p>
+                    <p><strong>ЧУВСТВОВАТЬ:</strong> ${notes.feel}</p>
+                    <p><strong>ТАЙМИНГ:</strong> ${notes.timing}</p>
+                `;
+            }
+        }
+        
+        function nextSlide() {
+            if (currentSlide < totalSlides) {
+                showSlide(currentSlide + 1);
+            }
+        }
+        
+        function prevSlide() {
+            if (currentSlide > 1) {
+                showSlide(currentSlide - 1);
+            }
+        }
+        
+        function toggleNotes() {
+            notesVisible = !notesVisible;
+            document.getElementById('speakerNotes').classList.toggle('visible', notesVisible);
+        }
+        
+        // Timer (кнопка/клавиша T: показать — запустить, скрыть — сбросить)
+        function updateTimerButtons() {
+            document.querySelector('.icon-play').style.display = timerInterval ? 'none' : 'block';
+            document.querySelector('.icon-pause').style.display = timerInterval ? 'block' : 'none';
+        }
+        
+        function startTimer() {
+            if (timerInterval) return;
+            timerInterval = setInterval(() => {
+                seconds++;
+                const mins = Math.floor(seconds / 60).toString().padStart(2, '0');
+                const secs = (seconds % 60).toString().padStart(2, '0');
+                document.getElementById('timerDisplay').textContent = `${mins}:${secs}`;
+            }, 1000);
+            updateTimerButtons();
+        }
+        
+        function pauseTimer() {
+            clearInterval(timerInterval);
+            timerInterval = undefined;
+            updateTimerButtons();
+        }
+        
+        function resetTimer() {
+            pauseTimer();
+            seconds = 0;
+            document.getElementById('timerDisplay').textContent = '00:00';
+        }
+        
+        function toggleTimer() {
+            const timer = document.getElementById('timer');
+            const visible = timer.classList.toggle('visible');
+            if (visible) {
+                resetTimer();
+                startTimer();
+            } else {
+                resetTimer();
+            }
+        }
+        
+        // Keyboard Navigation
+        document.addEventListener('keydown', (e) => {
+            switch(e.key) {
+                case 'ArrowRight':
+                case ' ':
+                    nextSlide();
+                    break;
+                case 'ArrowLeft':
+                    prevSlide();
+                    break;
+                case 'n':
+                    toggleNotes();
+                    break;
+                case 't':
+                    toggleTimer();
+                    break;
+                case 'Escape':
+                    if (notesVisible) toggleNotes();
+                    break;
+            }
+        });
+        
+        // Button Navigation
+        document.getElementById('nextBtn').addEventListener('click', nextSlide);
+        document.getElementById('prevBtn').addEventListener('click', prevSlide);
+        document.getElementById('notesBtn').addEventListener('click', toggleNotes);
+        document.getElementById('notesClose').addEventListener('click', () => {
+            if (notesVisible) toggleNotes();
+        });
+        document.getElementById('timerBtn').addEventListener('click', toggleTimer);
+        document.getElementById('timerToggleBtn').addEventListener('click', () => {
+            timerInterval ? pauseTimer() : startTimer();
+        });
+        document.getElementById('timerResetBtn').addEventListener('click', resetTimer);
+        
+        // Initialize
+        showSlide(1);
+        updateSpeakerNotes(1);
+    </script>
+</body>
+</html>
