@@ -14,12 +14,20 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Exactly one h1
-        run: test "$(grep -c '<h1' index.html)" -eq 1
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
 
-      - name: All 14 sections present
+      - name: Exactly one h1 on every page
         run: |
-          for id in hero problems solution services details audience pricing process about guarantees cases reviews faq contacts; do
+          for f in index.html materials/index.html materials/*.html presentation/index.html; do
+            n=$(grep -c '<h1' "$f" || true)
+            [ "$n" -eq 1 ] || { echo "$f: h1 count = $n"; exit 1; }
+          done
+
+      - name: All landing sections present
+        run: |
+          for id in hero problems solution services details audience pricing process about team gallery guarantees cases reviews faq guides contacts; do
             grep -q "id=\"$id\"" index.html || { echo "missing section: $id"; exit 1; }
           done
 
@@ -29,4 +37,13 @@ jobs:
           if [ -n "$bad" ]; then echo "raw hex outside tokens:"; echo "$bad"; exit 1; fi
 
       - name: SEO files present
-        run: test -f robots.txt && test -f sitemap.xml && grep -q 'application/ld+json' index.html
+        run: |
+          test -f robots.txt
+          test -f sitemap.xml
+          test -f 404.html
+          test -f materials/feed.xml
+          grep -q 'application/ld+json' index.html
+          python3 -c "import xml.etree.ElementTree as ET; ET.parse('sitemap.xml'); ET.parse('materials/feed.xml')"
+
+      - name: SEO audit (titles, canonicals, OG, JSON-LD, sitemap, RSS, no external assets)
+        run: python3 scripts/seo_audit.py

@@ -55,22 +55,37 @@ python3 -m http.server 8377
   hex outside the token block; restrained fir-green accent `#2E5E4E`
 - **Accessibility**: 4.5:1 contrast, `:focus-visible` states, 44px+ tap targets,
   `scroll-padding-top` for the sticky header, ARIA labels
-- **SEO layer**: canonical, Open Graph / Twitter cards (1200×630), JSON-LD
-  `ProfessionalService` + `FAQPage`, `robots.txt`, `sitemap.xml`, favicon
+- **SEO layer**: canonical, Open Graph / Twitter cards (1200×630) with `og:image:alt`,
+  JSON-LD `Organization` (`AccountingService` + `ProfessionalService`), `WebSite`,
+  `Blog`, `Article` with a `Person` author, `FAQPage`, `BreadcrumbList`,
+  `sitemap.xml` with image entries, RSS feed, `404.html`
+- **SEO audit**: `scripts/seo_audit.py` — 199 reproducible checks (titles, canonicals,
+  OG/Twitter, JSON-LD, alt text, internal links, sitemap coverage, no external assets),
+  wired into CI; full report in [`docs/SEO_AUDIT_2026-10-26.md`](docs/SEO_AUDIT_2026-10-26.md),
+  outstanding owner inputs in [`docs/SEO_INPUTS.md`](docs/SEO_INPUTS.md)
 - **Local images only**: generated avatars, office photos, OG image — no CDN
 - **Responsive**: mobile-first, breakpoints at 640px and 960px, hamburger menu
 - **Sales presentation**: self-contained 12-slide interactive deck (`presentation/`) — speaker notes, timer, keyboard navigation
-- **Materials library**: 7 SEO-ready guides (tax calendar, 1C automation, ETrN, NDS/USN, IP contributions, USN object, amnesty) with per-guide OG images and anchor navigation
+- **Materials library**: 13 SEO-ready guides (tax calendar, 1C, ETrN, NDS/USN, IP contributions, USN object, amnesty, accountant handover, in-house vs outsourcing, payroll, registration/closure, ANO, OSNO) with per-guide OG images and anchor navigation
 
 ## Repository structure
 
 ```
 .
-├── index.html              # landing page (16 sections, JSON-LD, OG/Twitter)
+├── index.html              # landing page (17 sections, JSON-LD, OG/Twitter)
 ├── presentation/
 │   └── index.html          # interactive sales presentation (12 slides, self-contained)
+├── deck/                   # sales deck kit: deck.pptx/pdf/json, slides.html, guide drafts, slide previews
+├── design/                 # design docs: design-system, story-brief, outline, early presentation draft
 ├── materials/
-│   ├── index.html          # materials library hub (7 guides)
+│   ├── index.html          # materials library hub (13 guides)
+│   ├── feed.xml            # RSS feed for the guides
+│   ├── smena-buhgaltera.html      # practice guide: handover to a new accountant
+│   ├── shtatny-buhgalter-ili-autsorsing.html  # in-house accountant vs outsourcing
+│   ├── zarplata-i-kadry.html      # payroll and HR outsourcing
+│   ├── registraciya-i-zakrytie.html  # register/close IP and OOO
+│   ├── avtonomnaya-nekommercheskaya-organizaciya.html  # ANO tax and reporting
+│   ├── osno.html                  # general tax system vs USN
 │   ├── 1c-automation-guide.html
 │   ├── etrn-guide.html
 │   ├── nds-usn-2026.html
@@ -97,18 +112,24 @@ python3 -m http.server 8377
 │   ├── ROADMAP.md
 │   ├── TEST_PLAN.md
 │   ├── DECISIONS.md
+│   ├── SEO_AUDIT_2026-10-26.md
+│   ├── SEO_INPUTS.md
 │   └── plans/              # build plan
 ├── .github/
 │   ├── ISSUE_TEMPLATE/     # bug/feature issue forms
 │   ├── pull_request_template.md
 │   └── workflows/
-│       └── ci.yml          # CI: h1/sections/raw-hex/SEO meta checks
+│       └── ci.yml          # CI: h1/sections/raw-hex/SEO audit
 ├── CHANGELOG.md            # release history
 ├── LICENSE                 # MIT
 ├── CODE_OF_CONDUCT.md      # Contributor Covenant 2.1
 ├── CONTRIBUTING.md
 ├── SECURITY.md
 ├── SUPPORT.md
+├── scripts/
+│   ├── seo_audit.py        # reproducible SEO/social audit (run in CI)
+│   └── make_og.py          # OG image generator (1200×630)
+├── 404.html                # noindex error page
 ├── robots.txt
 └── sitemap.xml
 ```

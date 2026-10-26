@@ -21,8 +21,30 @@
 | Lighthouse mobile | **100 / 100 / 100 / 100** |
 | Lighthouse desktop | **91 / 100 / 100 / 100** (порог 90) |
 | meta_audit | 17/18 (одно известное ложное срабатывание) |
+| `scripts/seo_audit.py` | **199 проверок · 0 ошибок · 5 предупреждений** (все — про отсутствующие контактные данные) |
+| html-validate | 0 ошибок (3 warning в служебной презентации) |
 | Контраст WCAG AA | все пары текст/фон ≥ 4.5:1 |
 | Raw hex вне дизайн-токенов | 0 |
+
+## SEO и социальная оптимизация
+
+- Отчёт аудита, варианты расширения и план: [`docs/SEO_AUDIT_2026-10-26.md`](docs/SEO_AUDIT_2026-10-26.md)
+- Что нужно от владельца (данные, доступы, решения): [`docs/SEO_INPUTS.md`](docs/SEO_INPUTS.md)
+- Решения по SEO: [`docs/DECISIONS.md`](docs/DECISIONS.md) (D-008 … D-013)
+- Воспроизводимая проверка: `python3 scripts/seo_audit.py` (запускается в CI)
+- Разметка: `Organization` (`AccountingService` + `ProfessionalService`, `hasOfferCatalog`),
+  `WebSite`, `Blog`, `Article` с автором-`Person`, `FAQPage`, `BreadcrumbList`
+- Соцслой: OG/Twitter-карточки с `og:image:alt`, блок «Поделиться», RSS-фид
+  `materials/feed.xml`
+- Известное ограничение: сайт на подпути `github.io`, поэтому `robots.txt` роботы
+  не читают — индексация управляется мета-тегом robots и sitemap (см. D-013)
+
+## Материалы и страницы-кластеры
+
+- 13 справочников и практических разборов в `materials/`
+  с автором, датами публикации и обновления, FAQ-разметкой и OG-карточками
+- Коммерческие кластеры: смена бухгалтера, штат vs аутсорсинг, зарплата и кадры, регистрация/закрытие, АНО, ОСНО
+- RSS-фид: `materials/feed.xml`, OG-генератор: `scripts/make_og.py`
 
 ## Живой сайт
 
@@ -42,9 +64,9 @@ python3 -m http.server 8377
 
 ## Возможности
 
-- **16 секций лендинга** (`hero`, `problems`, `solution`, `services`, `details`,
+- **17 секций лендинга** (`hero`, `problems`, `solution`, `services`, `details`,
   `audience`, `pricing`, `process`, `about`, `team`, `gallery`, `guarantees`, `cases`,
-  `reviews`, `faq`, `contacts`) с якорной навигацией
+  `reviews`, `faq`, `guides`, `contacts`) с якорной навигацией
 - **Ротация фото**: 12 локальных фото 4:3 перемешиваются по 8 позициям `data-slot`
   при каждой загрузке страницы (hero берётся из приоритетного пула, дубли в пределах
   страницы исключены, последний hero запоминается в `localStorage`, без JS работает
@@ -68,11 +90,20 @@ python3 -m http.server 8377
 
 ```
 .
-├── index.html              # лендинг (16 секций, JSON-LD, OG/Twitter)
+├── index.html              # лендинг (17 секций, JSON-LD, OG/Twitter)
 ├── presentation/
 │   └── index.html          # интерактивная презентация (12 слайдов, самодостаточная)
+├── deck/                   # комплект продающей презентации: deck.pptx/pdf/json, slides.html, черновики гайдов, превью слайдов
+├── design/                 # дизайн-документы: design-system, story-brief, outline, ранняя презентация
 ├── materials/
-│   ├── index.html          # библиотека материалов (7 гайдов)
+│   ├── index.html          # библиотека материалов (13 гайдов)
+│   ├── feed.xml            # RSS-фид гайдов
+│   ├── smena-buhgaltera.html      # смена бухгалтера: передача учёта
+│   ├── shtatny-buhgalter-ili-autsorsing.html  # штатный бухгалтер или аутсорсинг
+│   ├── zarplata-i-kadry.html      # зарплата и кадры
+│   ├── registraciya-i-zakrytie.html  # регистрация и закрытие ИП/ООО
+│   ├── avtonomnaya-nekommercheskaya-organizaciya.html  # АНО: налоги и отчётность
+│   ├── osno.html                  # ОСНО против УСН
 │   ├── 1c-automation-guide.html
 │   ├── etrn-guide.html
 │   ├── nds-usn-2026.html
@@ -93,12 +124,14 @@ python3 -m http.server 8377
 │   ├── header.svg          # анимированная шапка README (SMIL)
 │   └── footer.svg          # анимированный подвал README (SMIL)
 ├── docs/
-│   ├── content.md          # тексты всех 16 секций
+│   ├── content.md          # тексты секций лендинга
 │   ├── VISION.md           # продуктовая документация (L1)
 │   ├── PRD.md
 │   ├── ROADMAP.md
 │   ├── TEST_PLAN.md
 │   ├── DECISIONS.md
+│   ├── SEO_AUDIT_2026-10-26.md
+│   ├── SEO_INPUTS.md
 │   └── plans/              # план разработки
 ├── .github/
 │   ├── ISSUE_TEMPLATE/     # формы issue (баг/фича)
@@ -111,6 +144,10 @@ python3 -m http.server 8377
 ├── CONTRIBUTING.md
 ├── SECURITY.md
 ├── SUPPORT.md
+├── scripts/
+│   ├── seo_audit.py        # воспроизводимый SEO/соц-аудит (запускается в CI)
+│   └── make_og.py          # генератор OG-картинок (1200×630)
+├── 404.html                # страница ошибки (noindex)
 ├── robots.txt
 └── sitemap.xml
 ```
@@ -118,7 +155,7 @@ python3 -m http.server 8377
 ## Документация
 
 Продуктовая документация (L1) — в [`docs/`](docs/): VISION, PRD, ROADMAP,
-TEST_PLAN и DECISIONS. Тексты всех 16 секций — в [`docs/content.md`](docs/content.md).
+TEST_PLAN и DECISIONS. Тексты секций лендинга — в [`docs/content.md`](docs/content.md).
 
 ---
 
