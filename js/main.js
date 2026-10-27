@@ -1,17 +1,30 @@
 /* ООО «НЕО КОНСАЛТИНГ» — минимальный JS
    - переключение мобильного меню
    - текущий год в подвале
-   - якоря: скролл с учётом sticky-шапки (и при заходе с /materials/#id) */
+   - якоря: один скролл с посадкой от реальной высоты шапки */
 (function () {
   "use strict";
+
+  var reduceMotion = window.matchMedia
+    && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  // Высота sticky-шапки замеряется в момент скролла: фиксированный оффсет
+  // (64+8) ошибается, если шапка на каком-то брейкпоинте выше — секция
+  // садилась под шапку и над ней оставалась полоса предыдущего блока.
+  function headerOffset() {
+    var header = document.querySelector(".site-header");
+    return (header ? Math.ceil(header.getBoundingClientRect().height) : 64) + 8;
+  }
 
   function scrollToId(id, smooth) {
     if (!id) return false;
     var el = document.getElementById(id);
     if (!el) return false;
-    el.scrollIntoView({
-      block: "start",
-      behavior: smooth ? "smooth" : "auto"
+    var y = el.getBoundingClientRect().top + window.pageYOffset - headerOffset();
+    var max = Math.max(0, document.documentElement.scrollHeight - window.innerHeight);
+    window.scrollTo({
+      top: Math.max(0, Math.min(y, max)),
+      behavior: smooth && !reduceMotion ? "smooth" : "auto"
     });
     return true;
   }
@@ -25,8 +38,9 @@
     }
   }
 
-  // Повторная посадка после load: Chrome часто игнорирует scroll-padding
-  // при открытии index.html#contacts с другой страницы.
+  // Посадка после захода на /#id (в т.ч. переходом с /materials/):
+  // нативный прыжок Chrome игнорирует scroll-padding, поэтому пересаживаем
+  // мгновенно и ровно один раз — без второго видимого рывка.
   window.addEventListener("load", function () {
     var id = hashId();
     if (id) window.setTimeout(function () { scrollToId(id, false); }, 0);
