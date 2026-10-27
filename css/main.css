@@ -14,13 +14,14 @@ html {
   -webkit-text-size-adjust: 100%;
 }
 
-/* Единственный механизм оффсета якорей для нативной навигации:
-   scroll-margin на самих секциях. scroll-padding-top на html убран —
-   он суммировался с scroll-margin (144px вместо 72), из-за чего нативный
-   прыжок сажал секцию с полосой предыдущего блока под шапкой. JS-скроллы
-   оффсет считают сами (headerOffset в main.js) и от CSS не зависят. */
+/* Единственный механизм оффсета якорей для нативной навигации —
+   scroll-margin на целях, встык к шапке. scroll-padding-top на html убран
+   (суммировался, давал 144px); зазор 8px тоже убран: на стыках секций
+   с чередующимися фонами (напр. #guarantees → #cases) он показывал
+   полоску чужого фона под шапкой. JS-скроллы считают оффсет так же
+   (headerOffset в main.js). */
 section[id], h2[id], h3[id] {
-  scroll-margin-top: calc(var(--header-height) + var(--space-2));
+  scroll-margin-top: var(--header-height);
 }
 
 body {

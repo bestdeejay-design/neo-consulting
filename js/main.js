@@ -8,12 +8,13 @@
   var reduceMotion = window.matchMedia
     && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  // Высота sticky-шапки замеряется в момент скролла: фиксированный оффсет
-  // (64+8) ошибается, если шапка на каком-то брейкпоинте выше — секция
-  // садилась под шапку и над ней оставалась полоса предыдущего блока.
+  // Высота sticky-шапки замеряется в момент скролла, посадка встык —
+  // без зазора: на стыках секций с чередующимися фонами зазор показывал
+  // полоску предыдущего блока под шапкой. Должно совпадать с
+  // scroll-margin-top в main.css.
   function headerOffset() {
     var header = document.querySelector(".site-header");
-    return (header ? Math.ceil(header.getBoundingClientRect().height) : 64) + 8;
+    return header ? Math.ceil(header.getBoundingClientRect().height) : 64;
   }
 
   function scrollToId(id, smooth) {
