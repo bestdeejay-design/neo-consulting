@@ -1,9 +1,58 @@
 /* ООО «НЕО КОНСАЛТИНГ» — минимальный JS
    - переключение мобильного меню
    - текущий год в подвале
-   - плавный скролл по якорям (с учётом высоты шапки через CSS scroll-padding) */
+   - якоря: скролл с учётом sticky-шапки (и при заходе с /materials/#id) */
 (function () {
   "use strict";
+
+  function scrollToId(id, smooth) {
+    if (!id) return false;
+    var el = document.getElementById(id);
+    if (!el) return false;
+    el.scrollIntoView({
+      block: "start",
+      behavior: smooth ? "smooth" : "auto"
+    });
+    return true;
+  }
+
+  function hashId() {
+    if (!location.hash || location.hash.length < 2) return "";
+    try {
+      return decodeURIComponent(location.hash.slice(1));
+    } catch (e) {
+      return location.hash.slice(1);
+    }
+  }
+
+  // Повторная посадка после load: Chrome часто игнорирует scroll-padding
+  // при открытии index.html#contacts с другой страницы.
+  window.addEventListener("load", function () {
+    var id = hashId();
+    if (id) window.setTimeout(function () { scrollToId(id, false); }, 0);
+  });
+  window.addEventListener("hashchange", function () {
+    scrollToId(hashId(), true);
+  });
+
+  document.addEventListener("click", function (e) {
+    var a = e.target.closest("a[href]");
+    if (!a) return;
+    var href = a.getAttribute("href");
+    if (!href || href.charAt(0) === "?" || href.indexOf("mailto:") === 0 || href.indexOf("tel:") === 0) return;
+    var url;
+    try { url = new URL(a.href, location.href); } catch (err) { return; }
+    if (url.origin !== location.origin) return;
+    if (url.pathname !== location.pathname) return;
+    if (!url.hash || url.hash.length < 2) return;
+    var id = decodeURIComponent(url.hash.slice(1));
+    if (!document.getElementById(id)) return;
+    e.preventDefault();
+    if (menu && menu.classList.contains("is-open")) closeMenu();
+    if (history.pushState) history.pushState(null, "", url.hash);
+    else location.hash = url.hash;
+    scrollToId(id, true);
+  });
 
   // Текущий год
   var yearEl = document.getElementById("year");
