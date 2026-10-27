@@ -19,7 +19,7 @@ html {
    он суммировался с scroll-margin (144px вместо 72), из-за чего нативный
    прыжок сажал секцию с полосой предыдущего блока под шапкой. JS-скроллы
    оффсет считают сами (headerOffset в main.js) и от CSS не зависят. */
-section[id] {
+section[id], h2[id], h3[id] {
   scroll-margin-top: calc(var(--header-height) + var(--space-2));
 }
 
