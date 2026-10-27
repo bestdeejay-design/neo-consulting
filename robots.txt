@@ -1,12 +1,8 @@
 # robots.txt — ООО «НЕО КОНСАЛТИНГ»
 #
-# ВАЖНО: сайт опубликован на GitHub Pages по адресу
-# https://bestdeejay-design.github.io/neo-consulting/ — это подпуть общего домена
-# *.github.io. Поисковые роботы читают robots.txt только из корня домена
-# (https://bestdeejay-design.github.io/robots.txt), поэтому этот файл носит
-# справочный характер: индексация регулируется мета-тегом robots на страницах
-# и картой сайта, которую отправляют вручную в Яндекс.Вебмастер и Search Console.
-# После переезда на собственный домен файл начнёт работать как обычно.
+# Сайт живёт на собственном домене https://neo-consalting.ru/
+# (GitHub Pages + CNAME), поэтому этот robots.txt находится в корне домена
+# и работает штатно: правила ниже читаются поисковыми роботами напрямую.
 
 User-agent: *
 Allow: /
@@ -15,4 +11,4 @@ User-agent: Yandex
 Allow: /
 Clean-param: utm_source&utm_medium&utm_campaign&utm_content&utm_term&yclid&gclid&fbclid
 
-Sitemap: https://bestdeejay-design.github.io/neo-consulting/sitemap.xml
+Sitemap: https://neo-consalting.ru/sitemap.xml

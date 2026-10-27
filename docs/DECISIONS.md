@@ -120,7 +120,7 @@
 ## D-013 — robots.txt и sitemap на подпути `github.io`
 
 - **Status:** Accepted · **Date:** 2026-10-26 · **Owner:** SEO-аудит
-- **Context:** сайт живёт на `bestdeejay-design.github.io/neo-consulting/`, поэтому
+- **Context:** сайт живёт на `neo-consalting.ru/`, поэтому
   `robots.txt` из репозитория роботы не запрашивают — нужен файл в корне домена.
 - **Decision:** оставляем `robots.txt` как справочный файл с явным пояснением в
   комментариях, индексацию регулируем мета-тегом robots и sitemap, который

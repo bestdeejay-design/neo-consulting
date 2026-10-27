@@ -2,7 +2,7 @@
 
 <img src="assets/header.svg" alt="neo-consulting — НЕО КОНСАЛТИНГ" width="100%">
 
-**🌐 Версии:** [English](README.md) · [Русский](README.ru.md) · [Сайт](https://bestdeejay-design.github.io/neo-consulting/) · [Презентация](https://bestdeejay-design.github.io/neo-consulting/presentation/)
+**🌐 Версии:** [English](README.md) · [Русский](README.ru.md) · [Сайт](https://neo-consalting.ru/) · [Презентация](https://neo-consalting.ru/presentation/)
 
 </div>
 
@@ -48,9 +48,9 @@
 
 ## Живой сайт
 
-- **Сайт:** [bestdeejay-design.github.io/neo-consulting](https://bestdeejay-design.github.io/neo-consulting/)
-- **Презентация:** [bestdeejay-design.github.io/neo-consulting/presentation](https://bestdeejay-design.github.io/neo-consulting/presentation/)
-- **Материалы:** [bestdeejay-design.github.io/neo-consulting/materials](https://bestdeejay-design.github.io/neo-consulting/materials/)
+- **Сайт:** [neo-consalting.ru](https://neo-consalting.ru/)
+- **Презентация:** [neo-consalting.ru/presentation](https://neo-consalting.ru/presentation/)
+- **Материалы:** [neo-consalting.ru/materials](https://neo-consalting.ru/materials/)
 
 ## Быстрый старт
 

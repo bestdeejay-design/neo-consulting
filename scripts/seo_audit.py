@@ -26,7 +26,7 @@ from pathlib import Path
 from urllib.parse import urlparse
 
 ROOT = Path(__file__).resolve().parent.parent
-BASE = "https://bestdeejay-design.github.io/neo-consulting/"
+BASE = "https://neo-consalting.ru/"
 HOST = urlparse(BASE).netloc
 
 # Страницы, которые обязаны быть в индексе и в sitemap
