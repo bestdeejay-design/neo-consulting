@@ -119,8 +119,8 @@
 
 ## D-013 — robots.txt и sitemap на подпути `github.io`
 
-- **Status:** Accepted · **Date:** 2026-10-26 · **Owner:** SEO-аудит
-- **Context:** сайт живёт на `neo-consalting.ru/`, поэтому
+- **Status:** Superseded by D-016 · **Date:** 2026-10-26 · **Owner:** SEO-аудит
+- **Context:** сайт жил на `bestdeejay-design.github.io/neo-consulting/`, поэтому
   `robots.txt` из репозитория роботы не запрашивают — нужен файл в корне домена.
 - **Decision:** оставляем `robots.txt` как справочный файл с явным пояснением в
   комментариях, индексацию регулируем мета-тегом robots и sitemap, который
@@ -128,6 +128,23 @@
   сохраняем `Sitemap` и `Clean-param` для будущего переезда на свой домен.
 - **Consequences:** не создаём иллюзию управления обходом; известное ограничение
   задокументировано. Полноценное решение — свой домен или root-репозиторий Pages.
+
+## D-016 — Переезд на собственный домен neo-consalting.ru
+
+- **Status:** Accepted · **Date:** 2026-10-27 · **Owner:** владелец + сборка
+- **Context:** подключён собственный домен `neo-consalting.ru` (GitHub Pages +
+  CNAME, DNS у REG.RU на ns1/ns2.reg.ru, A-записи → GitHub Pages, HTTPS
+  enforced). Старый адрес `*.github.io/neo-consulting/` отдаёт 301 на домен.
+  Все самоссылки внутри сайта (canonical, og:url, JSON-LD, sitemap, RSS,
+  кнопки шаринга, README) ещё указывали на старый подпуть.
+- **Decision:** заменить самоссылки на `https://neo-consalting.ru` по всем
+  страницам, sitemap, фиду и README; обновить `BASE` в `scripts/seo_audit.py`
+  (CI валидирует консистентность против нового домена); `robots.txt` теперь в
+  корне собственного домена и работает штатно — комментарий в нём обновлён.
+  Исторические записи (D-013, аудит 2026-10-26, CHANGELOG) не переписываются.
+- **Consequences:** D-013 закрыт (Superseded). Осталось от владельца по
+  `docs/SEO_INPUTS.md`: доступы в Яндекс.Вебмастер и Search Console, телефон/
+  соцпрофили, карты (Яндекс Бизнес, 2ГИС).
 
 ## D-015 — Кластеры «зарплата», «регистрация», «АНО», «ОСНО»
 
